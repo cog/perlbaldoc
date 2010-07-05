@@ -1,6 +1,9 @@
 
 =head1 Project Title
 
+Perlbal documentation
+
+
 =over 1
 
 =item Name:
@@ -17,7 +20,7 @@ bscmartins@gmail.com
 
 =item Amount Requested:
 
-USD $ 2.500
+USD $ 2.500 (half for each of us)
 
 =back
 
@@ -54,14 +57,17 @@ Grab a great Perl load balancing tool and make it usable to a broader audience.
 Documentation detailing:
 
     Installation
-    Using Perlbal as a reverse proxy
-    Using Perlbal as a load balancer
-    Using Perlbal as a web server
-    Managing and configuring Perlbal on-the-fly
+    CookBook:
+        Using Perlbal as a reverse proxy
+        Using Perlbal as a load balancer
+        Using Perlbal as a web server
+        Managing and configuring Perlbal on-the-fly
     Writing Plugins
     Perlbal's Architecture at a glance
 
 The resulting document should make non-Perlbal users able to install, configure and even write a Perlbal plugin without having to read Perlbal's code and/or bang their heads against a desk in the middle of the night.
+
+This documentation will be written in POD, so it can be distributed along with the code. This will also allow for a quick conversion to Wiki format, so that the project page on Google Code can show the documentation on the web.
 
 
 =head2 Project Details
@@ -71,7 +77,7 @@ We already got in touch with Dormando, one of Perlbal's main developers/committe
 
 Dormando pointed out the desire to write documentation for Perlbal and also the lack of time on his behalf.
 
-We're in touch with Dormando to make sure the resulting documentation is in conformity to what would be expected.
+We'll keep in touch with Dormando to make sure the resulting documentation is in conformity to what would be expected.
 
 
 =head2 Inch-stones
@@ -79,6 +85,8 @@ We're in touch with Dormando to make sure the resulting documentation is in conf
 The project should take us 5-6 weeks, so we decided to detail some of the steps.
 
 Also note that unless the Grant Committee advises us not to, we're keen on putting the documentation on a public github project from day one. It should also be noted that we intend on receiving the grant money even if other people start contributing to the project and aid us.
+
+As soon as a chapter is completed, we can put it on Perlbal's homepage.
 
 
 =head3 Week 1 - Installation procedures
@@ -149,13 +157,14 @@ We can begin work on September 20th (this would make the end date November 22nd)
 
 There will be documentation.
 
-This should be readable, easy to understand, and contain instructions and examples on the six following subjects:
+This should be readable, easy to understand, and contain instructions and examples on the following subjects:
 
     Installation
-    Using Perlbal as a reverse proxy
-    Using Perlbal as a load balancer
-    Using Perlbal as a web server
-    Managing and configuring Perlbal on-the-fly
+    CookBook:
+        Using Perlbal as a reverse proxy
+        Using Perlbal as a load balancer
+        Using Perlbal as a web server
+        Managing and configuring Perlbal on-the-fly
     Writing Plugins
     Perlbal's Architecture at a glance
 
