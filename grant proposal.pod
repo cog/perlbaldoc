@@ -57,6 +57,7 @@ Documentation detailing:
     Using Perlbal as a reverse proxy
     Using Perlbal as a load balancer
     Using Perlbal as a web server
+    Managing and configuring Perlbal on-the-fly
     Writing Plugins
     Perlbal's Architecture at a glance
 
@@ -105,7 +106,13 @@ More of the same.
 More documentation, detailing all one needs to know to set up Perlbal as a Reverse Proxy or a Web Server, complete with a few recipes.
 
 
-=head4 Week 5 - Plugins
+=head3 Week 5 - Managing and configuring Perlbal on-the-fly
+
+During this week we'll be detailing all the possible commands one can use to talk to Perlbal when it is already up and running.
+
+
+
+=head3 Week 6 - Plugins
 
 We'll be writing a couple of plugins.
 
@@ -114,7 +121,7 @@ The process will be documented and this should result in a document that will re
 We'll also list the existing plugins out there, try some of them and describe how to use them.
 
 
-=head5 Week 6 - Bonus Week
+=head3 Week 7 - Bonus Week
 
 We'll be looking (once again) at Perlbal's architecture in order to detail it briefly to the curious user.
 
@@ -126,16 +133,15 @@ During this week we'll also be revising all the documentation written so far. Th
 
 =head2 Project Schedule
 
-Since our plan comprises 6 weeks, we're expecting it to take us 8.
+Since our plan comprises 7 weeks, we're expecting it to take us 9.
 
 It may look odd to an outsider, but we both have very demanding jobs where occasionally situations occur that require our attention after hours. That will leave us with very little time for this project and will end up delaying things.
 
-It could also happen that we finish the project in 4-5 weeks, but our experience tells us we're better off with antecipating one rough week over the course of each month.
+It could also happen that we finish the project in 5-6 weeks, but our experience tells us we're better off with antecipating one rough week over the course of each month.
 
-We'll still be aiming at the 6 week schedule, though, and doing our best to reach that target.
+We'll still be aiming at the 7 week schedule, though, and doing our best to reach that target.
 
-
-We can begin work after returning from YAPC::EU, which for us will be by August 16th (this would make the end date October 11th).
+We can begin work on September 20th (this would make the end date November 22nd).
 
 
 =head2 Completeness Criteria
@@ -149,6 +155,7 @@ This should be readable, easy to understand, and contain instructions and exampl
     Using Perlbal as a reverse proxy
     Using Perlbal as a load balancer
     Using Perlbal as a web server
+    Managing and configuring Perlbal on-the-fly
     Writing Plugins
     Perlbal's Architecture at a glance
 
