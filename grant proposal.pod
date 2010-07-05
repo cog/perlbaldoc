@@ -44,7 +44,7 @@ This proposal aims at documenting several aspects of Perlbal and make several li
 
 =head2 Benefits to the Perl Community
 
-Grab a great Perl load balancing tool and make it usable for a broader audience.
+Grab a great Perl load balancing tool and make it usable to a broader audience.
 
 
 
@@ -65,11 +65,12 @@ The resulting document should make non-Perlbal users able to install, configure 
 
 =head2 Project Details
 
-A more detailed description.
 
-** TO DO **
+We already got in touch with Dormando, one of Perlbal's main developers/committers/release managers, who told us "That'd be great."
 
-Send the email to Brad, asking for permission.
+Dormando pointed out the desire to write documentation for Perlbal and also the lack of time on his behalf.
+
+We're in touch with Dormando to make sure the resulting documentation is in conformity to what would be expected.
 
 
 =head2 Inch-stones
