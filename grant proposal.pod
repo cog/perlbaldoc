@@ -116,8 +116,7 @@ More documentation, detailing all one needs to know to set up Perlbal as a Rever
 
 =head3 Week 5 - Managing and configuring Perlbal on-the-fly
 
-During this week we'll be detailing all the possible commands one can use to talk to Perlbal when it is already up and running.
-
+During this week we'll be detailing how to check perlbal's status and how to configure it without restarting it.
 
 
 =head3 Week 6 - Plugins
