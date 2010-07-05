@@ -73,11 +73,11 @@ This documentation will be written in POD, so it can be distributed along with t
 =head2 Project Details
 
 
-We already got in touch with Dormando, one of Perlbal's main developers/committers/release managers, who told us "That'd be great."
+We already got in touch with Alan Kasindorf (Dormando), one of Perlbal's main developers/committers/release managers, who told us "That'd be great."
 
-Dormando pointed out the desire to write documentation for Perlbal and also the lack of time on his behalf.
+Alan pointed out the desire to write documentation for Perlbal and also the lack of time on his behalf.
 
-We'll keep in touch with Dormando to make sure the resulting documentation is in conformity to what would be expected.
+We'll keep in touch with Alan to make sure the resulting documentation is in conformity to what would be expected.
 
 
 =head2 Inch-stones
