@@ -41,7 +41,7 @@ However, all of these tasks are in fact easy ones.
 
 But again, if you know how to do them.
 
-This proposal aims at documenting several aspects of Perlbal and make several lives easier.
+This proposal aims at documenting several aspects of Perlbal and making several lives easier.
 
 
 
@@ -82,7 +82,7 @@ We'll keep in touch with Alan to make sure the resulting documentation is in con
 
 =head2 Inch-stones
 
-The project should take us 5-6 weeks, so we decided to detail some of the steps.
+The project should take us 8 weeks, so we decided to detail some of the steps.
 
 Also note that unless the Grant Committee advises us not to, we're keen on putting the documentation on a public github project from day one. It should also be noted that we intend on receiving the grant money even if other people start contributing to the project and aid us.
 
@@ -136,19 +136,17 @@ During this week we'll also be revising all the documentation written so far. Th
 
 
 
-
-
 =head2 Project Schedule
 
-Since our plan comprises 7 weeks, we're expecting it to take us 9.
+Since our plan comprises 8 weeks, we're expecting it to take us 10.
 
 It may look odd to an outsider, but we both have very demanding jobs where occasionally situations occur that require our attention after hours. That will leave us with very little time for this project and will end up delaying things.
 
-It could also happen that we finish the project in 5-6 weeks, but our experience tells us we're better off with antecipating one rough week over the course of each month.
+It could also happen that we finish the project in 8 weeks, but our experience tells us we're better off with antecipating one rough week over the course of each month.
 
-We'll still be aiming at the 7 week schedule, though, and doing our best to reach that target.
+We'll still be aiming at the 8 weeks schedule, though, and doing our best to reach that target.
 
-We can begin work on September 20th (this would make the end date November 22nd).
+We can begin work on September 27th (this would make the end date December 6th).
 
 
 =head2 Completeness Criteria
@@ -169,7 +167,7 @@ This should be readable, easy to understand, and contain instructions and exampl
 
 We understand how readibility and ease of understanding are very subjective concepts, but this is a documentation project, so we feel those should be the criteria.
 
-We considered having the completeness of the project being evaluated by having the documentation figure on Perlbal's wiki or source code, but since we know that other people have their own lives we'd prefer a) not to depend on anyone else to have the grant be considered successful and b) not to thrust that responsibility on someone who has no responsibility towards the grant.
+We considered having the completeness of the project being evaluated by having the documentation figure on Perlbal's wiki or source code, but since we know that other people have their own lives too we'd prefer a) not to depend on anyone else to have the grant being considered successful and b) not to thrust that responsibility on someone who has no responsibility towards the grant.
 
 
 
@@ -194,10 +192,10 @@ And, most important of all, we have both suffered at the hands of Perlbal, and w
 
 =head2 Links of interest
 
-Project homepage - http://www.danga.com/perlbal/
-Source code - http://code.google.com/p/perlbal/
-Wikipedia page - http://en.wikipedia.org/wiki/Perlbal
-Perlbal stuff on CPAN - http://search.cpan.org/search?m=all&q=perlbal&s=1&n=50
+    Project homepage - http://www.danga.com/perlbal/
+    Source code - http://code.google.com/p/perlbal/
+    Wikipedia page - http://en.wikipedia.org/wiki/Perlbal
+    Perlbal stuff on CPAN - http://search.cpan.org/search?m=all&q=perlbal&s=1&n=50
 
 
 =cut
