@@ -1,0 +1,53 @@
+=head1 Installing Perlbal
+
+This document describes the steps, dependencies and requirements to install Perlbal.
+
+
+=head2 Installing Perlbal for the impatient
+
+    $ perl -MCPAN -e shell
+
+    cpan> install Perlbal
+
+
+=head2 Installing Perlbal (with a little more detail)
+
+You need to have perl on the machine. You can grab it from http://www.perl.org/.
+
+Having perl on the machine should give you access to the CPAN shell, one of several possible ways to install and upgrade Perl modules.
+
+Start your CPAN shell:
+
+    $ perl -MCPAN -e shell
+
+And now tell it to install Perlbal:
+
+    cpan> install Perlbal
+
+In the end you should see a message stating "make install  -- OK" (if you don't, please refer to section Troubleshooting later in this document).
+
+
+=head2 Optional Dependencies and Assyncronous IO
+
+Perlbal checks for IO::AIO availability and uses it to perform assynchronous IO operations. If you're performing disk operations (e.g., using Perlbal as a web server), having IO::AIO will improve your response times.
+
+The only thing required in order to benefit from this feature is to install IO::AIO:
+
+    $ perl -MCPAN -e shell
+
+    cpan> install IO::AIO
+
+If you don't have IO::AIO installed a warning message will be displayed when you start perlbal:
+
+    WARNING:  AIO mode disabled or not available.  
+              Perlbal will run slowly under load if you're doing any
+              disk operations. (e.g. web_server mode).
+              Install IO::AIO for better performance.
+
+
+=head2 Troubleshooting
+
+...
+
+
+=head2 See Also
