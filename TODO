@@ -1,7 +1,8 @@
 on perlbal.pod:
     [ ] write the section Troubleshooting
-    [x]    dependencies that need to be compiled and no compiler available
-    [ ] installing Perlbal on a machine that's not connected to the internet (CPAN dependencies trouble)
+    [x]    dependencies that need to be compiled and there's no compiler available
+    [x] installing Perlbal by hand
+    [x] installing Perlbal on a machine that's not connected to the internet (CPAN dependencies trouble)
     [ ] installing Perlbal on systems that have packages for it
 
 

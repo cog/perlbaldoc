@@ -27,6 +27,27 @@ And now tell it to install Perlbal:
 In the end you should see a message stating "make install  -- OK" (if you don't, please refer to section Troubleshooting later in this document).
 
 
+=head2 Installing Perlbal by hand (without using the CPAN shell)
+
+Head to http://search.cpan.org/dist/Perlbal/ and find the download link. Download the file and untar it:
+
+    $ tar zxvf Perlbal-X.XX.tar.gz
+
+Note that X.XX stands for the version number. Replace that with the latest version you got.
+
+Now you need to create the Makefile and run it; we're also going to run the tests before installing Perlbal:
+
+    $ cd Perlbal-X.XX.tar.gz
+
+    $ perl Makefile.PL
+
+    $ make
+
+    $ make test
+
+    $ sudo make install
+
+
 =head2 Optional Dependencies and Assyncronous IO
 
 Perlbal checks for IO::AIO availability and uses it to perform assynchronous IO operations. If you're performing disk operations (e.g., using Perlbal as a web server), having IO::AIO will improve your response times.
@@ -39,13 +60,64 @@ The only thing required in order to benefit from this feature is to install IO::
 
 If you don't have IO::AIO installed a warning message will be displayed when you start perlbal:
 
-    WARNING:  AIO mode disabled or not available.  
+    WARNING:  AIO mode disabled or not available.
               Perlbal will run slowly under load if you're doing any
               disk operations. (e.g. web_server mode).
               Install IO::AIO for better performance.
 
 
 =head2 Troubleshooting
+
+=head3 Prerequisites not found
+
+If you're installing Perlbal by hand you may encounter some error messages describing how some prerequisites are not available:
+
+    user@machine:~/Perlbal-X.XX$ perl Makefile.PL 
+    Checking if your kit is complete...
+    Looks good
+    Warning: prerequisite BSD::Resource 0 not found.
+    Warning: prerequisite Danga::Socket 1.44 not found.
+    Warning: prerequisite HTTP::Date 0 not found.
+    Warning: prerequisite HTTP::Response 0 not found.
+    Warning: prerequisite Sys::Syscall 0 not found.
+    Writing Makefile for Perlbal
+
+This is perl's way of telling you that since you're installing Perlbal by hand you'll also need to install its prerequisites by hand. Your first choice is to download each of them separately and perform the same installation procedure for each. Unfortunately, they are all likely to have additional prerequisites. Recursively.
+
+Alternately, see the following Troubleshooting item: No connection to the internet.
+
+
+=head3 No connection to the internet
+
+If you don't have a connection to the internet you can still install Perlbal, but you'll have to tranfer the source somehow to the machine.
+
+Given that Perlbal has other module dependencies from CPAN (and those have their own dependencies too), here's a solution for this problem:
+
+
+Step 1: On a machine with connection to the internet, install CPAN::Mini:
+
+    $ perl -MCPAN -e shell
+
+    cpan> install CPAN::Mini
+
+Run C<minicpan> to create a minimal CPAN mirror (it contains only the latest version of each module):
+
+    $ minicpan -l /home/user/minicpan/ -r http://cpan.org/
+
+Now grab that directory and record it to something you can read on the other machine (e.g., a DVD, a hard drive).
+
+Once you're on that machine, you can run the CPAN shell and tell it to look for distributions on the local directory where you now have your own CPAN mirror:
+
+    $ perl -MCPAN -e shell
+
+    cpan> o conf urllist push file:///home/user/path/to/minicpan
+
+    cpan> install Perlbal
+
+If you want C<cpan> to record this change don't forget to commit:
+
+    cpan> o conf commit
+
 
 =head3 No compiler available
 
@@ -79,7 +151,3 @@ This is the cpan shell assuming nothing changed in the system and skipping a few
 And now you can try installation again:
 
     cpan> install Perlbal
-
-
-
-
