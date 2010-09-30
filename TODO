@@ -1,7 +1,11 @@
+general:
+    [ ] check perlbal's repository to ensure we're working with upcoming changes
+
 on perlbal.pod:
     [ ] write the section Troubleshooting
     [x]    dependencies that need to be compiled and there's no compiler available
     [x] installing Perlbal by hand
+    [ ]    decide whether we want to keep this section
     [x] installing Perlbal on a machine that's not connected to the internet (CPAN dependencies trouble)
     [ ] installing Perlbal on systems that have packages for it
 
