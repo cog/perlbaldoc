@@ -1,3 +1,0 @@
-30-09-2010
-
-    * got a machine with no gcc and tried installing perlbal on it just to see the error message

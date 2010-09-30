@@ -47,7 +47,39 @@ If you don't have IO::AIO installed a warning message will be displayed when you
 
 =head2 Troubleshooting
 
-...
+=head3 No compiler available
+
+If there's no compiler available on the machine you will probably see an error ending in something like:
+
+    Failed during this command:
+     DORMANDO/Perlbal-X.XX.tar.gz : writemakefile NO '/usr/bin/perl Makefile.PL INSTALLDIRS=site' returned status -1
+
+You need to install something like C<gcc> (check http://gcc.gnu.org/).
+
+After installing C<gcc>, when trying to install Perlbal again you may get another error message:
+
+    cpan> install Perlbal
+    Running install for module 'Perlbal'
+    Running make for D/DO/DORMANDO/Perlbal-X.XX.tar.gz
+      Has already been unwrapped into directory /home/myself/.cpan/build/Perlbal-X.XX-GFko0J
+      '/usr/bin/perl Makefile.PL INSTALLDIRS=site' returned status -1, won't make
+    Running make test
+      Make had some problems, won't test
+    Running make install
+      Make had some problems, won't install
+
+This is the cpan shell assuming nothing changed in the system and skipping a few steps. You need to let it know you're willing to forget the past:
+
+    cpan> look Perlbal
+
+    $ rm -rf *
+    
+    $ exit
+
+And now you can try installation again:
+
+    cpan> install Perlbal
 
 
-=head2 See Also
+
+
