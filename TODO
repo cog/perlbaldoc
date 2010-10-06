@@ -1,5 +1,7 @@
 general:
     [ ] check perlbal's repository to ensure we're working with upcoming changes
+    [ ] make sure everything within doc/ gets documented in this project
+
 
 on perlbal.pod:
     [ ] write the section Troubleshooting
@@ -8,11 +10,24 @@ on perlbal.pod:
     [ ]    decide whether we want to keep this section
     [x] installing Perlbal on a machine that's not connected to the internet (CPAN dependencies trouble)
     [ ] installing Perlbal on systems that have packages for it
+    [ ] how to test Perlbal (to see if everything went as expected)
 
+
+on perlbal_loadbalancer.pod:
+    [x] conventions (accepted values for booleans, etc)
+    [ ] on "a common scenario is to configure" add a "See also" the section on configuring Perlbal on the fly
+    [ ] document what happens when one of the machines isn't available
+    [ ] compare backend_persist_cache with connect_ahead ?
+    [ ] how to configure a pool in a separate file
+    [ ] high priority queuing system
+        
 
 README:
     ...
 
 
 all files (probably by the end of the project):
-    ...
+    [ ] review POD
+    [ ]    review formating codes ( C<>, L<>, etc. )
+    [ ] review headers
+    [ ] review footers
