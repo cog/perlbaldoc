@@ -1,0 +1,78 @@
+
+
+...
+
+
+=head2 Parameters
+
+You can set parameters via commands of either forms:
+
+    SET <service-name> <param> = <value>
+    SET <param> = <value>
+
+
+=head3 B<Note on types>:
+
+'bool' values can be set using one of 1, true, yes, on, 0, false, off, or no.
+
+'size' values are in integer bytes, or an integer followed by 'b', 'k', or 'm' (case-insensitive) for bytes, KiB, or MiB.
+
+
+=over 8
+
+=item B<dirindexing> = bool
+
+Show directory indexes when an HTTP request is for a directory. Warning: this is not an async operation, so will slow down Perlbal on heavily loaded sites.
+
+Default if false.
+
+
+=item B<docroot> = directory/root
+
+Directory root for web server.
+
+
+=item B<enable_concatenate_get> = bool
+
+Enable Perlbal's multiple-files-in-one-request mode, where a client have use a comma-separated list of files to return, always in text/plain.
+
+Useful for web apps which have dozens/hundreds of tiny css/js files, and don't trust browsers/etc to do pipelining.
+
+Decreases overall round-trip latency a bunch, but requires app to be modified to support it. See t/17-concat.t test for details.  
+
+Default is false.
+
+
+=item B<enable_delete> = bool
+
+Enable HTTP DELETE requests.
+
+Default is false.
+
+
+=item B<enable_put> = bool
+
+Enable HTTP PUT requests.
+
+Default is false.
+
+
+=item B<index_files> = comma-separated list of filenames
+
+Comma-separated list of filenames to load when a user visits a directory URL, listed in order of preference.
+
+Default is index.html.
+
+
+=item B<max_put_size> = size
+
+The maximum content-length that will be accepted for a PUT request, if enable_put is on.
+
+Default is 0, which means there is no limit.
+
+
+=item B<min_put_directory> = int
+
+If PUT requests are enabled, require this many levels of directories to already exist. If not, fail.
+
+Default is 0.
