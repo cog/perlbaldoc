@@ -23,6 +23,7 @@ on Perlbal::Manual::LoadBalancer:
     [ ] load balancing
     [ ]    what if the last machine failed; what happens underneath?
     [ ]    how does the system recover?
+    [ ] revise the list of features a reverse proxy can have (we're listing cache, which is probably not appropriate here)
 
 
 on Perlbal::Manual::Management:
@@ -35,14 +36,16 @@ on Perlbal::Manual::Plugins:
 
 
 on Perlbal::Manual::ReverseProxy:
-    ...
+    [ ] check doc/reproxying.txt
+
 
 on Perlbal::Manual::WebServer:
-    ...
+    [x] list parameters
 
 
 somewhere:
     [ ] selector
+    [ ] how to debug perlbal (don't forget the $PERLBAL_DEBUG env variable)
 
 
 README:

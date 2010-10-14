@@ -88,7 +88,7 @@ A Load Balancer is a server (or device) that balances requests across a number o
 
 =over 4
 
-=item caching
+=item cache
 
 A reverse proxy can cache static content from your servers and serve it directly in order to reduce the load on your machines
 
