@@ -3,7 +3,7 @@ general:
     [ ] make sure everything within doc/ gets documented in this project
 
 
-on install.pod:
+on Perlbal::Manual::Install.pod:
     [ ] write the section Troubleshooting
     [x]    dependencies that need to be compiled and there's no compiler available
     [x] installing Perlbal by hand
@@ -13,7 +13,7 @@ on install.pod:
     [ ] how to test Perlbal (to see if everything went as expected)
 
 
-on loadbalancer.pod:
+on Perlbal::Manual::LoadBalancer.pod:
     [x] conventions (accepted values for booleans, etc)
     [ ] on "a common scenario is to configure" add a "See also" the section on configuring Perlbal on the fly
     [ ] document what happens when one of the machines isn't available
@@ -22,7 +22,7 @@ on loadbalancer.pod:
     [ ] high priority queuing system
 
 
-on reverseproxy.pod:
+on Perlbal::Manual::ReverseProxy.pod:
     ...
 
 
@@ -37,3 +37,4 @@ all files (probably by the end of the project):
     [ ] review footers
     [ ]    review VERSION
     [ ]    review SEE ALSO
+    [ ] $ ack "\.\.\."

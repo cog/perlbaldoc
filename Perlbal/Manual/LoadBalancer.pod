@@ -85,13 +85,15 @@ A reverse proxy can cache static content from your servers and serve it directly
 
 =item security
 
-Think of a reverse proxy as something that stands in the way between the users and your servers; this reverse proxy can add an extra layer of protection to your servers.
+Think of a reverse proxy as something that stands in the way between the users and your servers; this reverse proxy can add an extra layer of protection to your servers
+
+=item etc.
 
 =back
 
 You could almost say that a Load Balancer is a subset of a Reverse Proxy (it's not, but you could).
 
-When it comes to C<Perlbal>, the Load Balancer is implemented as a Reverse Proxy without its options, and that's why you set the role of a Load Balancer to C<reverse_proxy>:
+When it comes to C<Perlbal>, the Load Balancer is implemented as a Reverse Proxy without all the extra options, and that's why you set the role of a Load Balancer to C<reverse_proxy>:
 
     SET role            = reverse_proxy
 
