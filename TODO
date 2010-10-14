@@ -20,14 +20,19 @@ on Perlbal::Manual::LoadBalancer:
     [x] compare backend_persist_cache with connect_ahead ?
     [ ] how to configure a pool in a separate file
     [ ] high priority queuing system
+    [ ] load balancing
+    [ ]    what if the last machine failed; what happens underneath?
+    [ ]    how does the system recover?
 
 
 on Perlbal::Manual::Management:
     [ ] managing Perlbal on the fly
 
+
 on Perlbal::Manual::Plugins:
     [ ] list existing plugins
     [ ] how to create a plugin
+
 
 on Perlbal::Manual::ReverseProxy:
     ...

@@ -61,6 +61,15 @@ taking a request from the standard priority queue instead of the high priority q
     SET web_proxy.queue_relief_chance = 30 # 0-100, in percent
 
 
+=head2 Fail Over
+
+Whenever Perlbal fails to open a connection to a machine, it assumes that machine is not available and spreads the load between the remaining servers.
+
+... mention C<idle_timeout> ...
+... mention C<error_retry_schedule> ...
+...
+
+
 =head2 Parameters
 
 You can set parameters via commands of either forms:

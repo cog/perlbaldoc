@@ -347,9 +347,3 @@ The connection is killed, as we already have two other open connections (the fir
 =head2 SEE ALSO
 
 C<Perlbal::Manual::LoadBalancer>
-
-
-
-
-
-
