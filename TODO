@@ -20,9 +20,9 @@ on Perlbal::Manual::LoadBalancer:
     [x] compare backend_persist_cache with connect_ahead ?
     [ ] how to configure a pool in a separate file
     [ ] high priority queuing system
-    [ ] load balancing
-    [ ]    what if the last machine failed; what happens underneath?
-    [ ]    how does the system recover?
+    [x] load balancing
+    [x]    what if the last machine failed; what happens underneath?
+    [x]    how does the system recover?
     [ ] revise the list of features a reverse proxy can have (we're listing cache, which is probably not appropriate here)
 
 
