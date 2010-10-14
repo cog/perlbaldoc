@@ -301,7 +301,55 @@ What path the OPTIONS request sent by C<verify_backend> should use.
 
 Default is C<*>.
 
+=back
+
+
+=head2 More on Parameters
+
+=head3 backend_persist_cache vs. connect_ahead
+
+The C<backend_persist_cache> parameter refers to connections kept alive after being used, while C<connect_ahead> refers to connections opened in anticipation.
+
+For instance:
+
+    SET backend_persist_cache = 2
+    SET connect_ahead         = 1
+
+Let's assume, for simplification purposes, that your service only has one server. Here's an example of what could happen:
+
+=over 4
+
+=item * Perlbal starts
+
+1 connection is opened (because of C<connect_ahead>'s value).
+
+=item * one requests arrives
+
+This request starts being served on the open connection; Perlbal opens another connection because C<connect_ahead>'s value tells it to always open one in anticipation.
+
+=item * a second request arrives
+
+(the first request hasn't concluded yet)
+
+The second connection is used, a third one is created so we still have one in anticipation.
+
+=item * the first request finishes
+
+The connection is kept open; this means we now have three open connections: two being used and one free (the first and the third one are free).
+
+=item * the second request finishes
+
+The connection is killed, as we already have two other open connections (the first and the third), and that's the number set by Cbackend_persist_cache> for the number of connections to be kept alive.
+
+=back
+
 
 =head2 SEE ALSO
 
 C<Perlbal::Manual::LoadBalancer>
+
+
+
+
+
+
