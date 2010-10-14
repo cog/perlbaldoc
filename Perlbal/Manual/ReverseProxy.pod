@@ -1,14 +1,14 @@
-=head1 Using Perlbal as a Load Balancer
+=head1 Using Perlbal as a Reverse Proxy
 
-Configuring Perlbal as a Load Balancer.
+Configuring Perlbal as a Reverse Proxy
 
 
 =head2 VERSION
 
-This document details load balancing configuration of Perlbal 1.76.
+This document details reverse proxy configuration of Perlbal 1.76.
 
 
-=head2 Configuring Perlbal
+=head2 Configuring Perlbal as a Reverse Proxy
 
 By default, perlbal looks for a configuration file at /etc/perlbal/perlbal.conf.
 
@@ -16,49 +16,7 @@ You can also point perlbal at a different configuration file with the -c flag.
 
     $ perlbal -c /home/user/perlbal.conf
 
-
-=head3 Simple load balancing 
-
-Let's assume you want to configure two machines to serve your website and you want to let Perlbal decide how to balance the requests. For sake of this exercise let's assume you have two servers serving at:
-
-    10.0.0.1:80
-    10.0.0.2:80
-
-And now you want to use these two machines to serve your website at:
-
-    10.0.0.3:80
-
-
-Here's a sample configuration to make this happen:
-
-    CREATE POOL mywebsite
-        POOL mywebsite ADD 10.0.0.1:80
-        POOL mywebsite ADD 10.0.0.2:80
-
-    CREATE SERVICE service_mywebsite
-        SET role            = reverse_proxy
-        SET pool            = mywebsite
-        SET listen          = 10.0.0.3:80
-    ENABLE service_mywebsite
-
-
-The first line defines a pool of machines called C<mywebsite>. The second and third lines add your two machines to that pool (note that the indentation is not mandatory).
-
-After that you define a service called C<service_mywebsite> set to listen on C<10.0.0.3:80> and using the pool C<mywebsite> to serve the requests. The role is indeed C<reverse_proxy>, as the architecture used is the same both for setting up Perlbal as a Load Balancer and as a Reverse Proxy.
-
-The last line is what allows you have several services configured in a file even if they are not currently active (a common scenario is to configure everything on the file and then enable/disable services on-the-fly as required).
-
-
-=head3 High priority queuing system
-
 ...
-
-
-Sometimes if the high priority queue is really busy, the standard queue will suffer from resource starvation. The queue relief system helps prevent this. When there are C<queue_relief_size> or more connections in the standard queue, newly available backends have a C<queue_relief_chance> percent chance of
-taking a request from the standard priority queue instead of the high priority queue.
-
-    SET web_proxy.queue_relief_size = 2000
-    SET web_proxy.queue_relief_chance = 30 # 0-100, in percent
 
 
 =head2 Parameters
@@ -342,3 +300,8 @@ Default if false.
 What path the OPTIONS request sent by C<verify_backend> should use.
 
 Default is C<*>.
+
+
+=head2 SEE ALSO
+
+C<Perlbal::Manual::LoadBalancer>
