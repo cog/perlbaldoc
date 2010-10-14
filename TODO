@@ -3,7 +3,7 @@ general:
     [ ] make sure everything within doc/ gets documented in this project
 
 
-on Perlbal::Manual::Install.pod:
+on Perlbal::Manual::Install:
     [ ] write the section Troubleshooting
     [x]    dependencies that need to be compiled and there's no compiler available
     [x] installing Perlbal by hand
@@ -13,7 +13,7 @@ on Perlbal::Manual::Install.pod:
     [ ] how to test Perlbal (to see if everything went as expected)
 
 
-on Perlbal::Manual::LoadBalancer.pod:
+on Perlbal::Manual::LoadBalancer:
     [x] conventions (accepted values for booleans, etc)
     [ ] on "a common scenario is to configure" add a "See also" the section on configuring Perlbal on the fly
     [ ] document what happens when one of the machines isn't available
@@ -22,8 +22,22 @@ on Perlbal::Manual::LoadBalancer.pod:
     [ ] high priority queuing system
 
 
-on Perlbal::Manual::ReverseProxy.pod:
+on Perlbal::Manual::Management:
+    [ ] managing Perlbal on the fly
+
+on Perlbal::Manual::Plugins:
+    [ ] list existing plugins
+    [ ] how to create a plugin
+
+on Perlbal::Manual::ReverseProxy:
     ...
+
+on Perlbal::Manual::WebServer:
+    ...
+
+
+somewhere:
+    [ ] selector
 
 
 README:
