@@ -61,6 +61,16 @@ taking a request from the standard priority queue instead of the high priority q
     SET web_proxy.queue_relief_chance = 30 # 0-100, in percent
 
 
+=head2 Parameters
+
+You can set parameters via commands of either forms:
+
+    SET <service-name> <param> = <value>
+    SET <param> = <value>
+
+For a full list of parameters see C<Perlbal::Manual::ReverseProxy>.
+
+
 =head2 Load Balancer vs. Reverse Proxy
 
 A Load Balancer and a Reverse Proxy can often be the same thing; not always, but often.
