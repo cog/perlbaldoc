@@ -23,7 +23,7 @@ on Perlbal::Manual::LoadBalancer:
     [x]    document what happens when one of the machines isn't available
     [x]    what if the last machine failed; what happens underneath?
     [x]    how does the system recover?
-    [ ] revise the list of features a reverse proxy can have (we're listing cache, which is probably not appropriate here)
+    [x] revise the list of features a reverse proxy can have (we're listing cache, which is probably not appropriate here)
 
 
 on Perlbal::Manual::ReverseProxy:

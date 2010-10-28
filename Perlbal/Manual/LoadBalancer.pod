@@ -84,21 +84,9 @@ For a full list of parameters see C<Perlbal::Manual::ReverseProxy>.
 
 A Load Balancer and a Reverse Proxy can often be the same thing; not always, but often.
 
-A Load Balancer is a server (or device) that balances requests across a number of servers to spread the load. A Reverse Proxy can still do this but still have a number of other features:
+A Load Balancer is a server (or device) that balances requests across a number of servers to spread the load. A Reverse Proxy can still do this but still have a number of other features.
 
-=over 4
-
-=item cache
-
-A reverse proxy can cache static content from your servers and serve it directly in order to reduce the load on your machines
-
-=item security
-
-Think of a reverse proxy as something that stands in the way between the users and your servers; this reverse proxy can add an extra layer of protection to your servers
-
-=item etc.
-
-=back
+Perlbal as a Reverse Proxy provides features such as buffering content, preserving connections to the backend servers, starting connections ahead of time and a high priority queue, among others.
 
 You could almost say that a Load Balancer is a subset of a Reverse Proxy (it's not, but you could).
 
