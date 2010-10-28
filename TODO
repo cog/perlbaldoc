@@ -32,7 +32,7 @@ on Perlbal::Manual::Management:
 
 on Perlbal::Manual::Plugins:
     [ ] list existing plugins
-    [ ] how to create a plugin
+    [ ] how to create a plugin, step-by-step
 
 
 on Perlbal::Manual::ReverseProxy:
@@ -45,11 +45,12 @@ on Perlbal::Manual::WebServer:
 
 somewhere:
     [ ] selector
-    [ ] how to debug perlbal (don't forget the $PERLBAL_DEBUG env variable)
+    [ ] how to debug perlbal
+    [ ]    don't forget the $PERLBAL_DEBUG env variable
 
 
 README:
-    ...
+    ... (we probably don't need a README since this project will likely be merged into Perlbal itself, which should have its own README file)
 
 
 all files (probably by the end of the project):
