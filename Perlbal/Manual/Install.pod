@@ -88,6 +88,21 @@ If you don't have IO::AIO installed a warning message will be displayed when you
               Install IO::AIO for better performance.
 
 
+=head2 Checking that Perlbal is succesfully installed
+
+Perlbal is shipped with some sample configuration files that reside in the C<conf> directory (of the source).
+
+You can give Perlbal a try by heading to the directory where the source is and using the following commands:
+
+    $ sudo perlbal -c conf/webserver.conf
+
+By pointing your browser at C<localhost:80> you should now see Perlbal responding (showing you the contents of C</usr/share/doc>).
+
+I<Important note>: the C<webserver.conf> file sets up a Perlbal web server that listens on port 80. If you already have something listening on port 80 you need to either stop that service or change the port number on C<webserver.conf>.
+
+Also note that if your machine doesn't have a C</usr/share/docs> directory you'll see an "ERROR: Directory not found for service docs" error message. Change the directory in the configuration file to something that exists.
+
+
 =head2 Troubleshooting
 
 =head3 Prerequisites not found

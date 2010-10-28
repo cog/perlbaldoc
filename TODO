@@ -9,7 +9,7 @@ on Perlbal::Manual::Install:
     [x] installing Perlbal by hand
     [x]    decide whether we want to keep this section - YES
     [x] installing Perlbal on a machine that's not connected to the internet (CPAN dependencies trouble)
-    [ ] how to test Perlbal (to see if everything went as expected)
+    [x] how to test Perlbal (to see if everything went as expected)
     [x] how to install Perlbal's latest release (from github)
 
 
@@ -26,6 +26,10 @@ on Perlbal::Manual::LoadBalancer:
     [ ] revise the list of features a reverse proxy can have (we're listing cache, which is probably not appropriate here)
 
 
+on Perlbal::Manual::ReverseProxy:
+    [ ] check doc/reproxying.txt
+
+
 on Perlbal::Manual::Management:
     [ ] managing Perlbal on the fly
 
@@ -34,9 +38,6 @@ on Perlbal::Manual::Plugins:
     [ ] list existing plugins
     [ ] how to create a plugin, step-by-step
 
-
-on Perlbal::Manual::ReverseProxy:
-    [ ] check doc/reproxying.txt
 
 
 on Perlbal::Manual::WebServer:
