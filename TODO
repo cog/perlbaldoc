@@ -13,7 +13,7 @@ on Perlbal::Manual::LoadBalancer:
     [x] conventions (accepted values for booleans, etc)
     [x] on "a common scenario is to configure" add a link to the section on configuring Perlbal on the fly
     [x] compare backend_persist_cache with connect_ahead ?
-    [ ] how to configure a pool in a separate file
+    [x] how to configure a pool in a separate file
     [ ] high priority queuing system
     [x] load balancing
     [x]    document what happens when one of the machines isn't available
@@ -61,4 +61,5 @@ all files (probably by the end of the project):
 general:
     [ ] check perlbal's repository to ensure we're working with upcoming changes
     [ ] make sure everything within doc/ gets documented in this project
+    [ ] make sure everything within conf/ gets documented in this project
     [ ] move ./Perlbal to ./lib/Perlbal, so the merge with Perlbal's repository is made easier

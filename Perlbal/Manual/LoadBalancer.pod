@@ -49,6 +49,18 @@ After that you define a service called C<service_mywebsite> set to listen on C<1
 The last line is what allows you have several services configured in a file even if they are not currently active (a common scenario is to configure everything on the file and then enable/disable services on-the-fly as required; see C<Perlbal::Manual::Management> for more information on this process).
 
 
+=head3 Configuring a pool in a separate file
+
+You can create a pool in a separate file by using the C<nodefile> parameter:
+
+    CREATE POOL dynamic
+        SET nodefile = conf/nodelist.dat
+
+This separate file should contain IP addresses, one per line (empty lines are ignored, as well as comments started by the L<#> sign).
+
+Check C<conf/load-balancer.conf> and C<conf/nodelist.dat> for an example.
+
+
 =head3 High priority queuing system
 
 ...
