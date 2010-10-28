@@ -15,7 +15,7 @@ on Perlbal::Manual::Install:
 
 on Perlbal::Manual::LoadBalancer:
     [x] conventions (accepted values for booleans, etc)
-    [ ] on "a common scenario is to configure" add a "See also" the section on configuring Perlbal on the fly
+    [x] on "a common scenario is to configure" add a link to the section on configuring Perlbal on the fly
     [x] compare backend_persist_cache with connect_ahead ?
     [ ] how to configure a pool in a separate file
     [ ] high priority queuing system
