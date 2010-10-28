@@ -68,7 +68,7 @@ general:
     [ ] check perlbal's repository to ensure we're working with upcoming changes
     [ ] make sure everything within doc/ gets documented in this project
     [ ] make sure everything within conf/ gets documented in this project
-    [ ] move ./Perlbal to ./lib/Perlbal, so the merge with Perlbal's repository is made easier
+    [x] move ./Perlbal to ./lib/Perlbal, so the merge with Perlbal's repository is made easier
 
 if possible:
     [ ] patch C<perlbal> with documentation on its command line options
