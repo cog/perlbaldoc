@@ -1,7 +1,3 @@
-general:
-    [ ] check perlbal's repository to ensure we're working with upcoming changes
-    [ ] make sure everything within doc/ gets documented in this project
-
 
 on Perlbal::Manual::Install:
     [x] write the section Troubleshooting
@@ -30,6 +26,10 @@ on Perlbal::Manual::ReverseProxy:
     [ ] check doc/reproxying.txt
 
 
+on Perlbal::Manual::WebServer:
+    [x] list parameters
+
+
 on Perlbal::Manual::Management:
     [ ] managing Perlbal on the fly
 
@@ -37,11 +37,6 @@ on Perlbal::Manual::Management:
 on Perlbal::Manual::Plugins:
     [ ] list existing plugins
     [ ] how to create a plugin, step-by-step
-
-
-
-on Perlbal::Manual::WebServer:
-    [x] list parameters
 
 
 somewhere:
@@ -62,3 +57,8 @@ all files (probably by the end of the project):
     [ ]    review VERSION
     [ ]    review SEE ALSO
     [ ] $ ack "\.\.\."
+
+general:
+    [ ] check perlbal's repository to ensure we're working with upcoming changes
+    [ ] make sure everything within doc/ gets documented in this project
+    [ ] move ./Perlbal to ./lib/Perlbal, so the merge with Perlbal's repository is made easier
