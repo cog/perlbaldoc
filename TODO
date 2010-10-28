@@ -14,7 +14,7 @@ on Perlbal::Manual::LoadBalancer:
     [x] on "a common scenario is to configure" add a link to the section on configuring Perlbal on the fly
     [x] compare backend_persist_cache with connect_ahead ?
     [x] how to configure a pool in a separate file
-    [ ] high priority queuing system
+    [x] high priority queuing system
     [x] load balancing
     [x]    document what happens when one of the machines isn't available
     [x]    what if the last machine failed; what happens underneath?
@@ -40,6 +40,9 @@ on Perlbal::Manual::Management:
 
 on Perlbal::Manual::Plugins:
     [ ] list existing plugins
+    [ ]   sort plugins alphabetically
+    [ ]   check for duplicated plugins
+    [ ]   try to add description for every plugin
     [ ] how to create a plugin, step-by-step
 
 
