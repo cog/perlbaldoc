@@ -24,11 +24,13 @@ on Perlbal::Manual::LoadBalancer:
 
 
 on Perlbal::Manual::ReverseProxy:
+    [x] add a simple example of configuration
     [x] check doc/reproxying.txt
     [x] list parameters
 
 
 on Perlbal::Manual::WebServer:
+    [x] add a simple example of configuration
     [x] list parameters
 
 
@@ -67,3 +69,7 @@ general:
     [ ] make sure everything within doc/ gets documented in this project
     [ ] make sure everything within conf/ gets documented in this project
     [ ] move ./Perlbal to ./lib/Perlbal, so the merge with Perlbal's repository is made easier
+
+if possible:
+    [ ] patch C<perlbal> with documentation on its command line options
+    

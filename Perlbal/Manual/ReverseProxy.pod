@@ -10,13 +10,9 @@ This document details reverse proxy configuration of Perlbal 1.76.
 
 =head2 Configuring Perlbal as a Reverse Proxy
 
-By default, perlbal looks for a configuration file at /etc/perlbal/perlbal.conf.
+Configuration of Perlbal as a Reverse Proxy is similar to configuration as a Load Balancer.
 
-You can also point perlbal at a different configuration file with the -c flag.
-
-    $ perlbal -c /home/user/perlbal.conf
-
-...
+Check C<Perlbal::Manual::LoadBalancer> under C<Configuring Perlbal as a Load Balancer> for a sample configuration file and refer to the section C<Load Balancer vs. Reverse Proxy> on that file for an explanation of the differences between a Load Balancer and a Reverse Proxy. 
 
 
 =head2 Parameters

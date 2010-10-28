@@ -1,6 +1,33 @@
+=head1 Using Perlbal as a Web Server
+
+Configuring Perlbal as a Web Server
 
 
-...
+=head2 VERSION
+
+This document details web server configuration of Perlbal 1.76.
+
+
+=head2 Configuring Perlbal as a Web Server
+
+By default, perlbal looks for a configuration file at /etc/perlbal/perlbal.conf.
+
+You can also point perlbal at a different configuration file with the -c flag.
+
+    $ perlbal -c /home/user/perlbal.conf
+
+
+Here's a very simple example where we configure a simple web server that serves an index file under /tmp
+
+    CREATE SERVICE perlbal_test
+      SET role           = web_server
+      SET listen         = 0.0.0.0:80
+      SET docroot        = /tmp
+    ENABLE perlbal_test
+
+The first line creates a service called C<perlbal_test>. The last line enables that service.
+
+The three parameters state - in order - that the server is a web server, that it listens on all addresses on port 80, and that its document root is L</tmp>.
 
 
 =head2 Parameters
