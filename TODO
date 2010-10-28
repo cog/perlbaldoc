@@ -20,10 +20,12 @@ on Perlbal::Manual::LoadBalancer:
     [x]    what if the last machine failed; what happens underneath?
     [x]    how does the system recover?
     [x] revise the list of features a reverse proxy can have (we're listing cache, which is probably not appropriate here)
+    [x] list parameters
 
 
 on Perlbal::Manual::ReverseProxy:
-    [ ] check doc/reproxying.txt
+    [x] check doc/reproxying.txt
+    [x] list parameters
 
 
 on Perlbal::Manual::WebServer:
@@ -57,6 +59,8 @@ all files (probably by the end of the project):
     [ ]    review VERSION
     [ ]    review SEE ALSO
     [ ] $ ack "\.\.\."
+    [ ] $ ack "  "
+    [ ] $ ack " $"
 
 general:
     [ ] check perlbal's repository to ensure we're working with upcoming changes
