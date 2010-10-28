@@ -1,0 +1,8 @@
+=head1 Perlbal Plugins
+
+Known Plugins and Plugin creation.
+
+
+=head2 VERSION
+
+This document details Perlbal 1.76's system for Plugins.
