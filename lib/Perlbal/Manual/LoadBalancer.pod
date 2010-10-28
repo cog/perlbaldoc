@@ -17,7 +17,7 @@ You can also point perlbal at a different configuration file with the -c flag.
     $ perlbal -c /home/user/perlbal.conf
 
 
-=head3 Simple load balancing 
+=head3 Simple load balancing
 
 Let's assume you want to configure two machines to serve your website and you want to let Perlbal decide how to balance the requests. For sake of this exercise let's assume you have two servers serving at:
 
@@ -63,14 +63,16 @@ Check C<conf/load-balancer.conf> and C<conf/nodelist.dat> for an example.
 
 =head3 High priority queuing system
 
+Perl has a high priority queue for sending requests through to backends quickly, using cookies to determine if a request should go to fast queue (configurable).
+
 ...
 
-
-Sometimes if the high priority queue is really busy, the standard queue will suffer from resource starvation. The queue relief system helps prevent this. When there are C<queue_relief_size> or more connections in the standard queue, newly available backends have a C<queue_relief_chance> percent chance of
-taking a request from the standard priority queue instead of the high priority queue.
+Sometimes if the high priority queue is really busy, the standard queue will suffer from resource starvation. The queue relief system helps prevent this. When there are C<queue_relief_size> or more connections in the standard queue, newly available backends have a C<queue_relief_chance> percent chance of taking a request from the standard priority queue instead of the high priority queue.
 
     SET web_proxy.queue_relief_size = 2000
     SET web_proxy.queue_relief_chance = 30 # 0-100, in percent
+
+The plugin C<Perlbal::Plugin::Highpri> supports making requests high priority by URI or Host.
 
 
 =head2 Fail Over

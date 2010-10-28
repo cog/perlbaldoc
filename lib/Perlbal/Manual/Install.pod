@@ -109,7 +109,7 @@ Also note that if your machine doesn't have a C</usr/share/docs> directory you'l
 
 If you're installing Perlbal by hand you may encounter some error messages describing how some prerequisites are not available:
 
-    user@machine:~/Perlbal-X.XX$ perl Makefile.PL 
+    user@machine:~/Perlbal-X.XX$ perl Makefile.PL
     Checking if your kit is complete...
     Looks good
     Warning: prerequisite BSD::Resource 0 not found.
@@ -182,7 +182,7 @@ This is the cpan shell assuming nothing changed in the system and skipping a few
     cpan> look Perlbal
 
     $ rm -rf *
-    
+
     $ exit
 
 And now you can try installation again:

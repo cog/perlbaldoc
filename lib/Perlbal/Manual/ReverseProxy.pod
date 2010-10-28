@@ -12,7 +12,7 @@ This document details reverse proxy configuration of Perlbal 1.76.
 
 Configuration of Perlbal as a Reverse Proxy is similar to configuration as a Load Balancer.
 
-Check C<Perlbal::Manual::LoadBalancer> under C<Configuring Perlbal as a Load Balancer> for a sample configuration file and refer to the section C<Load Balancer vs. Reverse Proxy> on that file for an explanation of the differences between a Load Balancer and a Reverse Proxy. 
+Check C<Perlbal::Manual::LoadBalancer> under C<Configuring Perlbal as a Load Balancer> for a sample configuration file and refer to the section C<Load Balancer vs. Reverse Proxy> on that file for an explanation of the differences between a Load Balancer and a Reverse Proxy.
 
 
 =head2 Parameters
@@ -154,7 +154,7 @@ Default is false.
 The cookie name to inspect to determine if the client goes onto the high-priority queue.
 
 
-=item B<high_priority_cookie_contents> = 
+=item B<high_priority_cookie_contents> = string
 
 A string that the C<high_priority_cookie> must contain to go onto the high-priority queue.
 
@@ -222,7 +222,7 @@ Name of previously-created pool object containing the backend nodes that this re
 
 =item B<queue_relief_chance> = int:0-100
 
-Chance (percentage) to take a standard priority request when we're in pressure relief mode                       |
+Chance (percentage) to take a standard priority request when we're in pressure relief mode.
 
 Default is 0.
 
@@ -302,7 +302,7 @@ Default is C<*>.
 
 =head3 Reproxying
 
-Perlbal supports the concept of reproxying.  Basically, this gives it the ability to ask a backend node for a file and get back a specific header that says "this file is really over there, get it there." Perlbal will then load that file or URL and send it to the user transparently, without them ever knowing that they got reproxied to another location.
+Perlbal supports the concept of reproxying. Basically, this gives it the ability to ask a backend node for a file and get back a specific header that says "this file is really over there, get it there." Perlbal will then load that file or URL and send it to the user transparently, without them ever knowing that they got reproxied to another location.
 
 Add the following line to your perlbal.conf to enable reproxying on a per service basis ( reproxying is disabled by default in >= 1.38 ):
 
@@ -330,11 +330,11 @@ You can also specify multiple URLs:
 
     X-REPROXY-URL: http://foo.com:80/resource.html http://baz.com:8080/res.htm
 
-Just specify any number of space separated URLs. Perlbal will request them one by one until one returns a response code of 200.  At that point Perlbal will proxy the response back to the user just like normal.
+Just specify any number of space separated URLs. Perlbal will request them one by one until one returns a response code of 200. At that point Perlbal will proxy the response back to the user just like normal.
 
-Note that the user's headers are NOT passed through to the web server.To the target server, it looks simply like Perlbal is requesting the resource for itself.  This behavior may change at some point.
+Note that the user's headers are NOT passed through to the web server.To the target server, it looks simply like Perlbal is requesting the resource for itself. This behavior may change at some point.
 
-One final note: the server that returns the reproxy header can also return a X-REPROXY-EXPECTED-SIZE header. If present, Perlbal will consider a reproxy a failure if the file returned by the target system is of a different size than what the expected size header says. On failure, Perlbal tries the next URI in the list.  If it's a file being reproxied, a 404 is returned if the file size is different.
+One final note: the server that returns the reproxy header can also return a X-REPROXY-EXPECTED-SIZE header. If present, Perlbal will consider a reproxy a failure if the file returned by the target system is of a different size than what the expected size header says. On failure, Perlbal tries the next URI in the list. If it's a file being reproxied, a 404 is returned if the file size is different.
 
 
 =head2 More on Parameters

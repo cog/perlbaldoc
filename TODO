@@ -57,8 +57,8 @@ all files (probably by the end of the project):
     [ ] review POD
     [ ]    review formating codes ( C<>, L<>, etc. )
     [ ] review headers
-    [ ] review footers
     [ ]    review VERSION
+    [ ] review footers
     [ ]    review SEE ALSO
     [ ] $ ack "\.\.\."
     [ ] $ ack "  "

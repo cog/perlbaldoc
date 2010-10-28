@@ -20,9 +20,9 @@ You can also point perlbal at a different configuration file with the -c flag.
 Here's a very simple example where we configure a simple web server that serves an index file under /tmp
 
     CREATE SERVICE perlbal_test
-      SET role           = web_server
-      SET listen         = 0.0.0.0:80
-      SET docroot        = /tmp
+        SET role           = web_server
+        SET listen         = 0.0.0.0:80
+        SET docroot        = /tmp
     ENABLE perlbal_test
 
 The first line creates a service called C<perlbal_test>. The last line enables that service.
@@ -65,7 +65,7 @@ Enable Perlbal's multiple-files-in-one-request mode, where a client have use a c
 
 Useful for web apps which have dozens/hundreds of tiny css/js files, and don't trust browsers/etc to do pipelining.
 
-Decreases overall round-trip latency a bunch, but requires app to be modified to support it. See t/17-concat.t test for details.  
+Decreases overall round-trip latency a bunch, but requires app to be modified to support it. See t/17-concat.t test for details.
 
 Default is false.
 
