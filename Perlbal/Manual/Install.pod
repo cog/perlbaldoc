@@ -53,6 +53,23 @@ Now you need to create the Makefile and run it; we're also going to run the test
     $ sudo make install
 
 
+=head2 Installing the latest development version
+
+You can clone Perlbal's repository from github and install it by hand by following the next steps:
+
+    $ git clone http://github.com/dormando/Perlbal.git
+
+    $ cd Perlbal
+
+    $ perl Makefile.PL
+
+    $ make
+
+    $ make test
+
+    $ sudo make install
+
+
 =head2 Optional Dependencies and Assyncronous IO
 
 Perlbal checks for IO::AIO availability and uses it to perform assynchronous IO operations. If you're performing disk operations (e.g., using Perlbal as a web server), having IO::AIO will improve your response times.

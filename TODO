@@ -4,23 +4,23 @@ general:
 
 
 on Perlbal::Manual::Install:
-    [ ] write the section Troubleshooting
+    [x] write the section Troubleshooting
     [x]    dependencies that need to be compiled and there's no compiler available
     [x] installing Perlbal by hand
-    [ ]    decide whether we want to keep this section
+    [x]    decide whether we want to keep this section - YES
     [x] installing Perlbal on a machine that's not connected to the internet (CPAN dependencies trouble)
-    [ ] installing Perlbal on systems that have packages for it
     [ ] how to test Perlbal (to see if everything went as expected)
+    [x] how to install Perlbal's latest release (from github)
 
 
 on Perlbal::Manual::LoadBalancer:
     [x] conventions (accepted values for booleans, etc)
     [ ] on "a common scenario is to configure" add a "See also" the section on configuring Perlbal on the fly
-    [ ] document what happens when one of the machines isn't available
     [x] compare backend_persist_cache with connect_ahead ?
     [ ] how to configure a pool in a separate file
     [ ] high priority queuing system
     [x] load balancing
+    [x]    document what happens when one of the machines isn't available
     [x]    what if the last machine failed; what happens underneath?
     [x]    how does the system recover?
     [ ] revise the list of features a reverse proxy can have (we're listing cache, which is probably not appropriate here)
