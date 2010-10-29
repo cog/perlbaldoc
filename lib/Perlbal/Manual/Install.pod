@@ -70,9 +70,9 @@ You can clone Perlbal's repository from github and install it by hand by followi
     $ sudo make install
 
 
-=head2 Optional Dependencies and Assyncronous IO
+=head2 Optional Dependencies and Asynchronous IO
 
-Perlbal checks for IO::AIO availability and uses it to perform assynchronous IO operations. If you're performing disk operations (e.g., using Perlbal as a web server), having IO::AIO will improve your response times.
+Perlbal checks for IO::AIO availability and uses it to perform asynchronous IO operations. If you're performing disk operations (e.g., using Perlbal as a web server), having IO::AIO will improve your response times.
 
 The only thing required in order to benefit from this feature is to install IO::AIO:
 
