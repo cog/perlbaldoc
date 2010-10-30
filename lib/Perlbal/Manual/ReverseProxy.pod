@@ -372,7 +372,7 @@ The connection is kept open; this means we now have three open connections: two 
 
 =item * the second request finishes
 
-The connection is killed, as we already have two other open connections (the first and the third), and that's the number set by Cbackend_persist_cache> for the number of connections to be kept alive.
+The connection is killed, as we already have two other open connections (the first and the third), and that's the number set by C<backend_persist_cache> for the number of connections to be kept alive.
 
 =back
 

@@ -58,11 +58,12 @@ README:
 
 all files (probably by the end of the project):
     [ ] review POD
-    [ ]    review formating codes ( C<>, L<>, etc. )
+    [ ]     review formating codes ( C<>, L<>, etc. )
     [ ] review headers
-    [ ]    review VERSION
+    [ ]     review VERSION
     [ ] review footers
-    [ ]    review SEE ALSO
+    [ ]     review SEE ALSO
+    [ ]     review AUTHORS
     [ ] $ ack "\.\.\."
     [ ] $ ack "  "
     [ ] $ ack " $"
