@@ -50,6 +50,7 @@ somewhere:
     [ ] selector
     [ ] how to debug perlbal
     [ ]    don't forget the $PERLBAL_DEBUG env variable
+    [ ] make sure we have a section on manipulating headers
 
 
 README:
