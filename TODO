@@ -39,10 +39,10 @@ on Perlbal::Manual::Management:
 
 
 on Perlbal::Manual::Plugins:
-    [ ] list existing plugins
-    [ ]   sort plugins alphabetically
-    [ ]   check for duplicated plugins
-    [ ]   try to add description for every plugin
+    [x] list existing plugins
+    [x]   sort plugins alphabetically
+    [x]   check for duplicated plugins
+    [ ]   try to add a description for every plugin
     [ ] how to create a plugin, step-by-step
 
 
