@@ -215,6 +215,7 @@ Turn off an already-loaded XS module:
 
 =head4 Diagnostic Commands
 
+
 =over 4
 
 =item aio
@@ -234,14 +235,16 @@ Shows the current configuration.
 
 =item fd
 
-Shows file descriptors in use.
-
-...
+Shows the maximum number of file descriptors and how many are currently in use.
 
 
 =item gladiator
 
-...
+Requires C<Devel::Gladiator>.
+
+Iterate's Perl's internal memory structures and can be used to enumerate all the currently live SVs.
+
+This can be used to hunt leaks and to profile memory usage.
 
 
 =item help
@@ -308,14 +311,28 @@ Shows status of all queues (normal, high priority and low priority) for all enab
     service_mywebsite-lowpri.age 0
     service_mywebsite-lowpri.count 0
 
+
 =item reload
 
 ...
 
 
-=item socks
+=item socks [all]
+=item socks summary
 
-...
+Lists all sockets or shows a summary of the sockets (by default lists all sockets).
+
+    socks
+       fd    age
+        3   748s Perlbal::ClientManage(R): open to 85.245.86.253:52248
+        4  1003s Perlbal::TCPListener(R): open: listening on 82.102.30.112:80 for service 'ws'
+        6  1003s Perlbal::TCPListener(R): open: listening on 0.0.0.0:60000 for service 'mgmt'
+
+    socks summary
+        1 Perlbal::ClientManage
+        2 Perlbal::TCPListener
+    Aggregate write buffer: 0.0k
+                Open files: 0
 
 
 =item state
@@ -334,6 +351,7 @@ Shows status of all queues (normal, high priority and low priority) for all enab
 
 
 =item uptime
+=item version
 
 Shows the time the server was started, the current uptime and Perlbal's version.
 
@@ -348,10 +366,6 @@ Shows the time the server was started, the current uptime and Perlbal's version.
 
 ...
 
-
-=item version
-
-...
 
 
 =back
