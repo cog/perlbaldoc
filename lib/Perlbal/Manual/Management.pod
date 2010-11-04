@@ -31,7 +31,180 @@ If you telnet to the management service you get a connection that allows you man
     Connected to 127.0.0.1.
     Escape character is '^]'.
     
-You now have access to several commands:
+You now have access to several commands (which are case insensitive):
+
+=head4 Admin Commands
+
+=over 4
+
+
+
+=item * create pool|service <name>
+
+Creates a pool or a service.
+
+    create pool my_new_pool
+
+    create service my_new_service
+
+
+=item * disable <service>
+
+Disables a service (stops listening).
+
+    disable my_service
+
+
+=item * enable <service>
+
+Enables a service (starts listening).
+
+    enable my_service
+
+
+=item * header
+
+...
+
+
+=item * load <plugin>
+
+Loads a Perlbal plugin.
+
+    load AccessControl
+
+
+=item * plugins
+
+Lists plugins
+
+
+=item * pool <name> add|remove <ip[:port]>
+
+Allows you to add or remove nodes from a service.
+
+    pool add my_service 127.0.0.1:1337
+
+    pool remove my_service 127.0.0.1:1337
+
+Note that adding a node that already exists or removing a non-existing node do not result in an error message.
+
+Also note that the port number defaults to :80 if omitted.
+
+
+=item * reproxy_state
+
+Dumps the state of reproxy status.
+
+...
+
+
+=item * server
+
+...
+
+
+=item * set [<pool_name>] <param> = <value>
+
+Sets a property on a pool. If the pool was just created, specifying the pool name is optional.
+
+Setting the file to autoload nodes from (Perlbal will periodically check the file for updates):
+
+    SET my_pool nodefile = /path/to/file
+
+Unsetting the file to autoload nodes from (note that this does not remove current members):
+
+    SET my_pool nodefile = none
+
+C<undef>, C<null>, "" and '' are interpreted just like C<none>.
+
+Setting the load balancing method:
+
+    SET pool balance_method = 'random'
+
+Yes, we do realize that C<random> is the only method currently available, but hey.
+
+
+=item * set [<service_name>] <param> = <value>
+
+Sets a property on a service. If the service was just created, specifying the service name is optional.
+
+See C<Perlbal::Manual::LoadBalancer>, C<Perlbal::Manual::ReverseProxy> and C<Perlbal::Manual::WebServer> for the list of available parameters.
+
+
+=item * show service|pool [<service_name|pool_name>]
+
+List all services:
+
+    show service
+
+Show details of a service:
+
+    show service my_service
+
+Lists all pools, nodes and services using them:
+
+    show pool
+
+Show the members of a pool:
+
+    show pool my_pool
+
+
+=item * shutdown [graceful]
+
+Shuts down the server (you'll also lose your telnet session).
+
+Can be used instantly, killing all active connections:
+
+    shutdown
+
+Using the parameter C<graceful> listening sockets are closed and perlbal stays alive until clients bleed off.
+
+    shutdown graceful
+
+
+=item * unload <plugin>
+
+Unloads a plugin.
+
+    unload AccessControl
+
+
+=item * use <service|pool>
+
+Sets the implied service or pool for future operations.
+
+For instance, after:
+
+    use my_pool
+
+You can just type:
+
+    pool add 127.0.0.1:6000
+
+Note that creating a service or pool also sets it as the implied service.
+
+
+=item * xs [enable|disable <module>]
+
+Show status of XS modules loaded:
+
+    xs
+
+Turn on an already-loaded XS module:
+
+    xs enable module_name
+
+Turn off an already-loaded XS module:
+
+    xs disable module_name
+
+
+=back
+
+
+=head4 Diagnostic Commands
 
 =over 4
 
@@ -43,35 +216,18 @@ You now have access to several commands:
 
 ...
 
-=item * create
-
-...
-
-=item * disable
-
-Disables a service.
-
-    disable my_service
-
 =item * dumpconfig
 
 Shows the current configuration.
 
-=item * enable
-
-Enables a service.
-
-    enable my_service
-
 =item * fd
 
+Shows file descriptors in use.
+
 ...
+
 
 =item * gladiator
-
-...
-
-=item * header
 
 ...
 
@@ -82,12 +238,6 @@ Displays the list of available commands.
 =item * leaks
 
 ...
-
-=item * load
-
-Loads a Perlbal plugin.
-
-    load AccessControl
 
 =item * mime
 
@@ -107,27 +257,27 @@ Loads a Perlbal plugin.
 
 =item * obj
 
+Shows objects counts in scope.
+
 ...
+
 
 =item * pending
 
 ...
 
-=item * plugins
-
-...
-
-=item * pool
-
-...
-
 =item * proc
 
-...
-
-=item * prof
+Shows CPU usage, current time, pid, and total requests processed.
 
 ...
+
+=item * prof on|off|data
+
+Enables/disables profiling or dumps profile data.
+
+...
+
 
 =item * queues
 
@@ -142,26 +292,6 @@ Shows status of all queues (normal, high priority and low priority) for all enab
     service_mywebsite-lowpri.count 0
 
 =item * reload
-
-...
-
-=item * reproxy_state
-
-...
-
-=item * server
-
-...
-
-=item * set
-
-...
-
-=item * show
-
-...
-
-=item * shutdown
 
 ...
 
@@ -181,17 +311,12 @@ Shows status of all queues (normal, high priority and low priority) for all enab
 
 ...
 
-=item * unload
-
-...
-
 =item * uptime
 
-...
-
-=item * use
+Shows the time the server was started and the current uptime.
 
 ...
+
 
 =item * varsize
 
@@ -202,10 +327,6 @@ Shows status of all queues (normal, high priority and low priority) for all enab
 ...
 
 =item * version
-
-...
-
-=item * xs
 
 ...
 
