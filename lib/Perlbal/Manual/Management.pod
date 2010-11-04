@@ -40,6 +40,7 @@ You now have access to several commands (which are case insensitive):
 
 
 =item create pool <name>
+
 =item create service <name>
 
 Creates a pool or a service.
@@ -138,6 +139,7 @@ See C<Perlbal::Manual::LoadBalancer>, C<Perlbal::Manual::ReverseProxy> and C<Per
 
 
 =item show service [<service_name>]
+
 =item show pool [<pool_name>]
 
 List all services:
@@ -178,6 +180,7 @@ Unloads a plugin.
 
 
 =item use <service>
+
 =item use <pool>
 
 Sets the implied service or pool for future operations.
@@ -194,7 +197,9 @@ Note that creating a service or pool also sets it as the implied service.
 
 
 =item xs
+
 =item xs [enable <module>]
+
 =item xs [disable <module>]
 
 Show status of XS modules loaded:
@@ -293,7 +298,9 @@ Shows CPU usage, current time, pid, and total requests processed.
 
 
 =item prof on
+
 =item prof off
+
 =item prof data
 
 Enables/disables profiling or dumps profile data.
@@ -318,6 +325,7 @@ Shows status of all queues (normal, high priority and low priority) for all enab
 
 
 =item socks [all]
+
 =item socks summary
 
 Lists all sockets or shows a summary of the sockets (by default lists all sockets).
@@ -351,6 +359,7 @@ Lists all sockets or shows a summary of the sockets (by default lists all socket
 
 
 =item uptime
+
 =item version
 
 Shows the time the server was started, the current uptime and Perlbal's version.
@@ -362,6 +371,7 @@ Shows the time the server was started, the current uptime and Perlbal's version.
 
 
 =item verbose on
+
 =item verbose off
 
 ...
