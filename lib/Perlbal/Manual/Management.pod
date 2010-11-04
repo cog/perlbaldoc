@@ -1,16 +1,227 @@
-=head1 Managing Perlbal
+=head1 Managing Perlbal on-the-fly
 
 Managing Perlbal.
 
+For documentation on how to configure Perlbal read C<Perlbal::Manual::Configuration>.
 
 =head2 VERSION
 
 This document details management of Perlbal 1.76.
 
 
-=head2 Configuring Perlbal
-
-You'll need a configuration file.
+=head2 Setting up a management service
 
 ...
+
+    CREATE SERVICE mgmt
+        SET role   = management
+        SET listen = 127.0.0.1:16000
+    ENABLE mgmt
+
+=head3 Consulting information with a browser
+
+If you access the management service (in this case, 127.0.0.1 on port 16000) with a browser you'll reach a page with information on the services that are enabled. You're also able to click those services and reach further information on each one of them.
+
+=head3 Managing Perlbal via telnet
+
+If you telnet to the management service you get a connection that allows you manage your C<Perlbal>'s instance.
+
+    $ telnet 127.0.0.1 16000
+    Trying 127.0.0.1...
+    Connected to 127.0.0.1.
+    Escape character is '^]'.
+    
+You now have access to several commands:
+
+=over 4
+
+=item * aio
+
+...
+
+=item * backends
+
+...
+
+=item * create
+
+...
+
+=item * disable
+
+Disables a service.
+
+    disable my_service
+
+=item * dumpconfig
+
+Shows the current configuration.
+
+=item * enable
+
+Enables a service.
+
+    enable my_service
+
+=item * fd
+
+...
+
+=item * gladiator
+
+...
+
+=item * header
+
+...
+
+=item * help
+
+Displays the list of available commands.
+
+=item * leaks
+
+...
+
+=item * load
+
+Loads a Perlbal plugin.
+
+    load AccessControl
+
+=item * mime
+
+...
+
+=item * node
+
+...
+
+=item * nodes
+
+...
+
+=item * noverify
+
+...
+
+=item * obj
+
+...
+
+=item * pending
+
+...
+
+=item * plugins
+
+...
+
+=item * pool
+
+...
+
+=item * proc
+
+...
+
+=item * prof
+
+...
+
+=item * queues
+
+Shows status of all queues (normal, high priority and low priority) for all enabled services.
+
+    queues
+    service_mywebsite-normal.age 1
+    service_mywebsite-normal.count 8
+    service_mywebsite-highpri.age 0
+    service_mywebsite-highpri.count 0
+    service_mywebsite-lowpri.age 0
+    service_mywebsite-lowpri.count 0
+
+=item * reload
+
+...
+
+=item * reproxy_state
+
+...
+
+=item * server
+
+...
+
+=item * set
+
+...
+
+=item * show
+
+...
+
+=item * shutdown
+
+...
+
+=item * socks
+
+...
+
+=item * state
+
+...
+
+=item * states
+
+...
+
+=item * track
+
+...
+
+=item * unload
+
+...
+
+=item * uptime
+
+...
+
+=item * use
+
+...
+
+=item * varsize
+
+...
+
+=item * verbose
+
+...
+
+=item * version
+
+...
+
+=item * xs
+
+...
+
+=back
+
+=head2 CAVEAT
+
+Note that this functionality doesn't implement any sort of authentication. If you can telnet to the address you specify, you can access the information and change things on the fly.
+
+Some alternatives to authentication are commonly employed:
+
+=over 4
+
+=item * specifying the address as being 127.0.0.1 means that no one outside the machine can telnet to the management service;
+
+=item * setting the management address as a private IP available only through a VPN, for instance, will allow you to manage these accesses on the VPN instead.
+
+=back
 
