@@ -11,12 +11,13 @@ This document details management of Perlbal 1.76.
 
 =head2 Setting up a management service
 
-...
+You can create a management service in the following way:
 
     CREATE SERVICE mgmt
         SET role   = management
         SET listen = 127.0.0.1:16000
     ENABLE mgmt
+
 
 =head3 Consulting information with a browser
 
@@ -38,8 +39,8 @@ You now have access to several commands (which are case insensitive):
 =over 4
 
 
-
-=item * create pool|service <name>
+=item create pool <name>
+=item create service <name>
 
 Creates a pool or a service.
 
@@ -48,38 +49,42 @@ Creates a pool or a service.
     create service my_new_service
 
 
-=item * disable <service>
+=item disable <service>
 
 Disables a service (stops listening).
 
     disable my_service
 
+Note that you can not disable C<management> services.
 
-=item * enable <service>
+
+=item enable <service>
 
 Enables a service (starts listening).
 
     enable my_service
 
 
-=item * header
+=item header
 
 ...
 
 
-=item * load <plugin>
+=item load <plugin>
 
 Loads a Perlbal plugin.
 
     load AccessControl
 
 
-=item * plugins
+=item plugins
 
 Lists plugins
 
 
-=item * pool <name> add|remove <ip[:port]>
+=item pool <name> add <ip[:port]>
+
+=item pool <name> remove <ip[:port]>
 
 Allows you to add or remove nodes from a service.
 
@@ -92,19 +97,19 @@ Note that adding a node that already exists or removing a non-existing node do n
 Also note that the port number defaults to :80 if omitted.
 
 
-=item * reproxy_state
+=item reproxy_state
 
 Dumps the state of reproxy status.
 
 ...
 
 
-=item * server
+=item server
 
 ...
 
 
-=item * set [<pool_name>] <param> = <value>
+=item set [<pool_name>] <param> = <value>
 
 Sets a property on a pool. If the pool was just created, specifying the pool name is optional.
 
@@ -125,14 +130,15 @@ Setting the load balancing method:
 Yes, we do realize that C<random> is the only method currently available, but hey.
 
 
-=item * set [<service_name>] <param> = <value>
+=item set [<service_name>] <param> = <value>
 
 Sets a property on a service. If the service was just created, specifying the service name is optional.
 
 See C<Perlbal::Manual::LoadBalancer>, C<Perlbal::Manual::ReverseProxy> and C<Perlbal::Manual::WebServer> for the list of available parameters.
 
 
-=item * show service|pool [<service_name|pool_name>]
+=item show service [<service_name>]
+=item show pool [<pool_name>]
 
 List all services:
 
@@ -151,7 +157,7 @@ Show the members of a pool:
     show pool my_pool
 
 
-=item * shutdown [graceful]
+=item shutdown [graceful]
 
 Shuts down the server (you'll also lose your telnet session).
 
@@ -164,14 +170,15 @@ Using the parameter C<graceful> listening sockets are closed and perlbal stays a
     shutdown graceful
 
 
-=item * unload <plugin>
+=item unload <plugin>
 
 Unloads a plugin.
 
     unload AccessControl
 
 
-=item * use <service|pool>
+=item use <service>
+=item use <pool>
 
 Sets the implied service or pool for future operations.
 
@@ -186,7 +193,9 @@ You can just type:
 Note that creating a service or pool also sets it as the implied service.
 
 
-=item * xs [enable|disable <module>]
+=item xs
+=item xs [enable <module>]
+=item xs [disable <module>]
 
 Show status of XS modules loaded:
 
@@ -208,78 +217,86 @@ Turn off an already-loaded XS module:
 
 =over 4
 
-=item * aio
+=item aio
 
 ...
 
-=item * backends
+
+=item backends
 
 ...
 
-=item * dumpconfig
+
+=item dumpconfig
 
 Shows the current configuration.
 
-=item * fd
+
+=item fd
 
 Shows file descriptors in use.
 
 ...
 
 
-=item * gladiator
+=item gladiator
 
 ...
 
-=item * help
+
+=item help
 
 Displays the list of available commands.
 
-=item * leaks
 
-...
-
-=item * mime
-
-...
-
-=item * node
-
-...
-
-=item * nodes
-
-...
-
-=item * noverify
-
-...
-
-=item * obj
-
-Shows objects counts in scope.
+=item leaks
 
 ...
 
 
-=item * pending
+=item mime
 
 ...
 
-=item * proc
+
+=item node
+
+...
+
+
+=item nodes
+
+...
+
+
+=item noverify
+
+...
+
+
+=item obj
+
+Shows objects count in scope.
+
+
+=item pending
+
+...
+
+
+=item proc
 
 Shows CPU usage, current time, pid, and total requests processed.
 
-...
 
-=item * prof on|off|data
+=item prof on
+=item prof off
+=item prof data
 
 Enables/disables profiling or dumps profile data.
 
-...
 
-
-=item * queues
+=item queues
 
 Shows status of all queues (normal, high priority and low priority) for all enabled services.
 
@@ -291,46 +308,54 @@ Shows status of all queues (normal, high priority and low priority) for all enab
     service_mywebsite-lowpri.age 0
     service_mywebsite-lowpri.count 0
 
-=item * reload
-
-...
-
-=item * socks
-
-...
-
-=item * state
-
-...
-
-=item * states
-
-...
-
-=item * track
-
-...
-
-=item * uptime
-
-Shows the time the server was started and the current uptime.
+=item reload
 
 ...
 
 
-=item * varsize
+=item socks
 
 ...
 
-=item * verbose
+
+=item state
 
 ...
 
-=item * version
+
+=item states
 
 ...
+
+
+=item track
+
+...
+
+
+=item uptime
+
+Shows the time the server was started, the current uptime and Perlbal's version.
+
+
+=item varsize
+
+...
+
+
+=item verbose on
+=item verbose off
+
+...
+
+
+=item version
+
+...
+
 
 =back
+
 
 =head2 CAVEAT
 
