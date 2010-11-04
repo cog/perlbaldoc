@@ -242,6 +242,10 @@ Shows the current configuration.
 
 Shows the maximum number of file descriptors and how many are currently in use.
 
+    fd
+    max 1024
+    cur 8
+
 
 =item gladiator
 
