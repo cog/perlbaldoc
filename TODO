@@ -51,7 +51,7 @@ somewhere:
     [ ] selector
     [ ] how to debug perlbal
     [ ]    don't forget the $PERLBAL_DEBUG env variable
-    [ ] PERLBAL_TRACK_STATES
+    [x] PERLBAL_TRACK_STATES
     [ ] PERLBAL_DEBUG_OBJ
     [ ] make sure we have a section on manipulating headers
     [ ] create Perlbal::Manual::Configuration (already mentioned on Perlbal::Manual::Management)
