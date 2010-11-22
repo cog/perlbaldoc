@@ -35,8 +35,8 @@ on Perlbal::Manual::WebServer:
 
 
 on Perlbal::Manual::Management:
-    [ ] managing Perlbal on the fly
-    [ ] add examples for all commands (or decide on each of them individually)
+    [x] managing Perlbal on the fly
+    [x] add examples for all commands (or decide on each of them individually)
 
 
 on Perlbal::Manual::Plugins:

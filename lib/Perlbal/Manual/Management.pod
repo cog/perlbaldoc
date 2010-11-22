@@ -252,7 +252,13 @@ Shows C<Perlbal::AIO> stats.
 
 =item backends
 
-...
+Lists the open connections to the backends.
+
+    backends
+    127.0.0.1:3080 1
+    127.0.0.1:3081 2
+
+In the above example, there are 3 open connections (they may be being used or they may simply be open according to the value of C<connect_ahead>).
 
 
 =item dumpconfig
@@ -406,7 +412,22 @@ Lists all sockets or shows a summary of the sockets (by default lists all socket
 
 =item state changes
 
-...
+Lists recent state changes of requests.
+
+For instance, while a request is being processed this command may issue something like:
+
+    state changes
+    Perlbal::ClientProxy=HASH(0x12d7ec28): reading_headers, wait_backend, backend_req_sent, wait_res
+    Perlbal::BackendHTTP=HASH(0x12d75f30): connecting, bored, sending_req, wait_res
+    wait_res 2
+
+And as soon as the request is processed:
+
+    state changes
+    Perlbal::BackendHTTP=HASH(0x12d75f30): connecting, bored, sending_req, wait_res, xfer_res, closed
+    closed 1
+
+Note: This functionality depends on the environment variable C<PERLBAL_TRACK_STATES> being set to a true value.
 
 
 =item states
@@ -452,12 +473,15 @@ Shows the time the server was started, the current uptime and Perlbal's version.
 
 =item varsize
 
-...
+Debug management command to track size of internal data structures.
 
     varsize
+    svc-ws-bored_backends [] 2
     svc-ws-pending_connects {} 2
-      {127.0.0.1:8081}  = 
-      {127.0.0.1:8181}  = 
+      {127.0.0.1:3080}  = 
+      {127.0.0.1:3081}  = Perlbal::BackendHTTP=HASH(0x1cfd2490)
+
+Note: This functionality depends on the environment variable C<PERLBAL_TRACK_STATES> being set to a true value.
 
 
 =item verbose on
