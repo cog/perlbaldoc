@@ -266,24 +266,55 @@ Displays the list of available commands.
 ...
 
 
+=item load <plugin_name>
+
+Loads a plugin.
+
+    load AccessControl
+
+
 =item mime
 
 ...
 
 
-=item node
+=item node <ip[:port]>
 
-...
+Dumps information on a specific node.
+
+    node 127.0.0.1:8181
+    127.0.0.1:8181 attempts 10
+    127.0.0.1:8181 lastattempt 1290461126
+
+Calling C<node> with a parameter is the same as calling C<nodes>.
 
 
 =item nodes
 
-...
+Dumps information on all nodes.
+
+    nodes
+    127.0.0.1:8181 attempts 10
+    127.0.0.1:8181 lastattempt 1290461126
+    127.0.0.1:8081 connects 19
+    127.0.0.1:8081 lastconnect 1290461127
+    127.0.0.1:8081 attempts 19
+    127.0.0.1:8081 responsecodes 200 11
+    127.0.0.1:8081 lastattempt 1290461127
 
 
 =item noverify
 
-...
+Shows the amount of time left for each node marked as noverify.
+
+If the C<verify_backend> parameter is set to a true value, perlbal tries to send an C<OPTIONS> command to a node before sending it the actual client request. If the node doesn't support the C<OPTIONS> command, the node is added to an internal hash so that an C<OPTIONS> command is not issued for new requests during the next 60 seconds.
+
+    noverify
+    127.0.0.1:8081 42
+
+In the above example, node 127.0.0.1:8081 is on that list and still has 42 seconds until an C<OPTIONS> command is tried again.
+
+If the time is a negative value it means that the C<OPTIONS> command will be issued before the next request.
 
 
 =item obj
@@ -293,7 +324,7 @@ Shows objects count in scope.
 
 =item pending
 
-...
+Shows pending backend connections by service, node, and age.
 
 
 =item proc
@@ -323,9 +354,9 @@ Shows status of all queues (normal, high priority and low priority) for all enab
     service_mywebsite-lowpri.count 0
 
 
-=item reload
+=item reload <plugin_name>
 
-...
+Reloads a plugin that supports reloading.
 
 
 =item socks [all]
@@ -356,8 +387,13 @@ Lists all sockets or shows a summary of the sockets (by default lists all socket
 
 ...
 
+    states
+    Perlbal::ClientProxy draining_res 1
+
 
 =item track
+
+Dumps objects tracked, sorted by age.
 
 ...
 
@@ -378,8 +414,19 @@ Shows the time the server was started, the current uptime and Perlbal's version.
 
 =item verbose off
 
-...
+Turns verbose mode on or off.
 
+    verbose on
+    load AccessControl
+    OK
+    verbose off
+    load AccessControl
+    verbose on
+    OK
+    load AccessControl
+    OK
+
+Yes, verbose mode only activates the printing of an OK message upon completion of some commands such as C<load>. Errors are displayed regardless of verbose status.
 
 
 =back

@@ -54,6 +54,7 @@ somewhere:
     [ ] make sure we have a section on manipulating headers
     [ ] create Perlbal::Manual::Configuration (already mentioned on Perlbal::Manual::Management)
     [ ] low priority queues
+    [ ] how to add comments on a perlbal configuration file
 
 README:
     ... (we probably don't need a README since this project will likely be merged into Perlbal itself, which should have its own README file)

@@ -286,7 +286,7 @@ Comma separated list of hosts in form 'a.b.c.d:port' which will receive UDP uplo
 
 =item B<verify_backend> = bool
 
-Whether Perlbal should send a quick OPTIONS request to the backends before sending an actual client request to them. If your backend is Apache or some other process-based webserver, this is highly recommended. All too often a loaded backend box will reply to new TCP connections, but it's the kernel's TCP stack Perlbal is talking to, not and actual Apache process yet. Using this option reduced end-user latency a ton on loaded sites.
+Whether Perlbal should send a quick OPTIONS request to the backends before sending an actual client request to them. If your backend is Apache or some other process-based webserver, this is highly recommended. All too often a loaded backend box will reply to new TCP connections, but it's the kernel's TCP stack Perlbal is talking to, not and actual Apache process yet. Using this option reduces end-user latency a ton on loaded sites.
 
 Default if false.
 
