@@ -72,7 +72,11 @@ Enables a service (starts listening).
 
 Inserts or removes headers from the request before they're passed on to the backend.
 
+When adding headers you must state the value:
+
     header my_service insert myamazingheader:myamazingvalue
+
+When removing headers you don't need the state any value, the header will be removed regardless of the value it holds:
 
     header my_service remove Connection
 
