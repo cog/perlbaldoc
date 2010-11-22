@@ -74,11 +74,13 @@ Inserts or removes headers from the request before they're passed on to the back
 
 When adding headers you must state the value:
 
-    header my_service insert myamazingheader:myamazingvalue
+    header my_service insert x-myamazingheader:myamazingvalue
 
 When removing headers you don't need the state any value, the header will be removed regardless of the value it holds:
 
     header my_service remove Connection
+
+Note: the usage of C<x-> in the beginning of your header is not required, but the convention is that non-standard headers be prefixed with C<x->.
 
 
 =item load <plugin>
