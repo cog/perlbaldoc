@@ -66,9 +66,15 @@ Enables a service (starts listening).
     enable my_service
 
 
-=item header
+=item header <service> insert <header>:<value>
 
-...
+=item header <service> remove <header>
+
+Inserts or removes headers from the request before they're passed on to the backend.
+
+    header my_service insert myamazingheader:myamazingvalue
+
+    header my_service remove Connection
 
 
 =item load <plugin>
@@ -101,8 +107,6 @@ Also note that the port number defaults to :80 if omitted.
 =item reproxy_state
 
 Dumps the state of reproxy status.
-
-...
 
     reproxy_state
     SERVER max_reproxy_connections = 0
@@ -443,6 +447,11 @@ Shows the time the server was started, the current uptime and Perlbal's version.
 =item varsize
 
 ...
+
+    varsize
+    svc-ws-pending_connects {} 2
+      {127.0.0.1:8081}  = 
+      {127.0.0.1:8181}  = 
 
 
 =item verbose on
