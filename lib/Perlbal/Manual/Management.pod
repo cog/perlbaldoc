@@ -104,10 +104,22 @@ Dumps the state of reproxy status.
 
 ...
 
+    reproxy_state
+    SERVER max_reproxy_connections = 0
 
-=item server
 
-...
+=item server <param> = <value>
+
+Sets a server parameter, where param is one of:
+
+ * max_reproxy_connections
+ * max_connections
+ * nice_level
+ * aio_mode - one of "none", "linux" (Linux::AIO), or "ioaio" (IO::AIO). This controls how disk IO is done asynchronously. Highly recommended to use C<Linux::AIO> or C<IO::AIO> for webserving or reproxying files. For purely reverse proxy or only reproxying URLs, none is fine.
+ * aio_threads - number of child threads doing disk IO. Use between 2 and 50.
+ * track_obj - developer option to track objects.
+ * pidfile - filename to write pidfile (no pidfile if not specified).
+ * crash_backtrace - 1 or 0 indicating whether to perform a backtrace while the server is crashing.
 
 
 =item set [<pool_name>] <param> = <value>
@@ -225,7 +237,7 @@ Turn off an already-loaded XS module:
 
 =item aio
 
-...
+Shows C<Perlbal::AIO> stats.
 
 
 =item backends
@@ -263,19 +275,23 @@ Displays the list of available commands.
 
 =item leaks
 
-...
+=item leaks <code>
 
+Iterates over active objects.
 
-=item load <plugin_name>
+If an argument is specified, it is treated as code with C<$_> being the reference to the object.
 
-Loads a plugin.
-
-    load AccessControl
+Shows objects that might have been leaked.
 
 
 =item mime
 
-...
+Lists known mime types.
+
+    mime
+    css text/css
+    doc application/msword
+    ...
 
 
 =item node <ip[:port]>
@@ -378,24 +394,43 @@ Lists all sockets or shows a summary of the sockets (by default lists all socket
                 Open files: 0
 
 
-=item state
+=item state changes
 
 ...
 
 
 =item states
 
-...
+=item states <service>
+
+Shows how many sockets of which type and in which state currently exist for all services.
 
     states
     Perlbal::ClientProxy draining_res 1
+
+If a service is specified, shows the information for that service only.
+
+    states ws
+    Perlbal::BackendHTTP wait_res 1
+    Perlbal::ClientProxy wait_res 1
 
 
 =item track
 
 Dumps objects tracked, sorted by age.
 
-...
+    track
+    15s Perlbal::HTTPHeaders=HASH(0x1a043a50): Perlbal::HTTPHeaders::clone, Perlbal::BackendHTTP::assign_client, Perlbal::Service::register_boredom, Perlbal::BackendHTTP::event_write, Danga::Socket::EpollEventLoop, (eval), Perlbal::run
+    15s Perlbal::HTTPHeaders=HASH(0x19594fe0): Perlbal::HTTPHeaders::new, Perlbal::Socket::read_headers, Perlbal::Socket::read_response_headers, Perlbal::BackendHTTP::event_read_waiting_options, Perlbal::BackendHTTP::event_read, Danga::Socket::EpollEventLoop, (eval), Perlbal::run
+    15s Perlbal::HTTPHeaders=HASH(0x1a043d80): Perlbal::HTTPHeaders::new, Perlbal::Socket::read_headers, Perlbal::Socket::read_response_headers, Perlbal::BackendHTTP::event_read, Danga::Socket::EpollEventLoop, (eval), Perlbal::run
+    15s Perlbal::BackendHTTP=HASH(0x1a044608): Perlbal::BackendHTTP::new, Perlbal::Service::spawn_backends, Perlbal::Service::note_bad_backend_connect, Perlbal::BackendHTTP::event_err, Danga::Socket::EpollEventLoop, (eval), Perlbal::run
+    15s Perlbal::BackendHTTP=HASH(0x1a042588): Perlbal::BackendHTTP::new, Perlbal::Service::spawn_backends, Perlbal::Service::note_bad_backend_connect, Perlbal::BackendHTTP::verify_failure, Perlbal::BackendHTTP::event_read_waiting_options, Perlbal::BackendHTTP::event_read, Danga::Socket::EpollEventLoop, (eval), Perlbal::run
+    15s Perlbal::BackendHTTP=HASH(0x1a044488): Perlbal::BackendHTTP::new, Perlbal::Service::spawn_backends, Perlbal::Service::request_backend_connection, Perlbal::ClientProxy::request_backend, Perlbal::ClientProxy::handle_request, Perlbal::ClientProxy::event_read, Danga::Socket::EpollEventLoop, (eval), Perlbal::run
+
+For this to work you must have C<track_obj> on:
+
+    server track_obj = 1
+    OK
 
 
 =item uptime
