@@ -17,37 +17,37 @@ This is the comprehensive guide and reference manual for Perlbal.
 
 =item L<Perlbal::Manual::Install|Perlbal::Manual::Install>
 
-...
+Installation procedures for Perlbal.
 
 
 =item L<Perlbal::Manual::LoadBalancer|Perlbal::Manual::LoadBalancer>
 
-...
+Setting up Perlbal as a Load Balancer.
 
 
 =item L<Perlbal::Manual::Management|Perlbal::Manual::Management>
 
-...
+Managing Perlbal on-the-fly.
 
 
 =item L<Perlbal::Manual::Plugins|Perlbal::Manual::Hooks>
 
-...
+How Perlbal's hooks work and which ones exist.
 
 
 =item L<Perlbal::Manual::Plugins|Perlbal::Manual::Plugins>
 
-...
+Known plugins and how to create new ones.
 
 
 =item L<Perlbal::Manual::ReverseProxy|Perlbal::Manual::ReverseProxy>
 
-...
+Setting up Perlbal as a Reverse Proxy.
 
 
 =item L<Perlbal::Manual::WebServer|Perlbal::Manual::WebServer>
 
-...
+Setting up Perlbal as a Web Server.
 
 
 =back
