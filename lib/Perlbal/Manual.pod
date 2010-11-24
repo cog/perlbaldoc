@@ -30,7 +30,7 @@ Setting up Perlbal as a Load Balancer.
 Managing Perlbal on-the-fly.
 
 
-=item L<Perlbal::Manual::Plugins|Perlbal::Manual::Hooks>
+=item L<Perlbal::Manual::Hooks|Perlbal::Manual::Hooks>
 
 How Perlbal's hooks work and which ones exist.
 
