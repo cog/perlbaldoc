@@ -263,7 +263,9 @@ In the above example, there are 3 open connections (they may be being used or th
 
 =item dumpconfig
 
-Shows the current configuration.
+Shows the current configuration for each service.
+
+If a service uses a plugin that supports C<dumpconfig>, that plugin's configuration is also dumped (see C<dumpconfig> under C<Perlbal::Manual::Plugins> for more information).
 
 
 =item fd

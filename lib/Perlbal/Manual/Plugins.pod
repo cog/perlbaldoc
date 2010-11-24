@@ -17,95 +17,117 @@ The following is a list of known plugins:
 
 =item * Perlbal::Plugin::AccessControl (Perlbal core)
 
-...
+Basic access control based on IPs and Netmasks.
+
 
 =item * Perlbal::Plugin::Addheader
 
-Add Headers to Perlbal webserver responses
+Add Headers to Perlbal webserver responses.
+
 
 =item * Perlbal::Plugin::AutoRemoveLeadingDir (Perlbal core)
 
-...
+Auto-removal of leading directory path components in the URL.
+
 
 =item * Perlbal::Plugin::BackendHeaders
 
-See which backend served the request
+See which backend served the request.
+
 
 =item * Perlbal::Plugin::Cgilike (Perlbal core)
 
-Handle Perlbal requests with a Perl subroutine
+Handle Perlbal requests with a Perl subroutine.
+
 
 =item * Perlbal::Plugin::EchoService (Perlbal core)
 
-...
+Simple plugin demonstrating how to create an add-on service for Perlbal using the plugin infrastructure.
+
 
 =item * Perlbal::Plugin::ExpandSSL
 
-Add a custom header according to the SSL of a service
+Add a custom header according to the SSL of a service.
+
 
 =item * Perlbal::Plugin::ForwardedFor
 
-Rename the X-Forwarded-For header in Perlbal
+Rename the X-Forwarded-For header in Perlbal.
+
 
 =item * Perlbal::Plugin::Highpri (Perlbal core)
 
-...
+Makes some requests high priority.
+
 
 =item * Perlbal::Plugin::Include (Perlbal core)
 
-Allows multiple, nesting configuration files
+Allows multiple, nesting configuration files.
+
 
 =item * Perlbal::Plugin::LazyCDN (Perlbal core)
 
-...
+Support for Content Delivery Networks.
+
 
 =item * Perlbal::Plugin::MaxContentLength (Perlbal core)
 
-Reject large requests
+Reject large requests.
+
 
 =item * Perlbal::Plugin::NotModified (Perlbal core)
 
-...
+Automatic 304 Not Modified responses.
+
 
 =item * Perlbal::Plugin::PSGI
 
-PSGI web server on Perlbal
+PSGI web server on Perlbal.
+
 
 =item * Perlbal::Plugin::Palimg (Perlbal core)
 
-Plugin that allows Perlbal to serve palette altered images
+Plugin that allows Perlbal to serve palette altered images.
+
 
 =item * Perlbal::Plugin::Queues (Perlbal core)
 
-...
+Simple queue length header inclusion plugin.
+
 
 =item * Perlbal::Plugin::Redirect (Perlbal core)
 
-Plugin to do redirecting in Perlbal land
+Plugin to do redirecting in Perlbal land.
+
 
 =item * Perlbal::Plugin::Stats (Perlbal core)
 
-...
+Basic Perlbal statistics gatherer.
+
 
 =item * Perlbal::Plugin::StickySessions
 
-Session affinity for perlbal
+Session affinity for perlbal.
+
 
 =item * Perlbal::Plugin::TrustHeader
 
-Remove untrusted headers
+Remove untrusted headers.
+
 
 =item * Perlbal::Plugin::UrlGroup
 
-Let URL match it in regular expression
+Let URL match it in regular expression.
+
 
 =item * Perlbal::Plugin::Vhosts (Perlbal core)
 
-...
+Name-based virtual hosts.
+
 
 =item * Perlbal::Plugin::Vpaths (Perlbal core)
 
-...
+Select by path (selector role only).
 
 
 =back
