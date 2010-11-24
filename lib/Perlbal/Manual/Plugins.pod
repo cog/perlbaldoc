@@ -17,11 +17,15 @@ The following is a list of known plugins:
 
 =item * Perlbal::Plugin::AccessControl (Perlbal core)
 
+...
+
 =item * Perlbal::Plugin::Addheader
 
 Add Headers to Perlbal webserver responses
 
 =item * Perlbal::Plugin::AutoRemoveLeadingDir (Perlbal core)
+
+...
 
 =item * Perlbal::Plugin::BackendHeaders
 
@@ -33,6 +37,8 @@ Handle Perlbal requests with a Perl subroutine
 
 =item * Perlbal::Plugin::EchoService (Perlbal core)
 
+...
+
 =item * Perlbal::Plugin::ExpandSSL
 
 Add a custom header according to the SSL of a service
@@ -43,17 +49,23 @@ Rename the X-Forwarded-For header in Perlbal
 
 =item * Perlbal::Plugin::Highpri (Perlbal core)
 
+...
+
 =item * Perlbal::Plugin::Include (Perlbal core)
 
 Allows multiple, nesting configuration files
 
 =item * Perlbal::Plugin::LazyCDN (Perlbal core)
 
+...
+
 =item * Perlbal::Plugin::MaxContentLength (Perlbal core)
 
 Reject large requests
 
 =item * Perlbal::Plugin::NotModified (Perlbal core)
+
+...
 
 =item * Perlbal::Plugin::PSGI
 
@@ -65,11 +77,15 @@ Plugin that allows Perlbal to serve palette altered images
 
 =item * Perlbal::Plugin::Queues (Perlbal core)
 
+...
+
 =item * Perlbal::Plugin::Redirect (Perlbal core)
 
 Plugin to do redirecting in Perlbal land
 
 =item * Perlbal::Plugin::Stats (Perlbal core)
+
+...
 
 =item * Perlbal::Plugin::StickySessions
 
@@ -85,6 +101,11 @@ Let URL match it in regular expression
 
 =item * Perlbal::Plugin::Vhosts (Perlbal core)
 
+...
+
 =item * Perlbal::Plugin::Vpaths (Perlbal core)
+
+...
+
 
 =back
