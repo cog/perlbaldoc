@@ -42,6 +42,7 @@ on Perlbal::Manual::Management:
 
 on Perlbal::Manual::Hooks:
     [x] make sure we have all the hooks
+    [x] for each hook, detail which roles it is available for
 
 
 on Perlbal::Manual::Plugins:

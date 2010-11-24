@@ -109,3 +109,8 @@ Let URL match it in regular expression
 
 
 =back
+
+
+=head2 SEE ALSO
+
+C<Perlbal::Manual::Hooks>.
