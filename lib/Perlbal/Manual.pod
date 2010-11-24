@@ -1,0 +1,52 @@
+=head1 Perlbal::Manual
+
+Guide and reference manual for Perlbal.
+
+
+=head2 VERSION
+
+This document details installation of Perlbal 1.76.
+
+
+=head2 DESCRIPTION
+
+This is the comprehensive guide and reference manual for Perlbal.
+
+
+=over 4
+
+=item L<Perlbal::Manual::Install|Perlbal::Manual::Install>
+
+...
+
+
+=item L<Perlbal::Manual::LoadBalancer|Perlbal::Manual::LoadBalancer>
+
+...
+
+
+=item L<Perlbal::Manual::Management|Perlbal::Manual::Management>
+
+...
+
+
+=item L<Perlbal::Manual::Plugins|Perlbal::Manual::Plugins>
+
+...
+
+
+=item L<Perlbal::Manual::ReverseProxy|Perlbal::Manual::ReverseProxy>
+
+...
+
+
+=item L<Perlbal::Manual::WebServer|Perlbal::Manual::WebServer>
+
+...
+
+
+=back
+
+=head1 AUTHORS
+
+...
