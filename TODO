@@ -40,6 +40,10 @@ on Perlbal::Manual::Management:
     [ ] review the documentation for server <param> = <value>
 
 
+on Perlbal::Manual::Hooks:
+    [ ] make sure we have all the hooks
+
+
 on Perlbal::Manual::Plugins:
     [x] list existing plugins
     [x]   sort plugins alphabetically

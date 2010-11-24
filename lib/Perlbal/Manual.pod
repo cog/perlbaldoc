@@ -30,6 +30,11 @@ This is the comprehensive guide and reference manual for Perlbal.
 ...
 
 
+=item L<Perlbal::Manual::Plugins|Perlbal::Manual::Hooks>
+
+...
+
+
 =item L<Perlbal::Manual::Plugins|Perlbal::Manual::Plugins>
 
 ...
