@@ -82,7 +82,7 @@ Sometimes if the high priority queue is really busy, the standard queue will suf
     SET web_proxy.queue_relief_size = 2000
     SET web_proxy.queue_relief_chance = 30 # 0-100, in percent
 
-The plugin C<Perlbal::Plugin::Highpri> supports making requests high priority by URI or Host.
+The plugin C<Perlbal::Plugin::Highpri> supports making requests high priority by URI or Host. Also check C<make_high_priority> under C<Perlbal::Manual::Hooks>.
 
 
 =head2 Fail Over
