@@ -74,7 +74,7 @@ Called in C<Perlbal::ClientProxy>.
 
 Called when we've been told to reproxy a file. If you return a true value, Perlbal will not perform any operations on the file and will simply return. You can also change the file in the scalar ref passed as the second parameter.
 
-Called in C<Perlbal::ClientProxy>; receives a reference to the filename.
+Called in C<Perlbal::ClientProxy>; receives C<$filename_ref>, a reference to the filename.
 
 
 =item HANDLER     backend_client_assigned
@@ -102,7 +102,7 @@ Called in C<Perlbal::ClientHTTPBase>.
 
 Called when we're about to serve a local file, before we've done any work. You can change the file served by modifying C<$uri_ref>, or cancel the process by returning a true value.
 
-Called in C<Perlbal::ClientHTTPBase>; receives a reference to the URI.
+Called in C<Perlbal::ClientHTTPBase>; receives C<$uri_ref>, a reference to the URI.
 
 
 =item HANDLER     modify_response_headers

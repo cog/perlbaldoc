@@ -41,7 +41,7 @@ on Perlbal::Manual::Management:
 
 
 on Perlbal::Manual::Hooks:
-    [ ] make sure we have all the hooks
+    [x] make sure we have all the hooks
 
 
 on Perlbal::Manual::Plugins:
@@ -64,7 +64,7 @@ somewhere:
     [ ] how to add comments on a perlbal configuration file
 
 README:
-    ... (we probably don't need a README since this project will likely be merged into Perlbal itself, which should have its own README file)
+    [ ] create a basic README file that will be the standard README for Perlbal (it doesn't have one yet)
 
 
 all files (probably by the end of the project):
