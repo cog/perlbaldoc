@@ -50,6 +50,11 @@ Setting up Perlbal as a Reverse Proxy.
 Setting up Perlbal as a Web Server.
 
 
+=item L<Perlbal::Manual::Credits|Perlbal::Manual::Credits>
+
+Author and contributor credits for Perlbal.
+
+
 =back
 
 =head1 AUTHORS

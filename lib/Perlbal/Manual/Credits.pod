@@ -1,0 +1,49 @@
+=head1 Perlbal::Manual::Credits
+
+Author and contributor credits.
+
+
+=head2 VERSION
+
+This document refers to Perlbal 1.76.
+
+
+=head2 DESCRIPTION
+
+This document aims at crediting the incredible people who have contributed to make Perlbal the amazing tool that it is. They have contributed with code, reports, tests, documentation and inspiration to Perlbal.
+
+We are all very grateful for their help.
+
+Please let us know if you think someone is missing from this list.
+
+
+=head2 CONTRIBUTORS 
+
+
+Alan Kasindorf,
+Andreas J Koenig,
+Andy Armstrong,
+Artur Bergman,
+Ask Bjoern Hansen,
+Bart van der Schans,
+Boris Zentner,
+Brad Fitzpatrick,
+Chuck Remes,
+Dan Conlon,
+Eamon Daly,
+Fred Moyer,
+Giao Phan,
+Greg Denton,
+Jab,
+Jacques Marneweck,
+Jeremy James,
+Jonty Wareing,
+Jordi Funollet,
+Kevin Lewandowski,
+Mark Smith,
+Nick Andrew,
+Paul Baker,
+Radu Greab,
+Richard Bronosky,
+Slaven Rezic.
+
