@@ -8,6 +8,70 @@ Known Plugins and Plugin creation.
 This document details Perlbal 1.76's system for Plugins.
 
 
+=head2 How to use a plugin
+
+...
+
+
+=head2 How to create a plugin
+
+A Perlbal plugin consists in a package under the Perlbal::Plugin namespace that implements a set of functions described below.
+
+
+=head3 Creating a package
+
+While there are many ways of creating a package, we'd recommend that you use something to do it for you. A good option is C<Module::Starter>.
+
+(note: if you really want to, you can just create a file with your package and use it; by using something like C<Module::Starter> you're making sure that several pitfalls are avoided, lots of basic rules are followed and that your package can easily be made available as a distribution that you can deploy on any machine in a simple way)
+
+Let's assume you want to create a plugin that checks requests for a X-Magic header and, if present, add an header X-Color to the response. Let's assume your plugin will be called Perlbal::Plugin::ColorOfMagic.
+
+Having installed C<Module::Starter>, here's a command you can run that will create your package for you:
+
+    $ module-starter --module=Perlbal::Plugin::ColorOfMagic --author="My name" --email=my@email.address
+
+That should create a file tree that you can get better acquainted to by reading C<Module::Starter>'s fine documentation. For this example, the file you really need should be C<lib/Perlbal/Plugin/ColorOfMagic.pm>.
+
+This file probably starts with something like the following:
+
+    package Perlbal::Plugin::ColorOfMagic;
+
+    use warnings;
+    use strict;
+
+You'll have to add a few functions to this file. These are described below.
+
+(note: upon creating this package, some boilerplate documentation will also be present on the file; you should revise it and even remove bits that don't feel right for your plugin)
+
+
+=head3 register
+
+...
+
+
+=head3 unregister
+
+...
+
+
+=head3 load
+
+...
+
+
+=head3 unload
+
+...
+
+
+=head3 dumpconfig
+
+...
+
+
+
+
+
 =head2 Known plugins
 
 The following is a list of known plugins:

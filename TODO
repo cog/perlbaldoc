@@ -73,7 +73,8 @@ on Perlbal::Manual::Plugins:
     [x] list existing plugins
     [x]   sort plugins alphabetically
     [x]   check for duplicated plugins
-    [ ]   try to add a description for every plugin
+    [x]   try to add a description for every plugin
+    [ ] how to use a plugin
     [ ] how to create a plugin, step-by-step
     [ ]   manage_command
     [ ]   register
