@@ -76,12 +76,14 @@ on Perlbal::Manual::Plugins:
     [x]   try to add a description for every plugin
     [ ] how to use a plugin
     [ ] how to create a plugin, step-by-step
+    [x]   creating a package
     [ ]   manage_command
-    [ ]   register
+    [x]   register
     [ ]   unregister
     [ ]   load
     [ ]   unload
     [ ]   dumpconfig
+    [ ] register_setter
 
 
 somewhere:

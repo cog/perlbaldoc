@@ -24,7 +24,7 @@ While there are many ways of creating a package, we'd recommend that you use som
 
 (note: if you really want to, you can just create a file with your package and use it; by using something like C<Module::Starter> you're making sure that several pitfalls are avoided, lots of basic rules are followed and that your package can easily be made available as a distribution that you can deploy on any machine in a simple way)
 
-Let's assume you want to create a plugin that checks requests for a X-Magic header and, if present, add an header X-Color to the response. Let's assume your plugin will be called Perlbal::Plugin::ColorOfMagic.
+Let's assume you want to create a plugin that checks requests for a X-Magic header and, if present, add an header X-Color to the response when serving a file. Let's assume your plugin will be called Perlbal::Plugin::ColorOfMagic.
 
 Having installed C<Module::Starter>, here's a command you can run that will create your package for you:
 
@@ -46,7 +46,32 @@ You'll have to add a few functions to this file. These are described below.
 
 =head3 register
 
-...
+C<register> is called when the plugin is being added to a service. This is where you register your plugin's hooks.
+
+For the sake of our example (C<Perlbal::Plugin::ColorOfMagic>, see above), what we want to do is register a hook that modifies the response headers; that means we want a C<modify_response_headers> hook.
+
+Here's what you'd do:
+
+    sub register {
+        my ($class, $service) = @_;
+
+        $service->register_hook('ColorOfMagic','modify_response_headers', sub {
+
+            my Perlbal::ClientHTTPBase $cp = shift;
+
+            if ( $cp->{req_headers}->header('X-Magic') ) {
+                $cp->{res_headers}->header( 'X-Color', 'Octarine' );
+            }
+
+            return 0;
+
+        });
+
+    }
+
+Inside C<register>, we're calling C<register_hook> to register our C<ColorOfMagic> C<modify_response_headers> hook. It's code, that will run "when we've set all the headers, and are about to serve a file" (see C<Perlbal::Manual::Hooks>), receives a C<Perlbal::ClientHTTPBase> object (you can see what kind of object your hook will receive on C<Perlbal::Manual::Hooks>). We're checking to see if C<X-Magic> is defined on the request and, if so, we're setting header C<X-Color> on the response to C<Octarine>.
+
+Notice that the hook ends with C<return 0>. This is because returning a true value means that you want to cancel the connection to the backend and send the response to the client yourself.
 
 
 =head3 unregister
