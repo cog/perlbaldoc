@@ -74,7 +74,7 @@ on Perlbal::Manual::Plugins:
     [x]    sort plugins alphabetically
     [x]    check for duplicated plugins
     [x]    try to add a description for every plugin
-    [ ] ho w to use a plugin
+    [ ] how to use a plugin
     [ ] how to create a plugin, step-by-step
     [x]    creating a package
     [ ]    manage_command
@@ -82,7 +82,7 @@ on Perlbal::Manual::Plugins:
     [x]    unregister
     [x]    load
     [x]    unload
-    [ ]    dumpconfig
+    [x]    dumpconfig
     [x]    register_setter
     [ ]    for all the above functions, describe the arguments they receive
 

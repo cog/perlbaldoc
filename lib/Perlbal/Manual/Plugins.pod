@@ -124,7 +124,21 @@ Don't forget to call C<unregister_global_hook> if you have registered any.
 
 =item dumpconfig
 
-...
+When managing Perlbal (see C<Perlbal::Manual::Management>) you can send a C<dumpconfig> command that will result in a configuration dump.
+
+Apart from the global configuration, each plugin that implements a C<dumpconfig> function will also have that function called.
+
+C<dumpconfig> should return an array of messages to be displayed.
+
+    sub dumpconfig {
+        my ($class, $service) = @_;
+
+        my @messages;
+
+        push @messages, "COLOROFMAGIC is $color";
+
+        return @messages;
+    }
 
 C<dumpconfig> is not required.
 
