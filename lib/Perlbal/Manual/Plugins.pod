@@ -44,7 +44,9 @@ You'll have to add a few functions to this file. These are described below.
 (note: upon creating this package, some boilerplate documentation will also be present on the file; you should revise it and even remove bits that don't feel right for your plugin)
 
 
-=head3 register
+=over 4
+
+=item register
 
 C<register> is called when the plugin is being added to a service. This is where you register your plugin's hooks.
 
@@ -64,9 +66,7 @@ Here's what you'd do:
             }
 
             return 0;
-
         });
-
     }
 
 Inside C<register>, we're calling C<register_hook> to register our C<ColorOfMagic> C<modify_response_headers> hook. It's code, that will run "when we've set all the headers, and are about to serve a file" (see C<Perlbal::Manual::Hooks>), receives a C<Perlbal::ClientHTTPBase> object (you can see what kind of object your hook will receive on C<Perlbal::Manual::Hooks>). We're checking to see if C<X-Magic> is defined on the request and, if so, we're setting header C<X-Color> on the response to C<Octarine>.
@@ -74,27 +74,106 @@ Inside C<register>, we're calling C<register_hook> to register our C<ColorOfMagi
 Notice that the hook ends with C<return 0>. This is because returning a true value means that you want to cancel the connection to the backend and send the response to the client yourself.
 
 
-=head3 unregister
+=item unregister
+
+C<unregister> is called when the plugin is removed from a service. It's a standard good practice to unregister your plugin's hooks here, like so:
+
+    sub unregister {
+        my ($class, $service) = @_;
+        $service->unregister_hooks('ColorOfMagic');
+        return 1;
+    }
+
+You can also use C<unregister_hook> to unregister one single hook:
+
+    $service->unregister_hooks('ColorOfMagic', 'modify_response_headers');
+
+
+=item load
+
+C<load> is called when your plugin is loaded (or reloaded).
+
+This is where you should perform your plugin's initialization, which can go from setting up some variables to registering a management command.
+
+... # we must explain how to register management commands here ...
+
+    my $color;
+
+    sub load {
+        $color = 'Octarine';
+
+        return 1;
+    }
+
+
+C<load> must always be defined, but if you really don't need it you can have it simply returning a true value:
+
+    sub load { return 1; }
+
+
+=item unload
+
+C<unload> is called when your plugin is unloaded. This is where you should perform any clean up tasks.
+
+C<unload> must always be defined, but if you really don't need it you can have it simply returning a true value:
+
+    sub unload { return 1; }
+
+Don't forget to call C<unregister_global_hook> if you have registered any.
+
+
+=item dumpconfig
+
+...
+
+C<dumpconfig> is not required.
+
+
+=back
+
+
+=head3 management_command
 
 ...
 
 
-=head3 load
+=head3 register_setter
+
+C<register_setter> allows you to defined parameters that can be set for your plugin, using a syntax such as:
+
+    set my_service.my_plugin.my_variable = my_value
+
+For instance:
+
+    set discworld.colorofmagic.color = 'Orange'
+
+Here's how you'd configure a new setter, by using C<register_setter> inside C<load>:
+
+    my $color;
+
+    sub load {
+        $color = 'Octarine';
+
+
+        $svc->register_setter('ColorOfMagic', 'color', sub {
+            my ($out, $what, $val) = @_;
+            return 0 unless $what && $val;
+
+            $color = $val;
+
+            $out->("OK") if $out;
+
+            return 1;
+        });
+
+
+        return 1;
+    }
+
+
+=head3 register vs. load
 
 ...
-
-
-=head3 unload
-
-...
-
-
-=head3 dumpconfig
-
-...
-
-
-
 
 
 =head2 Known plugins

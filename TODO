@@ -44,46 +44,47 @@ on Perlbal::Manual::Hooks:
     [x] make sure we have all the hooks
     [x] for each hook, detail which roles it is available for
     [ ] review the list of hooks
-    [x]   backend_client_assigned
-    [ ]   backend_readable_verify
-    [x]   backend_response_received
-    [ ]   backend_write_verify
-    [ ]   concat_get_poststat_file_missing
-    [ ]   concat_get_poststat_pre_send
-    [x]   end_proxy_request
-    [ ]   handle_put
-    [x]   make_high_priority
-    [ ]   make_low_priority
-    [x]   modify_response_headers
-    [ ]   proxy_read_request
-    [ ]   put_writeout
-    [x]   reproxy_fh_finished
-    [x]   return_to_base
-    [x]   start_file_reproxy
-    [x]   start_http_request
-    [x]   start_proxy_request
-    [x]   start_send_file
-    [x]   start_serve_request
-    [x]   start_web_request
-    [ ]   static_get_poststat_file_missing
-    [ ]   static_get_poststat_pre_send
+    [x]    backend_client_assigned
+    [ ]    backend_readable_verify
+    [x]    backend_response_received
+    [ ]    backend_write_verify
+    [ ]    concat_get_poststat_file_missing
+    [ ]    concat_get_poststat_pre_send
+    [x]    end_proxy_request
+    [ ]    handle_put
+    [x]    make_high_priority
+    [ ]    make_low_priority
+    [x]    modify_response_headers
+    [ ]    proxy_read_request
+    [ ]    put_writeout
+    [x]    reproxy_fh_finished
+    [x]    return_to_base
+    [x]    start_file_reproxy
+    [x]    start_http_request
+    [x]    start_proxy_request
+    [x]    start_send_file
+    [x]    start_serve_request
+    [x]    start_web_request
+    [ ]    static_get_poststat_file_missing
+    [ ]    static_get_poststat_pre_send
 
 
 on Perlbal::Manual::Plugins:
     [x] list existing plugins
-    [x]   sort plugins alphabetically
-    [x]   check for duplicated plugins
-    [x]   try to add a description for every plugin
-    [ ] how to use a plugin
+    [x]    sort plugins alphabetically
+    [x]    check for duplicated plugins
+    [x]    try to add a description for every plugin
+    [ ] ho w to use a plugin
     [ ] how to create a plugin, step-by-step
-    [x]   creating a package
-    [ ]   manage_command
-    [x]   register
-    [ ]   unregister
-    [ ]   load
-    [ ]   unload
-    [ ]   dumpconfig
-    [ ] register_setter
+    [x]    creating a package
+    [ ]    manage_command
+    [x]    register
+    [x]    unregister
+    [x]    load
+    [x]    unload
+    [ ]    dumpconfig
+    [x]    register_setter
+    [ ]    for all the above functions, describe the arguments they receive
 
 
 somewhere:
@@ -96,6 +97,8 @@ somewhere:
     [ ] create Perlbal::Manual::Configuration (already mentioned on Perlbal::Manual::Management)
     [ ] low priority queues
     [ ] how to add comments on a perlbal configuration file
+    [ ] document all fields of each class (check the beginning of Service.pm, for instance)
+
 
 README:
     [ ] create a basic README file that will be the standard README for Perlbal (it doesn't have one yet)
@@ -103,12 +106,12 @@ README:
 
 all files (probably by the end of the project):
     [ ] review POD
-    [ ]     review formating codes ( C<>, L<>, etc. )
+    [ ]    review formating codes ( C<>, L<>, etc. )
     [ ] review headers
-    [ ]     review VERSION
+    [ ]    review VERSION
     [ ] review footers
-    [ ]     review SEE ALSO
-    [ ]     review AUTHORS
+    [ ]    review SEE ALSO
+    [ ]    review AUTHORS
     [ ] $ ack "\.\.\."
     [ ] $ ack "  "
     [ ] $ ack " $"
