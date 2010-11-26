@@ -3,22 +3,27 @@ on Perlbal::Manual:
     [ ] make sure we're listing all the documentation files
     [ ] add an extra paragraph for each file, briefly describing its contents
 
+
 on Perlbal::Manual::Configuration
     [ ] get the information from other files and move it here
     [ ]    how to create a configuration file
     [ ]    how to add comments on a perlbal configuration file
     [ ] environment variables
 
+
 on Perlbal::Manual::Architecture
     [x] list all classes
     [ ] document all fields of each class (check the beginning of Service.pm, for instance)
+
 
 on Perlbal::Manual::Contributing
     [x] grab information on how to contribute from the web
     [x] list basic rules, how-tos and pointers
 
+
 on Perlbal::Manual::Credits
     [x] grab all the relevant names from Changes
+
 
 on Perlbal::Manual::ToDo
     [x] put all of Perlbal's to-do items in POD format
@@ -102,12 +107,14 @@ on Perlbal::Manual::Plugins:
     [ ] how to use a plugin
     [ ] how to create a plugin, step-by-step
     [x]    creating a package
-    [ ]    manage_command
     [x]    register
     [x]    unregister
     [x]    load
     [x]    unload
     [x]    dumpconfig
+    [ ]    for all the above functions, describe the arguments they receive
+    [ ] helper functions
+    [ ]    manage_command
     [x]    register_setter
     [ ]    for all the above functions, describe the arguments they receive
 
@@ -140,6 +147,10 @@ all files (probably by the end of the project):
     [ ] $ ack "  "
     [ ] $ ack " $"
 
+cleanup:
+    [ ] remove "grant proposal.pod" from the repository
+    [ ] remove the directory "useful stuff" (it's not useful anymore)
+
 general:
     [ ] check perlbal's repository to ensure we're working with upcoming changes
     [ ] make sure everything within doc/ gets documented in this project
@@ -148,4 +159,3 @@ general:
 
 if possible:
     [ ] patch C<perlbal> with documentation on its command line options
-    
