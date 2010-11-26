@@ -1,4 +1,28 @@
 
+on Perlbal::Manual:
+    [ ] make sure we're listing all the documentation files
+
+on Perlbal::Manual::Configuration
+    [ ] get the information from other files and move it here
+    [ ]    how to create a configuration file
+    [ ]    how to add comments on a perlbal configuration file
+    [ ] environment variables
+
+on Perlbal::Manual::Architecture
+    [x] list all classes
+    [ ] document all fields of each class (check the beginning of Service.pm, for instance)
+
+on Perlbal::Manual::Contributing
+    [x] grab information on how to contribute from the web
+    [x] list basic rules, how-tos and pointers
+
+on Perlbal::Manual::Credits
+    [x] grab all the relevant names from Changes
+
+on Perlbal::Manual::ToDo
+    [x] put all of Perlbal's to-do items in POD format
+
+
 on Perlbal::Manual::Install:
     [x] write the section Troubleshooting
     [x]    dependencies that need to be compiled and there's no compiler available
@@ -94,10 +118,7 @@ somewhere:
     [x] PERLBAL_TRACK_STATES
     [ ] PERLBAL_DEBUG_OBJ
     [ ] make sure we have a section on manipulating headers
-    [ ] create Perlbal::Manual::Configuration (already mentioned on Perlbal::Manual::Management)
     [ ] low priority queues
-    [ ] how to add comments on a perlbal configuration file
-    [ ] document all fields of each class (check the beginning of Service.pm, for instance)
 
 
 README:
@@ -107,11 +128,13 @@ README:
 all files (probably by the end of the project):
     [ ] review POD
     [ ]    review formating codes ( C<>, L<>, etc. )
+    [ ]    look for class names (ClientHTTP, etc) outside code examples that are not properly formatted
     [ ] review headers
     [ ]    review VERSION
     [ ] review footers
     [ ]    review SEE ALSO
     [ ]    review AUTHORS
+    [ ]       on files that have information gathered from the original docs/ directory, credit their authors (if we can find their names)
     [ ] $ ack "\.\.\."
     [ ] $ ack "  "
     [ ] $ ack " $"

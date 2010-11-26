@@ -15,6 +15,26 @@ This is the comprehensive guide and reference manual for Perlbal.
 
 =over 4
 
+=item L<Perlbal::Manual::Architecture|Perlbal::Manual::Architecture>
+
+Perlbal's architecture at a glance.
+
+
+=item L<Perlbal::Manual::Contributing|Perlbal::Manual::Contributing>
+
+How to contribute to Perlbal.
+
+
+=item L<Perlbal::Manual::Credits|Perlbal::Manual::Credits>
+
+Author and contributor credits for Perlbal.
+
+
+=item L<Perlbal::Manual::Hooks|Perlbal::Manual::Hooks>
+
+How Perlbal's hooks work and which ones exist.
+
+
 =item L<Perlbal::Manual::Install|Perlbal::Manual::Install>
 
 Installation procedures for Perlbal.
@@ -30,11 +50,6 @@ Setting up Perlbal as a Load Balancer.
 Managing Perlbal on-the-fly.
 
 
-=item L<Perlbal::Manual::Hooks|Perlbal::Manual::Hooks>
-
-How Perlbal's hooks work and which ones exist.
-
-
 =item L<Perlbal::Manual::Plugins|Perlbal::Manual::Plugins>
 
 Known plugins and how to create new ones.
@@ -45,19 +60,14 @@ Known plugins and how to create new ones.
 Setting up Perlbal as a Reverse Proxy.
 
 
+=item L<Perlbal::Manual::ToDo|Perlbal::Manual::ToDo>
+
+Perlbal's To-Do list.
+
+
 =item L<Perlbal::Manual::WebServer|Perlbal::Manual::WebServer>
 
 Setting up Perlbal as a Web Server.
-
-
-=item L<Perlbal::Manual::Contributing|Perlbal::Manual::Contributing>
-
-How to contribute to Perlbal.
-
-
-=item L<Perlbal::Manual::Credits|Perlbal::Manual::Credits>
-
-Author and contributor credits for Perlbal.
 
 
 =back
