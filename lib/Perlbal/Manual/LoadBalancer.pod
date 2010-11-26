@@ -1,6 +1,6 @@
-=head1 Using Perlbal as a Load Balancer
+=head1 NAME
 
-Configuring Perlbal as a Load Balancer.
+Perlbal::Manual::LoadBalancer - Using Perlbal as a Load Balancer
 
 
 =head2 VERSION

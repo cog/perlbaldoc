@@ -1,6 +1,6 @@
-=head1 Using Perlbal as a Web Server
+=head1 NAME
 
-Configuring Perlbal as a Web Server
+Perlbal::Manual::WebServer - Configuring Perlbal as a Web Server
 
 
 =head2 VERSION

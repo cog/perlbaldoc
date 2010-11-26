@@ -1,6 +1,6 @@
-=head1 Perlbal Plugins
+=head1 NAME
 
-Known Plugins and Plugin creation.
+Perlbal::Manual::Plugins - Creating and using plugins
 
 
 =head2 VERSION

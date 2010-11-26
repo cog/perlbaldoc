@@ -1,6 +1,7 @@
-=head1 Managing Perlbal on-the-fly
+=head1 NAME
 
-Managing Perlbal.
+Perlbal::Manual::Management - Managing Perlbal on-the-fly
+
 
 For documentation on how to configure Perlbal read C<Perlbal::Manual::Configuration>.
 

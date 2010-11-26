@@ -1,6 +1,6 @@
-=head1 Perlbal::Manual::Credits
+=head1 NAME
 
-Author and contributor credits.
+Perlbal::Manual::Credits - Author and contributor credits
 
 
 =head2 VERSION

@@ -1,6 +1,6 @@
-=head1 Perlbal Hooks
+=head1 NAME
 
-Perlbal hooks.
+Perlbal::Manual::Hooks - How Perlbal hooks work
 
 
 =head2 VERSION

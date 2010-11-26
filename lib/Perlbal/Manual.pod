@@ -1,6 +1,6 @@
-=head1 Perlbal::Manual
+=head1 NAME
 
-Guide and reference manual for Perlbal.
+Perlbal::Manual - Guide and reference manual for Perlbal
 
 
 =head2 VERSION

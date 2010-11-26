@@ -1,6 +1,6 @@
-=head1 Using Perlbal as a Reverse Proxy
+=head1 NAME
 
-Configuring Perlbal as a Reverse Proxy
+Perlbal::Manual::ReverseProxy - Configuring Perlbal as a Reverse Proxy
 
 
 =head2 VERSION

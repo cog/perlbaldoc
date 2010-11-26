@@ -1,6 +1,6 @@
-=head1 Installing Perlbal
+=head1 NAME
 
-Steps, dependencies and requirements to install Perlbal.
+Perlbal::Manual::Install - Steps, dependencies and requirements to install Perlbal
 
 
 =head2 VERSION
