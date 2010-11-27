@@ -8,6 +8,11 @@ Perlbal::Manual::ReverseProxy - Configuring Perlbal as a Reverse Proxy
 This document details reverse proxy configuration of Perlbal 1.76.
 
 
+=head2 READ ME FIRST
+
+Please refer to C<Perlbal::Manual::Configuration> for a better explanation on how to configure Perlbal. This file will make much more sense after reading that.
+
+
 =head2 Configuring Perlbal as a Reverse Proxy
 
 Configuration of Perlbal as a Reverse Proxy is similar to configuration as a Load Balancer.
@@ -379,4 +384,5 @@ The connection is killed, as we already have two other open connections (the fir
 
 =head2 SEE ALSO
 
+C<Perlbal::Manual::Configuration>,
 C<Perlbal::Manual::LoadBalancer>

@@ -20,6 +20,11 @@ This is the comprehensive guide and reference manual for Perlbal.
 Perlbal's architecture at a glance.
 
 
+=item L<Perlbal::Manual::Configuration|Perlbal::Manual::Configuration>
+
+How to configure Perlbal.
+
+
 =item L<Perlbal::Manual::Contributing|Perlbal::Manual::Contributing>
 
 How to contribute to Perlbal.
@@ -33,6 +38,11 @@ Author and contributor credits for Perlbal.
 =item L<Perlbal::Manual::Hooks|Perlbal::Manual::Hooks>
 
 How Perlbal's hooks work and which ones exist.
+
+
+=item L<Perlbal::Manual::HighPriority|Perlbal::Manual::HighPriority>
+
+Perlbal's high priority queueing system.
 
 
 =item L<Perlbal::Manual::Install|Perlbal::Manual::Install>

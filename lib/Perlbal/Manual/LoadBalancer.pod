@@ -8,13 +8,24 @@ Perlbal::Manual::LoadBalancer - Using Perlbal as a Load Balancer
 This document details load balancing configuration of Perlbal 1.76.
 
 
-=head2 Configuring Perlbal as a Load Balancer
+=head2 READ ME FIRST
 
-By default, perlbal looks for a configuration file at /etc/perlbal/perlbal.conf.
+Please refer to C<Perlbal::Manual::Configuration> for a better explanation on how to configure Perlbal. This file will make much more sense after reading that.
 
-You can also point perlbal at a different configuration file with the -c flag.
 
-    $ perlbal -c /home/user/perlbal.conf
+=head2 Using Perlbal as a Load Balancer
+
+For a better understanding of how to set up Perbal as a Load Balancer, it should be noted that a Load Balancer and a Reverse Proxy can often be the same thing; not always, but often.
+
+A Load Balancer is a server (or device) that balances requests across a number of servers to spread the load. A Reverse Proxy can still do this but still have a number of other features.
+
+Perlbal as a Reverse Proxy provides features such as buffering content, preserving connections to the backend servers, starting connections ahead of time and a high priority queue, among others.
+
+You could almost say that a Load Balancer is a subset of a Reverse Proxy (it's not, but you could).
+
+When it comes to C<Perlbal>, the Load Balancer is implemented as a Reverse Proxy without all the extra options, and that's why you set the role of a Load Balancer to C<reverse_proxy>:
+
+    SET role            = reverse_proxy
 
 
 =head3 Simple load balancing
@@ -49,42 +60,6 @@ After that you define a service called C<service_mywebsite> set to listen on C<1
 The last line is what allows you have several services configured in a file even if they are not currently active (a common scenario is to configure everything on the file and then enable/disable services on-the-fly as required; see C<Perlbal::Manual::Management> for more information on this process).
 
 
-=head3 Configuring a pool in a separate file
-
-You can create a pool in a separate file by using the C<nodefile> parameter:
-
-    CREATE POOL dynamic
-        SET nodefile = conf/nodelist.dat
-
-This separate file should contain IP addresses, one per line (empty lines are ignored, as well as comments started by the L<#> sign).
-
-Check C<conf/load-balancer.conf> and C<conf/nodelist.dat> for an example.
-
-
-=head3 High priority queuing system
-
-Perlbal has a high priority queue for sending requests through to backends quickly, using cookies to determine if a request should go to fast queue (configurable).
-
-The parameters to configure this are C<high_priority_cookie> and C<high_priority_cookie_contents>; the first defines the name of the field to check for on the cookie and the second one defines the content in that field that will trigger the request going to the fast queue:
-
-    SET myservice.high_priority_cookie = name_of_the_field
-    SET myservice.high_priority_cookie_contents = required_content_on_that_field
-
-Here's a clearer example:
-
-    SET myservice.high_priority_cookie = highpriority
-    SET myservice.high_priority_cookie_contents = yes
-
-Internally, Perlbal pushes requests into arrays. The concept is that two arrays exist: one for regular requests, and another for high priority requests. Whenever Perlbal can process another request, it first tries to retrieve a request from the high priority array; if that array is empty, it proceeds to the regular requests array.
-
-Sometimes if the high priority queue is really busy, the standard queue will suffer from resource starvation. The queue relief system helps prevent this. When there are C<queue_relief_size> or more connections in the standard queue, newly available backends have a C<queue_relief_chance> percent chance of taking a request from the standard priority queue instead of the high priority queue.
-
-    SET web_proxy.queue_relief_size = 2000
-    SET web_proxy.queue_relief_chance = 30 # 0-100, in percent
-
-The plugin C<Perlbal::Plugin::Highpri> supports making requests high priority by URI or Host. Also check C<make_high_priority> under C<Perlbal::Manual::Hooks>.
-
-
 =head2 Fail Over
 
 Whenever Perlbal fails to open a connection to a machine, it assumes that machine is not available and spreads the load between the remaining servers. It keeps trying to open connections to that server according to C<error_retry_schedule>.
@@ -94,31 +69,7 @@ If there are no available servers, Perlbal will keep trying to open connections 
 For more information on parameters C<idle_timeout> and C<error_retry_schedule> see C<Perlbal::Manual::ReverseProxy>.
 
 
-=head2 Parameters
-
-You can set parameters via commands of either forms:
-
-    SET <service-name> <param> = <value>
-    SET <param> = <value>
-
-For a full list of parameters see C<Perlbal::Manual::ReverseProxy>.
-
-
-=head2 Load Balancer vs. Reverse Proxy
-
-A Load Balancer and a Reverse Proxy can often be the same thing; not always, but often.
-
-A Load Balancer is a server (or device) that balances requests across a number of servers to spread the load. A Reverse Proxy can still do this but still have a number of other features.
-
-Perlbal as a Reverse Proxy provides features such as buffering content, preserving connections to the backend servers, starting connections ahead of time and a high priority queue, among others.
-
-You could almost say that a Load Balancer is a subset of a Reverse Proxy (it's not, but you could).
-
-When it comes to C<Perlbal>, the Load Balancer is implemented as a Reverse Proxy without all the extra options, and that's why you set the role of a Load Balancer to C<reverse_proxy>:
-
-    SET role            = reverse_proxy
-
-
 =head2 SEE ALSO
 
+C<Perlbal::Manual::Configuration>,
 C<Perlbal::Manual::ReverseProxy>

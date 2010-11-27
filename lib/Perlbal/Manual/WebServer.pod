@@ -8,6 +8,11 @@ Perlbal::Manual::WebServer - Configuring Perlbal as a Web Server
 This document details web server configuration of Perlbal 1.76.
 
 
+=head2 READ ME FIRST
+
+Please refer to C<Perlbal::Manual::Configuration> for a better explanation on how to configure Perlbal. This file will make much more sense after reading that.
+
+
 =head2 Configuring Perlbal as a Web Server
 
 By default, perlbal looks for a configuration file at /etc/perlbal/perlbal.conf.
@@ -103,3 +108,8 @@ Default is 0, which means there is no limit.
 If PUT requests are enabled, require this many levels of directories to already exist. If not, fail.
 
 Default is 0.
+
+
+=head2 SEE ALSO
+
+C<Perlbal::Manual::Configuration>.

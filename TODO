@@ -1,19 +1,21 @@
+(note: this to-do list does not include everything that has been documented; it's just a way of keeping track of things that still need to be done)
+
 
 on Perlbal::Manual:
     [ ] make sure we're listing all the documentation files
     [ ] add an extra paragraph for each file, briefly describing its contents
 
 
-on Perlbal::Manual::Configuration
-    [ ] get the information from other files and move it here
-    [ ]    how to create a configuration file
-    [ ]    how to add comments on a perlbal configuration file
-    [ ] environment variables
-
-
 on Perlbal::Manual::Architecture
     [x] list all classes
     [ ] document all fields of each class (check the beginning of Service.pm, for instance)
+
+
+on Perlbal::Manual::Configuration
+    [x] get the information from other files and move it here
+    [ ]    how to create a configuration file
+    [ ]    how to add comments on a perlbal configuration file
+    [ ] environment variables
 
 
 on Perlbal::Manual::Contributing
@@ -25,49 +27,8 @@ on Perlbal::Manual::Credits
     [x] grab all the relevant names from Changes
 
 
-on Perlbal::Manual::ToDo
-    [x] put all of Perlbal's to-do items in POD format
-
-
-on Perlbal::Manual::Install:
-    [x] write the section Troubleshooting
-    [x]    dependencies that need to be compiled and there's no compiler available
-    [x] installing Perlbal by hand
-    [x]    decide whether we want to keep this section - YES
-    [x] installing Perlbal on a machine that's not connected to the internet (CPAN dependencies trouble)
-    [x] how to test Perlbal (to see if everything went as expected)
-    [x] how to install Perlbal's latest release (from github)
-
-
-on Perlbal::Manual::LoadBalancer:
-    [x] conventions (accepted values for booleans, etc)
-    [x] on "a common scenario is to configure" add a link to the section on configuring Perlbal on the fly
-    [x] compare backend_persist_cache with connect_ahead ?
-    [x] how to configure a pool in a separate file
-    [x] high priority queuing system
-    [x] load balancing
-    [x]    document what happens when one of the machines isn't available
-    [x]    what if the last machine failed; what happens underneath?
-    [x]    how does the system recover?
-    [x] revise the list of features a reverse proxy can have (we're listing cache, which is probably not appropriate here)
-    [x] list parameters
-
-
-on Perlbal::Manual::ReverseProxy:
-    [x] add a simple example of configuration
-    [x] check doc/reproxying.txt
-    [x] list parameters
-
-
-on Perlbal::Manual::WebServer:
-    [x] add a simple example of configuration
-    [x] list parameters
-
-
-on Perlbal::Manual::Management:
-    [x] managing Perlbal on the fly
-    [x] add examples for all commands (or decide on each of them individually)
-    [ ] review the documentation for server <param> = <value>
+on Perlbal::HighPriority:
+    [ ] low priority queues
 
 
 on Perlbal::Manual::Hooks:
@@ -99,6 +60,36 @@ on Perlbal::Manual::Hooks:
     [ ]    static_get_poststat_pre_send
 
 
+on Perlbal::Manual::Install:
+    [x] write the section Troubleshooting
+    [x]    dependencies that need to be compiled and there's no compiler available
+    [x] installing Perlbal by hand
+    [x]    decide whether we want to keep this section - YES
+    [x] installing Perlbal on a machine that's not connected to the internet (CPAN dependencies trouble)
+    [x] how to test Perlbal (to see if everything went as expected)
+    [x] how to install Perlbal's latest release (from github)
+
+
+on Perlbal::Manual::LoadBalancer:
+    [x] conventions (accepted values for booleans, etc)
+    [x] on "a common scenario is to configure" add a link to the section on configuring Perlbal on the fly
+    [x] compare backend_persist_cache with connect_ahead ?
+    [x] how to configure a pool in a separate file
+    [x] high priority queuing system
+    [x] load balancing
+    [x]    document what happens when one of the machines isn't available
+    [x]    what if the last machine failed; what happens underneath?
+    [x]    how does the system recover?
+    [x] revise the list of features a reverse proxy can have (we're listing cache, which is probably not appropriate here)
+    [x] list parameters
+
+
+on Perlbal::Manual::Management:
+    [x] managing Perlbal on the fly
+    [x] add examples for all commands (or decide on each of them individually)
+    [ ] review the documentation for server <param> = <value>
+
+
 on Perlbal::Manual::Plugins:
     [x] list existing plugins
     [x]    sort plugins alphabetically
@@ -119,6 +110,21 @@ on Perlbal::Manual::Plugins:
     [ ]    for all the above functions, describe the arguments they receive
 
 
+on Perlbal::Manual::ReverseProxy:
+    [x] add a simple example of configuration
+    [x] check doc/reproxying.txt
+    [x] list parameters
+
+
+on Perlbal::Manual::ToDo
+    [x] put all of Perlbal's to-do items in POD format
+
+
+on Perlbal::Manual::WebServer:
+    [x] add a simple example of configuration
+    [x] list parameters
+
+
 somewhere:
     [ ] selector
     [ ] how to debug perlbal
@@ -126,7 +132,7 @@ somewhere:
     [x] PERLBAL_TRACK_STATES
     [ ] PERLBAL_DEBUG_OBJ
     [ ] make sure we have a section on manipulating headers
-    [ ] low priority queues
+    [] move the documentation on failover queueing system to another file (it's currently residing in LoadBalancer)
 
 
 README:
