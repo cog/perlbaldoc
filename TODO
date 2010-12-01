@@ -3,7 +3,7 @@
 
 on Perlbal::Manual:
     [x] make sure we're listing all the documentation files
-    [ ] add an extra paragraph for each file, briefly describing its contents
+    [x] add an extra paragraph for each file, briefly describing its contents
 
 
 on Perlbal::Manual::Architecture

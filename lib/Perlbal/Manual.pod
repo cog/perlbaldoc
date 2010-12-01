@@ -17,12 +17,12 @@ This is the comprehensive guide and reference manual for Perlbal.
 
 =item L<Perlbal::Manual::Architecture|Perlbal::Manual::Architecture>
 
-Perlbal's architecture at a glance.
+Perlbal's architecture at a glance. Useful for future developers.
 
 
 =item L<Perlbal::Manual::Configuration|Perlbal::Manual::Configuration>
 
-How to configure Perlbal.
+How to configure Perlbal. Pools, services, syntax and more.
 
 
 =item L<Perlbal::Manual::Contributing|Perlbal::Manual::Contributing>
@@ -37,12 +37,12 @@ Author and contributor credits for Perlbal.
 
 =item L<Perlbal::Manual::HighPriority|Perlbal::Manual::HighPriority>
 
-Perlbal's high priority queueing system.
+Perlbal's high/low priority queueing system and how to use it.
 
 
 =item L<Perlbal::Manual::Hooks|Perlbal::Manual::Hooks>
 
-How Perlbal's hooks work and which ones exist.
+How Perlbal's hooks work and list of existing hooks.
 
 
 =item L<Perlbal::Manual::Install|Perlbal::Manual::Install>
@@ -57,7 +57,7 @@ Setting up a Perlbal Load Balancing service.
 
 =item L<Perlbal::Manual::Management|Perlbal::Manual::Management>
 
-Managing Perlbal on-the-fly.
+Setting up a C<management> service, connecting to that service and managing Perlbal on-the-fly.
 
 
 =item L<Perlbal::Manual::Plugins|Perlbal::Manual::Plugins>
