@@ -10,8 +10,8 @@ on Perlbal::Manual::Architecture
     [x] list all classes
     [ ] document all fields of each class (check the beginning of Service.pm, for instance)
     [x]    Socket
-    [ ]    TCPListener
-    [ ]    BackendHTTP
+    [x]    TCPListener
+    [x]    BackendHTTP
     [ ]    HTTPHeaders
     [ ]    ClientHTTPBase
     [ ]    ClientHTTP

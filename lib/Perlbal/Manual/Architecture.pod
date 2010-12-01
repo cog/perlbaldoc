@@ -90,9 +90,24 @@ Perlbal::TCPListener has the following fields:
 
 =over 4
 
-=item ...
+=item service
 
-...
+Perlbal::Service.
+
+
+=item hostport
+
+Scalar IP port of where this service is listening for new connections.
+
+
+=item sslopts
+
+The SSL Options.
+
+
+=item v6
+
+Boolean value stating whether the installation of Perlbal supports IPv6 (which basically boils down to C<Danga::Socket> v1.6.1 and C<IO::Socket::INET6> being available).
 
 
 =back
@@ -108,9 +123,84 @@ Perlbal::BackendHTTP has the following fields:
 
 =over 4
 
-=item ...
+=item client
 
-...
+Perlbal::ClientProxy connection, or undef.
+
+
+=item service
+
+Perlbal::Service.
+
+
+=item pool
+
+Perlbal::Pool; whatever pool we spawned from.
+
+
+=item ip
+
+IP scalar.
+
+
+=item port
+
+Port scalar.
+
+
+=item ipport
+
+C<$ip:$port>.
+
+
+=item reportto
+
+Object; must implement reporter interface.
+
+
+=item has_attention
+
+Has been accepted by a webserver and we know for sure we're not just talking to the TCP stack.
+
+
+=item waiting_options
+
+If true, we're waiting for an OPTIONS * response to determine when we have attention.
+
+
+=item disconnect_at
+
+Time this connection will be disconnected, if it's kept-alive and backend told us; otherwise C<undef> for unknown.
+
+
+=item content_length
+
+Length of document being transferred. Only applies when the backend server sends a content-length header.
+
+
+=item content_length_remain
+
+Bytes remaining to be read. Only applies when the backend server sends a content-length header.
+
+
+=item use_count
+
+Number of requests this backend's been used for.
+
+
+=item generation
+
+Int; counts what generation we were spawned in.
+
+
+=item buffered_upload_mode
+
+Boolean. If on, we're doing a buffered upload transmit.
+
+
+=item scratch
+
+Used for plugins.
 
 
 =head3 Perlbal::HTTPHeaders
