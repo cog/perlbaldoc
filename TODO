@@ -137,6 +137,14 @@ on Perlbal::Manual::ReverseProxy:
     [x] list parameters
 
 
+on Perlbal::Manual::Roles
+    [x] list and briefly describe the existing roles
+
+
+on Perlbal::Manual::Selector
+    [x] describe the selector role
+
+
 on Perlbal::Manual::ToDo
     [x] put all of Perlbal's to-do items in POD format
 
@@ -147,7 +155,6 @@ on Perlbal::Manual::WebServer:
 
 
 somewhere:
-    [ ] selector
     [ ] make sure we have a section on manipulating headers
     [ ] move the documentation on failover queueing system to another file (it's currently residing in LoadBalancer)
 
