@@ -126,44 +126,51 @@ Sets a server parameter, where param is one of:
 
 =over 8
 
-=item * max_reproxy_connections
+=item * max_reproxy_connections = <value>
 
-...
-
-
-=item * max_connections
-
-...
+Maximum number of concurrent connections to the backends.
 
 
-=item * nice_level
+=item * max_reproxy_connections(C<ip>) = <value>
 
-...
+Maximum number of concurrent connections to one specific backend.
 
 
-=item * aio_mode
+=item * max_connections = <value>
+
+Using C<BSD::Resource>, sets the maximum number of open files for this process.
+
+Requires C<BSD::Resource>. Also, Perlbal must be run under a superuser.
+
+
+=item * nice_level = <value>
+
+Sets the C<nice> level for the process.
+
+
+=item * aio_mode = <value>
 
 One of C<none>, C<linux> (for C<Linux::AIO>), or C<ioaio> (for C<IO::AIO>).
 
 This controls how disk IO is done asynchronously. Highly recommended to use C<Linux::AIO> or C<IO::AIO> for webserving or reproxying files. For purely reverse proxy or only reproxying URLs, none is fine.
 
 
-=item * aio_threads
+=item * aio_threads = <value>
 
 Number of child threads doing disk IO. Use between 2 and 50.
 
 
-=item * track_obj
+=item * track_obj = <value>
 
 Developer option to track objects.
 
 
-=item * pidfile
+=item * pidfile = <value>
 
 Filename to write pidfile to (no pidfile if not specified).
 
 
-=item * crash_backtrace
+=item * crash_backtrace = <value>
 
 1 or 0 indicating whether to perform a backtrace while the server is crashing.
 
