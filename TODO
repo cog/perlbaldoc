@@ -108,7 +108,7 @@ on Perlbal::Manual::LoadBalancer:
 on Perlbal::Manual::Management:
     [x] managing Perlbal on the fly
     [x] add examples for all commands (or decide on each of them individually)
-    [ ] review the documentation for server <param> = <value>
+    [x] review the documentation for server <param> = <value>
 
 
 on Perlbal::Manual::Plugins:
