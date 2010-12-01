@@ -156,9 +156,9 @@ The value of the header contains the reason why the request was buffered.
 
 =head3 PERLBAL_DEBUG_OBJ
 
-This is the variable you'll have to set to a true value in order to properly use the commands C<obj>, C<track> and C<varsize>.
+This is the variable you'll have to set to a true value in order to properly use the commands C<obj> or C<track>.
 
-You will also need to set C<PERLBAL_TRACK_STATES> to a true value (see below).
+See C<Perlbal::Manual::Management> for more information.
 
 
 =head3 PERLBAL_TEST_ALPHA
@@ -181,9 +181,7 @@ And then, on your test file, use something like:
 
 =head3 PERLBAL_TRACK_STATES
 
-This is the variable you'll have to set to a true value in order to properly use the commands C<state changes> and C<varsize>.
-
-For the command C<varsize> you will also need to set C<DEBUG_OBJ> to a true value (see above).
+This is the variable you'll have to set to a true value in order to properly use the command C<state changes>.
 
 See C<Perlbal::Manual::Management> for more information.
 

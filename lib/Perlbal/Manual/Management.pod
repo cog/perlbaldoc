@@ -486,8 +486,6 @@ Debug management command to track size of internal data structures.
       {127.0.0.1:3080}  = 
       {127.0.0.1:3081}  = Perlbal::BackendHTTP=HASH(0x1cfd2490)
 
-Note: This functionality depends on the environment variable C<PERLBAL_TRACK_STATES> being set to a true value.
-
 
 =item verbose on
 
