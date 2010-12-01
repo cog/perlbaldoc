@@ -9,6 +9,16 @@ on Perlbal::Manual:
 on Perlbal::Manual::Architecture
     [x] list all classes
     [ ] document all fields of each class (check the beginning of Service.pm, for instance)
+    [x]    Socket
+    [ ]    TCPListener
+    [ ]    BackendHTTP
+    [ ]    HTTPHeaders
+    [ ]    ClientHTTPBase
+    [ ]    ClientHTTP
+    [ ]    ClientProxy
+    [ ]    ClientManage
+    [ ]    Service
+    [ ]    StatsListener
 
 
 on Perlbal::Manual::Configuration
