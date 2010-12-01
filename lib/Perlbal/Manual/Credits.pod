@@ -19,7 +19,6 @@ Please let us know if you think someone is missing from this list.
 
 =head2 CONTRIBUTORS 
 
-
 Alan Kasindorf,
 Andreas J Koenig,
 Andy Armstrong,
@@ -29,6 +28,7 @@ Bart van der Schans,
 Boris Zentner,
 Brad Fitzpatrick,
 Chuck Remes,
+Chris Hondl,
 Dan Conlon,
 Eamon Daly,
 Fred Moyer,
@@ -47,3 +47,7 @@ Radu Greab,
 Richard Bronosky,
 Slaven Rezic.
 
+
+=head2 SEE ALSO
+
+C<Perlbal::Manual::Contributing>.

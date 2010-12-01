@@ -39,3 +39,8 @@ Be sure to follow local style conventions.
  	http://code.google.com/p/perlbal/issues/list
 
 =back
+
+
+=head2 SEE ALSO
+
+C<Perlbal::Manual::Credits>.
