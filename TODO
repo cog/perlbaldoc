@@ -155,7 +155,7 @@ on Perlbal::Manual::WebServer:
 
 
 somewhere:
-    [ ] make sure we have a section on manipulating headers
+    [x] make sure we have a section on manipulating headers
     [x] move the documentation on failover queueing system to another file (it's currently residing in LoadBalancer)
 
 
@@ -178,8 +178,8 @@ all files (probably by the end of the project):
     [ ] $ ack " $"
 
 cleanup:
-    [ ] remove "grant proposal.pod" from the repository
-    [ ] remove the directory "useful stuff" (it's not useful anymore)
+    [x] remove "grant proposal.pod" from the repository
+    [x] remove the directory "useful stuff" (it's not useful anymore)
 
 general:
     [ ] check perlbal's repository to ensure we're working with upcoming changes
