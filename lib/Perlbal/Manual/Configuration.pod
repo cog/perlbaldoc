@@ -101,6 +101,19 @@ To disable a service:
 The lines is what allows you to have several services configured in a file even if they are not currently active (a common scenario is to configure everything on the file and then enable/disable services on-the-fly as required; see C<Perlbal::Manual::Management> for more information on this process).
 
 
+=head3 Including configuration files
+
+While Perlbal doesn't natively let you include a configuration file within another, one of its core Plugins does.
+
+By using C<Perlbal::Plugin::Include> you can use this feature:
+
+    LOAD include
+    INCLUDE = /etc/perlbal/my.conf
+    INCLUDE = /etc/perlbal/other.conf /etc/perlbal/*.conf
+
+See C<Perlbal::Plugin::Include> for further examples and more information.
+
+
 =head3 Comments
 
 Comments in C<Perlbal>'s configuration files start with a C<#>:

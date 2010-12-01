@@ -15,7 +15,6 @@ on Perlbal::Manual::Configuration
     [x] get the information from other files and move it here
     [x]    how to create a configuration file
     [x]    how to add comments on a perlbal configuration file
-    [ ] environment variables
     [ ] nodefile - is the path relative to something?
     [x] environment variables
     [x]    DANGABUILD_DAEMONONLY
@@ -28,7 +27,7 @@ on Perlbal::Manual::Configuration
     [x]    PERLBAL_XS_HEADERS
     [x]    TEST_PERLBAL_FOREGROUND
     [x]    TEST_PERLBAL_USE_EXISTING
-    [ ] mention Perlbal::Plugin::Include
+    [x] mention Perlbal::Plugin::Include
 
 
 on Perlbal::Manual::Contributing
