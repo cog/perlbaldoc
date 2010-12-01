@@ -51,4 +51,4 @@ The plugin C<Perlbal::Plugin::Highpri> supports making requests high priority by
 
 =head3 SEE ALSO
 
-C<make_high_priority> and C<make_low_priority> in C<Perlbal::Manual::Hooks>.
+C<make_high_priority> and C<make_low_priority> in C<Perlbal::Manual::Hooks>, C<Perlbal::Plugin::HighPriority>.

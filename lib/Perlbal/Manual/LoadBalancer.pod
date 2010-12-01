@@ -77,4 +77,5 @@ For more information on parameters C<idle_timeout> and C<error_retry_schedule> s
 =head2 SEE ALSO
 
 C<Perlbal::Manual::Configuration>,
-C<Perlbal::Manual::ReverseProxy>
+C<Perlbal::Manual::Management>,
+C<Perlbal::Manual::ReverseProxy>.

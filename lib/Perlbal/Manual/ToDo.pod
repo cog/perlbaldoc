@@ -177,3 +177,8 @@ The following are possible to-do items for Perlbal:
     http://rt.livejournal.org/Ticket/Display.html?id=4429
 
 =back
+
+
+=head2 SEE ALSO
+
+C<Perlbal::Manual::Contributing>.

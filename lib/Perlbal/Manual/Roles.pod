@@ -22,6 +22,7 @@ Used to set a management service (a port you can telnet to and issue configurati
 
 See C<Perlbal::Manual::Management> for more information.
 
+
 =head3 reverse_proxy
 
 Used for reverse proxy and load balancing.
@@ -41,3 +42,11 @@ See C<Perlbal::Manual::Selector> for more information.
 Used to set Perlbal as a web server.
 
 See C<Perlbal::Manual::WebServer> for more information.
+
+
+=head2 SEE ALSO
+
+C<Perlbal::Manual::LoadBalancer>,
+C<Perlbal::Manual::ReverseProxy>,
+C<Perlbal::Manual::Selector>,
+C<Perlbal::Manual::WebServer>.

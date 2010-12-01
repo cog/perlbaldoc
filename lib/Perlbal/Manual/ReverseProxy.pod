@@ -399,4 +399,5 @@ For more information on parameters C<idle_timeout> and C<error_retry_schedule> s
 =head2 SEE ALSO
 
 C<Perlbal::Manual::Configuration>,
-C<Perlbal::Manual::LoadBalancer>
+C<Perlbal::Manual::LoadBalancer>,
+C<Perlbal::Manual::Management>.

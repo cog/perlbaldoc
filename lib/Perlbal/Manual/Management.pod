@@ -576,3 +576,7 @@ Some alternatives to authentication are commonly employed:
 
 =back
 
+
+=head2 SEE ALSO
+
+C<Perlbal::Manual::Configuration>.

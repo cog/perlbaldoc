@@ -94,4 +94,4 @@ Setting up a Perlbal Web Server service.
 
 =head1 AUTHORS
 
-...
+Bruno Martins and José Castro.

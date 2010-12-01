@@ -117,4 +117,5 @@ Default is 0.
 
 =head2 SEE ALSO
 
-C<Perlbal::Manual::Configuration>.
+C<Perlbal::Manual::Configuration>,
+C<Perlbal::Manual::Management>.

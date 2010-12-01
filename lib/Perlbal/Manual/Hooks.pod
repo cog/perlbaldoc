@@ -258,4 +258,4 @@ Available in role C<reverse_proxy>.
 
 =head2 SEE ALSO
 
-C<Perlbal::Manual::Plugins>.
+C<Perlbal::Manual::Architecture>, C<Perlbal::Manual::Plugins>.

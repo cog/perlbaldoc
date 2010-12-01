@@ -193,3 +193,8 @@ This is the cpan shell assuming nothing changed in the system and skipping a few
 And now you can try installation again:
 
     cpan> install Perlbal
+
+
+=head2 SEE ALSO
+
+C<Perlbal::Manual>.
