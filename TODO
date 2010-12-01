@@ -156,7 +156,7 @@ on Perlbal::Manual::WebServer:
 
 somewhere:
     [ ] make sure we have a section on manipulating headers
-    [ ] move the documentation on failover queueing system to another file (it's currently residing in LoadBalancer)
+    [x] move the documentation on failover queueing system to another file (it's currently residing in LoadBalancer)
 
 
 README:
