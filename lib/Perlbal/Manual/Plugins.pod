@@ -327,11 +327,6 @@ Here's how you'd configure a new setter, by using C<register_setter> inside C<lo
     }
 
 
-=head3 add_tunable vs. register_setter
-
-...
-
-
 =head3 register vs. load
 
 C<load> is called when the plugin is loaded, while C<register> is called whenever the plugin is set for a service.

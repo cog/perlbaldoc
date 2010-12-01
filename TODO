@@ -128,7 +128,6 @@ on Perlbal::Manual::Plugins:
     [x]    manage_command
     [x]    register_setter
     [x]    for all the above functions, describe the arguments they receive
-    [ ]    add_tunable vs. register_setter
 
 
 on Perlbal::Manual::ReverseProxy:
@@ -183,7 +182,7 @@ cleanup:
 
 general:
     [ ] check perlbal's repository to ensure we're working with upcoming changes
-    [ ] make sure everything within doc/ gets documented in this project
+    [x] make sure everything within doc/ gets documented in this project
     [ ] make sure everything within conf/ gets documented in this project
     [x] move ./Perlbal to ./lib/Perlbal, so the merge with Perlbal's repository is made easier
 

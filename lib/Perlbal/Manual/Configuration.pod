@@ -54,9 +54,27 @@ You can create a pool in a separate file by using the C<nodefile> parameter:
 
 This separate file should contain addresses in the form of C<ip:port>, one per line (empty lines are ignored, as well as comments started by the L<#> sign).
 
+Perlbal will check the file periodically for updates.
+
 The path to the file is relative to where perlbal was started.
 
+Note that:
+
+    SET pool nodefile = none 
+    (also undef, null, "", '')
+
+...unsets the nodefile, but does not remove current members.
+
 Check C<conf/load-balancer.conf> and C<conf/nodelist.dat> for an example.
+
+
+=head4 Pool balance method
+
+You can set the pool balance method:
+
+    SET pool balance_method = 'random'
+
+At the present time, C<random> is the only load balancing method available.
 
 
 =head3 Services
@@ -114,6 +132,19 @@ By using C<Perlbal::Plugin::Include> you can use this feature:
     INCLUDE = /etc/perlbal/other.conf /etc/perlbal/*.conf
 
 See C<Perlbal::Plugin::Include> for further examples and more information.
+
+
+=head3 Expansions
+
+The following things expand/interpolate in config files/commands:
+
+=over 4
+
+=item C<${ip:eth0}>
+
+Expands to the configured IP for interface "eth0". Probably only works on Linux.
+
+=back
 
 
 =head3 Comments
