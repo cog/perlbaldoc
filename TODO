@@ -8,7 +8,7 @@ on Perlbal::Manual:
 
 on Perlbal::Manual::Architecture
     [x] list all classes
-    [ ] document all fields of each class (check the beginning of Service.pm, for instance)
+    [x] document all fields of each class (check the beginning of Service.pm, for instance)
     [x]    Socket
     [x]    TCPListener
     [x]    BackendHTTP
@@ -17,7 +17,7 @@ on Perlbal::Manual::Architecture
     [x]    ClientHTTP
     [x]    ClientProxy
     [x]    ClientManage
-    [ ]    Service
+    [x]    Service
 
 
 on Perlbal::Manual::Configuration
