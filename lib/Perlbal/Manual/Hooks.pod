@@ -76,7 +76,7 @@ Available in all roles.
 
 =head3 concat_get_poststat_file_missing
 
-Called when a missing file was requested, right before sending the 404 response. Return a true value to overtake the connection.
+Called when a missing file was requested in a request for multiple files concatenated, right before sending the 404 response. Return a true value to overtake the connection.
 
 Called in C<Perlbal::ClientHTTPBase>.
 
@@ -87,7 +87,7 @@ See also C<concat_get_poststat_pre_send>, C<static_get_poststat_file_missing> an
 
 =head3 concat_get_poststat_pre_send
 
-Called when a file is about to be sent, right before the 200 response code is added as a header. Return a true value to overtake the connection.
+Called when the resulting file of a request for multiple files concatenated is about to be sent, right before the 200 response code is added as a header. Return a true value to overtake the connection.
 
 Called in C<Perlbal::ClientHTTPBase>.
 
