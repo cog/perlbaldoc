@@ -107,7 +107,7 @@ on Perlbal::Manual::Plugins:
     [x]    sort plugins alphabetically
     [x]    check for duplicated plugins
     [x]    try to add a description for every plugin
-    [ ] how to use a plugin
+    [x] how to use a plugin
     [ ] how to create a plugin, step-by-step
     [x]    creating a package
     [x]    register

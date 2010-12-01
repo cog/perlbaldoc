@@ -10,7 +10,39 @@ This document details Perlbal 1.76's system for Plugins.
 
 =head2 How to use a plugin
 
-...
+Perlbal supports plugins through modules under Perlbal::Plugin that implement a set of functions described further down this document.
+
+Some of these plugins are shipped with Perlbal itself, while others can be found on CPAN (you can also create your own plugin and have it available only locally).
+
+In order to use a plugin you first have to load it; on your configuration file add something like:
+
+    Load MyPlugin
+
+This loads plugin Perlbal::Plugin::MyPlugin.
+
+Each plugin will have its own way of being configured (some don't require any configuration at all), so you'll have to refer to their documentation (or code).
+
+Typically (but not always), a plugin will allow you to set additional parameters to a service; for instance:
+
+    LOAD MaxContentLength
+    CREATE SERVICE example
+        SET max_content_length  = 100000
+        SET plugins             = MaxContentLength
+
+Notice that some plugins need to be stated service by service; hence, this line:
+
+        SET plugins             = MaxContentLength
+
+The C<plugins> parameter (a list of strings separated by commas) defined which plugins are acceptable for that service.
+
+
+=head3 Troubleshooting
+
+If the plugin isn't available you see an error message:
+
+    ERROR: Can't locate Perlbal/Plugin/MyPlugin.pm in @INC
+
+That means that either the plugin isn't installed or perlbal couldn't find it. (perhaps it is installed in a different version of perl other than the one used to run perlbal?)
 
 
 =head2 How to create a plugin
