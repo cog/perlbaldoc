@@ -356,6 +356,8 @@ If the time is a negative value it means that the C<OPTIONS> command will be iss
 
 Shows objects count in scope.
 
+The environment variable C<DEBUG_OBJ> must be set to a true value (see C<Environment Variables> under C<Perlbal::Manual::Configuration> for more information).
+
 
 =item pending
 
@@ -461,7 +463,7 @@ Dumps objects tracked, sorted by age.
     15s Perlbal::BackendHTTP=HASH(0x1a042588): Perlbal::BackendHTTP::new, Perlbal::Service::spawn_backends, Perlbal::Service::note_bad_backend_connect, Perlbal::BackendHTTP::verify_failure, Perlbal::BackendHTTP::event_read_waiting_options, Perlbal::BackendHTTP::event_read, Danga::Socket::EpollEventLoop, (eval), Perlbal::run
     15s Perlbal::BackendHTTP=HASH(0x1a044488): Perlbal::BackendHTTP::new, Perlbal::Service::spawn_backends, Perlbal::Service::request_backend_connection, Perlbal::ClientProxy::request_backend, Perlbal::ClientProxy::handle_request, Perlbal::ClientProxy::event_read, Danga::Socket::EpollEventLoop, (eval), Perlbal::run
 
-For this to work you must have the environment variable C<PERLBAL_TRACK_STATES> set to a true value and the server option C<track_obj> on:
+For this to work you must have the environment variable C<DEBUG_OBJ> set to a true value and the server option C<track_obj> on:
 
     server track_obj = 1
     OK

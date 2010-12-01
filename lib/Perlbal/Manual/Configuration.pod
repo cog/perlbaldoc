@@ -109,6 +109,95 @@ Comments in C<Perlbal>'s configuration files start with a C<#>:
     ENABLE myservice # this is also a comment
 
 
+=head2 Environment variables
+
+=head3 DANGABUILD_DAEMONONLY
+
+...
+
+
+=head3 DANGABUILD_MODULESONLY
+
+...
+
+
+=head3 PERLBAL_DEBUG
+
+There are four levels of debugging in Perlbal.
+
+By setting this variable to a value between 0 and 4 (included) you will activate Perbal's debug.
+
+    PERLBAL_DEBUG = 0 # no debug
+    
+    PERLBAL_DEBUG = 4 # debug everything
+
+
+=head3 PERLBAL_DEBUG_BUFFERED_UPLOADS
+
+By setting this variable to 1 you can tell Perlbal to add a C<X-PERLBAL-BUFFERED-UPLOAD-REASON> header to requests that have to be buffered.
+
+This can be useful to let your backend machine know that Perlbal is buffering the request.
+
+The value of the header contains the reason why the request was buffered.
+
+
+=head3 PERLBAL_DEBUG_OBJ
+
+This is the variable you'll have to set to a true value in order to properly use the commands C<obj>, C<track> and C<varsize>.
+
+You will also need to set C<PERLBAL_TRACK_STATES> to a true value (see below).
+
+
+=head3 PERLBAL_TEST_ALPHA
+
+This is a variable used to test C<Perlbal>'s alpha features.
+
+If you're a developer working on one of these features, first set the variable to a true value:
+
+    PERLBAL_TEST_ALPHA = 1
+
+And then, on your test file, use something like:
+
+    unless ($ENV{PERLBAL_TEST_ALPHA}) {
+        plan skip_all => 'Alpha feature; test skipped without $ENV{PERLBAL_TEST_ALPHA}';
+        exit 0;
+    } else {
+        plan tests => 4;
+    }
+
+
+=head3 PERLBAL_TRACK_STATES
+
+This is the variable you'll have to set to a true value in order to properly use the commands C<state changes> and C<varsize>.
+
+For the command C<varsize> you will also need to set C<DEBUG_OBJ> to a true value (see above).
+
+See C<Perlbal::Manual::Management> for more information.
+
+
+=head3 PERLBAL_XS_HEADERS
+
+By setting to a true value you can enable C<Perlbal::XS::HTTPHeaders>, if installed.
+
+
+=head3 TEST_PERLBAL_FOREGROUND
+
+This variable is used by C<Perlbal::Test> to test Perlbal.
+
+C<TEST_PERLBAL_FOREGROUND> with a true value tells C<Perlbal::Test> that it should run a server in the foreground.
+
+See C<Perlbal::Test> for more information.
+
+
+=head3 TEST_PERLBAL_USE_EXISTING
+
+This variable is used by C<Perlbal::Test> to test Perlbal.
+
+If C<TEST_PERLBAL_USE_EXISTING> is set to a true value then a socket will be returned which is connected to an existing server's management port.
+
+See C<Perlbal::Test> for more information.
+
+
 =head2 Setting up Perlbal
 
 You can run C<perlbal> as a daemon:

@@ -17,6 +17,18 @@ on Perlbal::Manual::Configuration
     [x]    how to add comments on a perlbal configuration file
     [ ] environment variables
     [ ] nodefile - is the path relative to something?
+    [ ] environment variables
+    [ ]    DANGABUILD_DAEMONONLY
+    [ ]    DANGABUILD_MODULESONLY
+    [x]    PERLBAL_DEBUG
+    [x]    PERLBAL_DEBUG_BUFFERED_UPLOADS
+    [x]    PERLBAL_DEBUG_OBJ
+    [x]    PERLBAL_TEST_ALPHA
+    [x]    PERLBAL_TRACK_STATES
+    [x]    PERLBAL_XS_HEADERS
+    [x]    TEST_PERLBAL_FOREGROUND
+    [x]    TEST_PERLBAL_USE_EXISTING
+    [ ] mention Perlbal::Plugin::Include
 
 
 on Perlbal::Manual::Contributing
@@ -128,10 +140,6 @@ on Perlbal::Manual::WebServer:
 
 somewhere:
     [ ] selector
-    [ ] how to debug perlbal
-    [ ]    don't forget the $PERLBAL_DEBUG env variable
-    [x] PERLBAL_TRACK_STATES
-    [ ] PERLBAL_DEBUG_OBJ
     [ ] make sure we have a section on manipulating headers
     [ ] move the documentation on failover queueing system to another file (it's currently residing in LoadBalancer)
 
