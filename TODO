@@ -172,7 +172,7 @@ all files (probably by the end of the project):
     [x]    review SEE ALSO
     [x]    review AUTHORS
     [ ] $ ack "\.\.\."
-    [ ] $ ack "  "
+    [x] $ ack "  "
     [ ] $ ack " $"
 
 cleanup:

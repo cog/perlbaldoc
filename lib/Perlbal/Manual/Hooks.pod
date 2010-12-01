@@ -28,7 +28,7 @@ That would define a global hook named foo that would return 0 when it's called. 
 
 =head2 Service handler hooks
 
-A handler hook is attached to a particular service. These hooks are called one at a time, starting from the top of the hook list on a service, until one hook returns 1.  At that point, no further hooks are called. For example:
+A handler hook is attached to a particular service. These hooks are called one at a time, starting from the top of the hook list on a service, until one hook returns 1. At that point, no further hooks are called. For example:
 
     $service->register_hook('bar', sub {
         # do something

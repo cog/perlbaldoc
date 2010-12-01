@@ -104,7 +104,7 @@ The following are possible to-do items for Perlbal:
 
     http://rt.livejournal.org/Ticket/Display.html?id=2780
 
-=item HTTP::Request (and other LWP/etc stuff) is required for make test but not the rest of the app.  fix that one way or another.
+=item HTTP::Request (and other LWP/etc stuff) is required for make test but not the rest of the app. fix that one way or another.
 
     http://rt.livejournal.org/Ticket/Display.html?id=2781
 
