@@ -77,15 +77,15 @@ You can clone Perlbal's repository from github and install it by hand by followi
 
 =head2 Optional Dependencies and Asynchronous IO
 
-Perlbal checks for IO::AIO availability and uses it to perform asynchronous IO operations. If you're performing disk operations (e.g., using Perlbal as a web server), having IO::AIO will improve your response times.
+Perlbal checks for L<IO::AIO> availability and uses it to perform asynchronous IO operations. If you're performing disk operations (e.g., using Perlbal as a web server), having L<IO::AIO> will improve your response times.
 
-The only thing required in order to benefit from this feature is to install IO::AIO:
+The only thing required in order to benefit from this feature is to install L<IO::AIO>:
 
     $ perl -MCPAN -e shell
 
     cpan> install IO::AIO
 
-If you don't have IO::AIO installed a warning message will be displayed when you start perlbal:
+If you don't have L<IO::AIO> installed a warning message will be displayed when you start perlbal:
 
     WARNING:  AIO mode disabled or not available.
               Perlbal will run slowly under load if you're doing any

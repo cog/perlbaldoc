@@ -248,9 +248,9 @@ Default is 0.
 
 =item B<reproxy_cache_maxsize> = int
 
-Set the maximum number of cached reproxy results (X-REPROXY-CACHE-FOR) that may be kept in the service cache. These cached requests take up about 1.25KB of ram each (on Linux x86), but will vary with usage. Perlbal still starts with 0 in the cache and will grow over time. Be careful when adjusting this and watch your ram usage like a hawk.
+Set the maximum number of cached reproxy results (X-REPROXY-CACHE-FOR) that may be kept in the service cache. These cached requests take up about 1.25KB of RAM each (on Linux x86), but will vary with usage. Perlbal still starts with 0 in the cache and will grow over time. Be careful when adjusting this and watch your RAM usage like a hawk.
 
-Default is 0.
+Default is 0, which means cache is disabled.
 
 
 =item B<role> = reverse_proxy|web_server|management|selector
@@ -286,7 +286,7 @@ Default is C<certs/server-key.pem>.
 
 =item B<trusted_upstream_proxies> = Net::Netmask filter
 
-A Net::Netmask filter (e.g. 10.0.0.0/24, see Net::Netmask) that determines whether upstream clients are trusted or not, where trusted means their X-Forwarded-For/etc headers are not munged.
+A L<Net::Netmask> filter (e.g. 10.0.0.0/24, see L<Net::Netmask>) that determines whether upstream clients are trusted or not, where trusted means their X-Forwarded-For/etc headers are not munged.
 
 
 =item B<upload_status_listeners> = comma separated list of hosts

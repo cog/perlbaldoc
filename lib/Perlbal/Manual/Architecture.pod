@@ -34,7 +34,7 @@ The following is a brief introduction/overview to all of Perlbal's classes:
 
 =head3 Perlbal::Socket
 
-Descends from Danga::Socket.
+Descends from L<Danga::Socket>.
 
 Adds on to the base class to provide some functionality specifically useful for creating HTTP sockets.
 
@@ -49,12 +49,12 @@ Headers as they're being read.
 
 =item req_headers
 
-The final Perlbal::HTTPHeaders object inbound.
+The final L<Perlbal::HTTPHeaders> object inbound.
 
 
 =item res_headers
 
-Response headers outbound (Perlbal::HTTPHeaders object).
+Response headers outbound (L<Perlbal::HTTPHeaders> object).
 
 
 =item create_time
@@ -106,7 +106,7 @@ If defined, contains the observed IP string of the peer we're serving. This is i
 
 =head3 Perlbal::TCPListener
 
-Descends from Perlbal::Socket.
+Descends from L<Perlbal::Socket>.
 
 Very lightweight and fast connection accept class. Takes incoming connections as fast as possible and passes them off, instantiating one of the various Client* classes to handle it.
 
@@ -116,7 +116,7 @@ Very lightweight and fast connection accept class. Takes incoming connections as
 
 =item service
 
-Perlbal::Service.
+L<Perlbal::Service>.
 
 
 =item hostport
@@ -154,9 +154,9 @@ Boolean value stating whether the installation of Perlbal supports IPv6 (which b
 
 =head3 Perlbal::BackendHTTP
 
-Descends from Perlbal::Socket.
+Descends from L<Perlbal::Socket>.
 
-This class handles connections to the backend web nodes for getting data back to the user. This class is used by other classes such as ClientProxy to send a request to an internal node.
+This class handles connections to the backend web nodes for getting data back to the user. This class is used by other classes such as L<Perlbal::ClientProxy> to send a request to an internal node.
 
 =head4 Fields
 
@@ -164,17 +164,17 @@ This class handles connections to the backend web nodes for getting data back to
 
 =item client
 
-Perlbal::ClientProxy connection, or undef.
+L<Perlbal::ClientProxy> connection, or undef.
 
 
 =item service
 
-Perlbal::Service.
+L<Perlbal::Service>.
 
 
 =item pool
 
-Perlbal::Pool; whatever pool we spawned from.
+L<Perlbal::Pool>; whatever pool we spawned from.
 
 
 =item ip
@@ -318,9 +318,9 @@ First line of HTTP request (if request).
 
 =head3 Perlbal::ClientHTTPBase
 
-Descends from Perlbal::Socket.
+Descends from L<Perlbal::Socket>.
 
-Provides base functionality to ClientHTTP and ClientProxy. Notably, the ability to efficiently send files to the remote user. Also handles most of the state logic for statistics and such. Is also used for services of type C<selector>. The ClientHTTPBase then reads in the request headers, and asks the service to re-bless the client instance to a more specific type, for either a ClientProxy or ClientHTTP (depending on selector's mapping).
+Provides base functionality to L<Perlbal::ClientHTTP> and L<Perlbal::ClientProxy>. Notably, the ability to efficiently send files to the remote user. Also handles most of the state logic for statistics and such. Is also used for services of type C<selector>. L<Perlbal::ClientHTTPBase> then reads in the request headers, and asks the service to re-bless the client instance to a more specific type, for either a L<Perlbal::ClientProxy> or L<Perlbal::ClientHTTP> (depending on selector's mapping).
 
 =head4 Fields
 
@@ -329,7 +329,7 @@ Provides base functionality to ClientHTTP and ClientProxy. Notably, the ability 
 
 =item service
 
-Perlbal::Service object.
+L<Perlbal::Service> object.
 
 
 =item replacement_uri
@@ -387,7 +387,7 @@ Whether the socket was SSL attached (restricted operations).
 
 =head3 Perlbal::ClientHTTP
 
-Descends from Perlbal::ClientHTTPBase.
+Descends from L<Perlbal::ClientHTTPBase>.
 
 Very simple and lightweight class. Handles sending files to the user without much overhead. Most of the functionality is contained in the parent class, and this class doesn't implement much new stuff.
 
@@ -427,7 +427,7 @@ Bytes remaining to be read.
 
 =item chunked_upload_state
 
-Boolean/obj: if processing a chunked upload, Perlbal::ChunkedUploadState object, else undef.
+Boolean/obj: if processing a chunked upload, L<Perlbal::ChunkedUploadState> object, else undef.
 
 
 =back
@@ -435,7 +435,7 @@ Boolean/obj: if processing a chunked upload, Perlbal::ChunkedUploadState object,
 
 =head3 Perlbal::ClientProxy
 
-Descends from Perlbal::ClientHTTPBase.
+Descends from L<Perlbal::ClientHTTPBase>.
 
 Takes an incoming connection from a user and connects to a backend node (C<Perlbal::BackendHTTP>) and relays the request. The backend can then either tell the proxy to reproxy and load a file from disk, or return a file directly, or just return a status message.
 
@@ -445,7 +445,7 @@ Takes an incoming connection from a user and connects to a backend node (C<Perlb
 
 =item backend
 
-Perlbal::BackendHTTP object (or C<undef> if disconnected).
+L<Perlbal::BackendHTTP> object (or C<undef> if disconnected).
 
 
 =item backend_requested
@@ -550,7 +550,7 @@ Boolean: if we shut off reads while we know data is yet to be read from client.
 
 =item chunked_upload_state
 
-Bool/obj: if processing a chunked upload, Perlbal::ChunkedUploadState object, else undef.
+Bool/obj: if processing a chunked upload, L<Perlbal::ChunkedUploadState> object, else undef.
 
 
 =item request_body_length
@@ -578,7 +578,7 @@ Number of times we've retried this request so far after getting 500 errors.
 
 =head3 Perlbal::ClientManage
 
-Descends from Perlbal::Socket.
+Descends from L<Perlbal::Socket>.
 
 Simple interface that provides a way for users to use the management interface of Perlbal. You can connect to the management port (as defined in the config file) with a web browser or regular telnet (see L<Perlbal::Manual::Management> for more information on this).
 
@@ -588,7 +588,7 @@ Simple interface that provides a way for users to use the management interface o
 
 =item service
 
-Perlbal::Service.
+L<Perlbal::Service>.
 
 
 =item buf
@@ -603,7 +603,7 @@ Boolean stating whether the request is HTTP.
 
 =item ctx
 
-Perlbal::CommandContext.
+L<Perlbal::CommandContext>.
 
 
 =back
@@ -635,17 +635,17 @@ Boolean; whether we're enabled or not (enabled = listening).
 
 =item pool
 
-Perlbal::Pool that we're using to allocate nodes if we're in proxy mode.
+L<Perlbal::Pool> that we're using to allocate nodes if we're in proxy mode.
 
 
 =item listener
 
-Perlbal::TCPListener object, when enabled.
+L<Perlbal::TCPListener> object, when enabled.
 
 
 =item reproxy_cache
 
-Perlbal::Cache object, when enabled.
+L<Perlbal::Cache> object, when enabled.
 
 
 =back
@@ -754,7 +754,7 @@ Number of spare backends to connect to in advance all the time.
 
 =item buffer_size
 
-How much data a ClientProxy object should buffer from a backend.
+How much data a L<Perlbal::ClientProxy> object should buffer from a backend.
 
 
 =item buffer_size_reproxy_url
@@ -774,7 +774,7 @@ Int, 0-100; % chance to take a standard priority request when we're in pressure 
 
 =item trusted_upstream_proxies
 
-Net::Netmask object containing netmasks for trusted upstreams.
+L<Net::Netmask> object containing netmasks for trusted upstreams.
 
 
 =item always_trusted
@@ -925,7 +925,7 @@ CODE ref, or undef, for role C<selector> services.
 
 =item default_service
 
-Perlbal::Service; name of a service a selector should default to.
+Name of a service a selector should default to.
 
 
 =item buffer_uploads

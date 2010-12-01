@@ -1,6 +1,6 @@
 =head1 NAME
 
-Perlbal::Manual::Plugins - Creating and using plugins
+Perlbal::Manual - Creating and using plugins
 
 
 =head2 VERSION
@@ -15,7 +15,7 @@ How to create and use plugins.
 
 =head2 How to use a plugin
 
-Perlbal supports plugins through modules under Perlbal::Plugin that implement a set of functions described further down this document.
+Perlbal supports plugins through modules under C<Perlbal::Plugin> that implement a set of functions described further down this document.
 
 Some of these plugins are shipped with Perlbal itself, while others can be found on CPAN (you can also create your own plugin and have it available only locally).
 
@@ -52,7 +52,7 @@ That means that either the plugin isn't installed or perlbal couldn't find it. (
 
 =head2 How to create a plugin
 
-A Perlbal plugin consists in a package under the Perlbal::Plugin namespace that implements a set of functions described below.
+A Perlbal plugin consists in a package under the C<Perlbal::Plugin> namespace that implements a set of functions described below.
 
 
 =head3 Creating a package
@@ -61,7 +61,7 @@ While there are many ways of creating a package, we'd recommend that you use som
 
 (note: if you really want to, you can just create a file with your package and use it; by using something like L<Module::Starter> you're making sure that several pitfalls are avoided, lots of basic rules are followed and that your package can easily be made available as a distribution that you can deploy on any machine in a simple way)
 
-Let's assume you want to create a plugin that checks requests for a X-Magic header and, if present, add an header X-Color to the response when serving a file. Let's assume your plugin will be called Perlbal::Plugin::ColorOfMagic.
+Let's assume you want to create a plugin that checks requests for a C<X-Magic> header and, if present, add an header C<X-Color> to the response when serving a file. Let's assume your plugin will be called C<Perlbal::Plugin::ColorOfMagic>.
 
 Having installed L<Module::Starter>, here's a command you can run that will create your package for you:
 
@@ -346,117 +346,117 @@ The following is a list of known plugins:
 
 =over 4
 
-=item * Perlbal::Plugin::AccessControl (Perlbal core)
+=item * L<Perlbal::Plugin::AccessControl> (Perlbal core)
 
 Basic access control based on IPs and Netmasks.
 
 
-=item * Perlbal::Plugin::Addheader
+=item * L<Perlbal::Plugin::Addheader>
 
 Add Headers to Perlbal webserver responses.
 
 
-=item * Perlbal::Plugin::AutoRemoveLeadingDir (Perlbal core)
+=item * L<Perlbal::Plugin::AutoRemoveLeadingDir> (Perlbal core)
 
 Auto-removal of leading directory path components in the URL.
 
 
-=item * Perlbal::Plugin::BackendHeaders
+=item * L<Perlbal::Plugin::BackendHeaders>
 
 See which backend served the request.
 
 
-=item * Perlbal::Plugin::Cgilike (Perlbal core)
+=item * L<Perlbal::Plugin::Cgilike> (Perlbal core)
 
 Handle Perlbal requests with a Perl subroutine.
 
 
-=item * Perlbal::Plugin::EchoService (Perlbal core)
+=item * L<Perlbal::Plugin::EchoService> (Perlbal core)
 
 Simple plugin demonstrating how to create an add-on service for Perlbal using the plugin infrastructure.
 
 
-=item * Perlbal::Plugin::ExpandSSL
+=item * L<Perlbal::Plugin::ExpandSSL>
 
 Add a custom header according to the SSL of a service.
 
 
-=item * Perlbal::Plugin::ForwardedFor
+=item * L<Perlbal::Plugin::ForwardedFor>
 
 Rename the X-Forwarded-For header in Perlbal.
 
 
-=item * Perlbal::Plugin::Highpri (Perlbal core)
+=item * L<Perlbal::Plugin::Highpri> (Perlbal core)
 
 Makes some requests high priority.
 
 
-=item * Perlbal::Plugin::Include (Perlbal core)
+=item * L<Perlbal::Plugin::Include> (Perlbal core)
 
 Allows multiple, nesting configuration files.
 
 
-=item * Perlbal::Plugin::LazyCDN (Perlbal core)
+=item * L<Perlbal::Plugin::LazyCDN> (Perlbal core)
 
 Support for Content Delivery Networks.
 
 
-=item * Perlbal::Plugin::MaxContentLength (Perlbal core)
+=item * L<Perlbal::Plugin::MaxContentLength> (Perlbal core)
 
 Reject large requests.
 
 
-=item * Perlbal::Plugin::NotModified (Perlbal core)
+=item * L<Perlbal::Plugin::NotModified> (Perlbal core)
 
 Automatic 304 Not Modified responses.
 
 
-=item * Perlbal::Plugin::PSGI
+=item * L<Perlbal::Plugin::PSGI>
 
 PSGI web server on Perlbal.
 
 
-=item * Perlbal::Plugin::Palimg (Perlbal core)
+=item * L<Perlbal::Plugin::Palimg> (Perlbal core)
 
 Plugin that allows Perlbal to serve palette altered images.
 
 
-=item * Perlbal::Plugin::Queues (Perlbal core)
+=item * L<Perlbal::Plugin::Queues> (Perlbal core)
 
 Simple queue length header inclusion plugin.
 
 
-=item * Perlbal::Plugin::Redirect (Perlbal core)
+=item * L<Perlbal::Plugin::Redirect> (Perlbal core)
 
 Plugin to do redirecting in Perlbal land.
 
 
-=item * Perlbal::Plugin::Stats (Perlbal core)
+=item * L<Perlbal::Plugin::Stats> (Perlbal core)
 
 Basic Perlbal statistics gatherer.
 
 
-=item * Perlbal::Plugin::StickySessions
+=item * L<Perlbal::Plugin::StickySessions>
 
 Session affinity for perlbal.
 
 
-=item * Perlbal::Plugin::TrustHeader
+=item * L<Perlbal::Plugin::TrustHeader>
 
 Remove untrusted headers.
 
 
-=item * Perlbal::Plugin::UrlGroup
+=item * L<Perlbal::Plugin::UrlGroup>
 
 Let URL match it in regular expression.
 
 
-=item * Perlbal::Plugin::Vhosts (Perlbal core)
+=item * L<Perlbal::Plugin::Vhosts> (Perlbal core)
 
 Name-based virtual hosts.
 
 
-=item * Perlbal::Plugin::Vpaths (Perlbal core)
+=item * L<Perlbal::Plugin::Vpaths> (Perlbal core)
 
 Select by path (selector role only).
 

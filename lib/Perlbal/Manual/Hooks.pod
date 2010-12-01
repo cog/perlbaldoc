@@ -107,7 +107,7 @@ Available in role C<web_server>.
 
 =head3 make_high_priority
 
-Called when a request is received and right before we're about to determine if this request is high priority or not. Return a true value to make the request high priority; false to leave it alone. Note that this is only called when the request isn't already high priority due to cookie priority scheduling, which is done inside Perlbal's Service module.
+Called when a request is received and right before we're about to determine if this request is high priority or not. Return a true value to make the request high priority; false to leave it alone. Note that this is only called when the request isn't already high priority due to cookie priority scheduling, which is done inside L<Perlbal::Service>.
 
 Called in L<Perlbal::ClientProxy>.
 
@@ -116,7 +116,7 @@ Available in all roles.
 
 =head3 make_low_priority
 
-Called when a request is received and right before we're about to determine if this request is high priority or not. Return a true value to make the request low priority; false to leave it alone. Note that this is only called when the request isn't already high priority due to cookie priority scheduling, which is done inside Perlbal's Service module.
+Called when a request is received and right before we're about to determine if this request is high priority or not. Return a true value to make the request low priority; false to leave it alone. Note that this is only called when the request isn't already high priority due to cookie priority scheduling, which is done inside L<Perlbal::Service> module.
 
 Called in L<Perlbal::ClientProxy>.
 
@@ -251,7 +251,7 @@ These hooks are defined the same way as above, but general hooks are all run. Th
 
 =head3 end_proxy_request
 
-This hook is called when the ClientProxy object is being closed.
+This hook is called when the L<Perlbal::ClientProxy> object is being closed.
 
 Available in role C<reverse_proxy>.
 

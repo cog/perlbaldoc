@@ -165,7 +165,7 @@ README:
 all files (probably by the end of the project):
     [ ] review POD
     [X]    review formating codes ( C<>, L<>, etc. )
-    [ ]    look for class names (ClientHTTP, etc) outside code examples that are not properly formatted
+    [x]    look for class names (ClientHTTP, etc) outside code examples that are not properly formatted
     [x] review headers
     [x]    review VERSION
     [x] review footers
