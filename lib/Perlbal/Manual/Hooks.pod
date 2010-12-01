@@ -47,6 +47,15 @@ Called in C<Perlbal::BackendHTTP>.
 Available in role C<reverse_proxy>.
 
 
+=head3 backend_readable_verify
+
+When the backend is about to start sending the response.
+
+Called in C<Perlbal::BackendHTTP>.
+
+Available in all roles.
+
+
 =head3 backend_response_received
 
 Called as soon as response headers are read from the backend. If you return a true value, will stop all handling at that point.
@@ -54,6 +63,42 @@ Called as soon as response headers are read from the backend. If you return a tr
 Called in C<Perlbal::BackendHTTP>.
 
 Available in all roles.
+
+
+=head3 backend_write_verify
+
+When the backend is ready to receive the request.
+
+Called in C<Perlbal::BackendHTTP>.
+
+Available in all roles.
+
+
+=head3 concat_get_poststat_file_missing
+
+Called when a missing file was requested, right before sending the 404 response. Return a true value to overtake the connection.
+
+Called in C<Perlbal::ClientHTTPBase>.
+
+Available in role C<web_server>.
+
+See also C<concat_get_poststat_pre_send>, C<static_get_poststat_file_missing> and C<static_get_poststat_pre_send>.
+
+
+=head3 concat_get_poststat_pre_send
+
+Called when a file is about to be sent, right before the 200 response code is added as a header. Return a true value to overtake the connection.
+
+Called in C<Perlbal::ClientHTTPBase>.
+
+Available in role C<web_server>.
+
+See also C<concat_get_poststat_file_missing>, C<static_get_poststat_file_missing> and C<static_get_poststat_pre_send>.
+
+
+=head3 handle_put
+
+...
 
 
 =head3 make_high_priority
@@ -90,6 +135,11 @@ Called on the request before we send the request to a backend.
 Called in C<Perlbal::ClientProxy>.
 
 Available in all roles.
+
+
+=head3 put_writeout
+
+...
 
 
 =head3 reproxy_fh_finished
@@ -162,6 +212,28 @@ When a 'web' service has gotten headers and is about to serve it... return a tru
 Called in C<Perlbal::ClientHTTP>.
 
 Available in role C<web_server>.
+
+
+=head3 static_get_poststat_file_missing
+
+Called when a missing static single file was requested, right before sending the 404 response. Return a true value to overtake the connection.
+
+Called in C<Perlbal::ClientHTTPBase>.
+
+Available in role C<web_server>.
+
+See also C<concat_get_poststat_file_missing>, C<concat_get_poststat_pre_send> and C<static_get_poststat_pre_send>.
+
+
+=head3 static_get_poststat_pre_send
+
+Called when a static single file is about to be sent, right before the 200 response code is added as a header. Return a true value to overtake the connection.
+
+Called in C<Perlbal::ClientHTTPBase>.
+
+Available in role C<web_server>.
+
+See also C<concat_get_poststat_file_missing>, C<concat_get_poststat_pre_send> and C<static_get_poststat_file_missing>.
 
 
 =head2 Service general hooks

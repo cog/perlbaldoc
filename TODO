@@ -48,11 +48,11 @@ on Perlbal::Manual::Hooks:
     [x] for each hook, detail which roles it is available for
     [ ] review the list of hooks
     [x]    backend_client_assigned
-    [ ]    backend_readable_verify
+    [x]    backend_readable_verify
     [x]    backend_response_received
-    [ ]    backend_write_verify
-    [ ]    concat_get_poststat_file_missing
-    [ ]    concat_get_poststat_pre_send
+    [x]    backend_write_verify
+    [x]    concat_get_poststat_file_missing
+    [x]    concat_get_poststat_pre_send
     [x]    end_proxy_request
     [ ]    handle_put
     [x]    make_high_priority
@@ -68,8 +68,8 @@ on Perlbal::Manual::Hooks:
     [x]    start_send_file
     [x]    start_serve_request
     [x]    start_web_request
-    [ ]    static_get_poststat_file_missing
-    [ ]    static_get_poststat_pre_send
+    [x]    static_get_poststat_file_missing
+    [x]    static_get_poststat_pre_send
 
 
 on Perlbal::Manual::Install:
