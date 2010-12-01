@@ -37,7 +37,7 @@ Here's a very simple example where we configure a simple web server that serves 
 
 The first line creates a service called C<perlbal_test>. The last line enables that service.
 
-The three parameters state - in order - that the server is a web server, that it listens on all addresses on port 80, and that its document root is L</tmp>.
+The three parameters state - in order - that the server is a web server, that it listens on all addresses on port 80, and that its document root is C</tmp>.
 
 
 =head2 Parameters
@@ -113,6 +113,9 @@ Default is 0, which means there is no limit.
 If PUT requests are enabled, require this many levels of directories to already exist. If not, fail.
 
 Default is 0.
+
+
+=back
 
 
 =head2 SEE ALSO

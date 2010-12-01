@@ -17,7 +17,7 @@ This document aims at providing useful pointers for people wanting to contribute
 
 Send your patch to the mailing list:
 
-L<http://groups.google.com/group/perlbal|http://groups.google.com/group/perlbal>
+L<http://groups.google.com/group/perlbal>
 
 Preferred format is either a URL to your change, or a unified diff ("diff -u") attachment.
 
