@@ -13,9 +13,10 @@ on Perlbal::Manual::Architecture
 
 on Perlbal::Manual::Configuration
     [x] get the information from other files and move it here
-    [ ]    how to create a configuration file
-    [ ]    how to add comments on a perlbal configuration file
+    [x]    how to create a configuration file
+    [x]    how to add comments on a perlbal configuration file
     [ ] environment variables
+    [ ] nodefile - is the path relative to something?
 
 
 on Perlbal::Manual::Contributing
@@ -132,7 +133,7 @@ somewhere:
     [x] PERLBAL_TRACK_STATES
     [ ] PERLBAL_DEBUG_OBJ
     [ ] make sure we have a section on manipulating headers
-    [] move the documentation on failover queueing system to another file (it's currently residing in LoadBalancer)
+    [ ] move the documentation on failover queueing system to another file (it's currently residing in LoadBalancer)
 
 
 README:

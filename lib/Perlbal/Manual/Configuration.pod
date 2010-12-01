@@ -17,72 +17,35 @@ You can also point perlbal at a different configuration file with the -c flag.
     $ perlbal -c /home/user/perlbal.conf
 
 
-=head3 Sample configuration file
+=head2 Configuration file
+
+A C<Perlbal>'s configuration file is a text file where you create pools and services, add servers to pools, set services' parameters and enable/disable services.
+
+Indentation is not mandatory, but it's considered a good practice for readability issues.
+
+Configuration is case insensitive, but it's also a good practice to uppercase all directives.
 
 
-...
+=head3 Pools
 
-
-Let's assume you want to configure two machines to serve your website and you want to let Perlbal decide how to balance the requests. For the sake of this example let's assume you have two servers serving at:
-
-    10.0.0.1:80
-    10.0.0.2:80
-
-And now you want to use these two machines to serve your website at:
-
-    10.0.0.3:80
-
-
-Here's a sample configuration to make this happen:
+Here's a sample configuration of a pool:
 
     CREATE POOL mywebsite
         POOL mywebsite ADD 10.0.0.1:80
         POOL mywebsite ADD 10.0.0.2:80
 
-    CREATE SERVICE service_mywebsite
-        SET role            = reverse_proxy
-        SET pool            = mywebsite
-        SET listen          = 10.0.0.3:80
-    ENABLE service_mywebsite
+The first line creates a pool called C<mywebsite>. The second and third lines add two different servers to that pool.
 
-The first line defines a pool of machines called C<mywebsite>. The second and third lines add your two machines to that pool (note that the indentation is not mandatory).
+From here on you'll be able to use this pool in a service.
 
-After that you define a service called C<service_mywebsite> set to listen on C<10.0.0.3:80> and using the pool C<mywebsite> to serve the requests. The role is indeed C<reverse_proxy>, as the architecture used is the same both for setting up Perlbal as a Load Balancer and as a Reverse Proxy (for more information on this see section C<Load Balancer vs. Reverse Proxy> of this document).
+Also, note that right after creating the pool, you don't need to specify which pool you're adding servers to, as it is considered to be the active pool:
 
-The last line is what allows you have several services configured in a file even if they are not currently active (a common scenario is to configure everything on the file and then enable/disable services on-the-fly as required; see C<Perlbal::Manual::Management> for more information on this process).
+    CREATE POOL mywebsite
+        POOL ADD 10.0.0.1:80
+        POOL ADD 10.0.0.2:80
 
 
-...
-
-
-=head3 Pools
-
-...
-
-
-=head3 Services
-
-...
-
-
-=head3 Parameters
-
-You can set parameters via commands of either forms:
-
-    SET <service-name> <param> = <value>
-    SET <param> = <value>
-
-For a full list of parameters see C<Perlbal::Manual::LoadBalancer>, C<Perlbal::Manual::ReverseProxy> or C<Perlbal::Manual::WebServer>.
-
-
-=head3 B<Note on types>:
-
-'bool' values can be set using one of 1, true, yes, on, 0, false, off, or no.
-
-'size' values are in integer bytes, or an integer followed by 'b', 'k', or 'm' (case-insensitive) for bytes, KiB, or MiB.
-
-
-=head3 Configuring a pool in a separate file
+=head4 Configuring a pool in a separate file
 
 You can create a pool in a separate file by using the C<nodefile> parameter:
 
@@ -94,9 +57,65 @@ This separate file should contain IP addresses, one per line (empty lines are ig
 Check C<conf/load-balancer.conf> and C<conf/nodelist.dat> for an example.
 
 
+=head3 Services
+
+Here's a sample service:
+
+    CREATE SERVICE service_mywebsite
+        SET role            = reverse_proxy
+        SET pool            = mywebsite
+        SET listen          = 10.0.0.3:80
+
+The first line creates a service called C<service_mywebsite>.
+
+On the three following lines we are setting up three parameters for that service (you can see this same example in C<Perlbal::Manual::LoadBalancer> in more detail).
+
+
+=head3 Setting parameters
+
+You can set parameters via commands of either forms:
+
+    SET <service-name> <param> = <value>
+    SET <param> = <value>
+
+For a full list of parameters see C<Perlbal::Manual::LoadBalancer>, C<Perlbal::Manual::ReverseProxy> or C<Perlbal::Manual::WebServer>.
+
+
+=head4 B<Note on types>:
+
+'bool' values can be set using one of 1, true, yes, on, 0, false, off, or no.
+
+'size' values are in integer bytes, or an integer followed by 'b', 'k', or 'm' (case-insensitive) for bytes, KiB, or MiB.
+
+
+=head3 Enabling/Disabling services
+
+To enable a service:
+
+    ENABLE service_mywebsite
+
+To disable a service:
+
+    DISABLE service_mywebsite
+
+The lines is what allows you to have several services configured in a file even if they are not currently active (a common scenario is to configure everything on the file and then enable/disable services on-the-fly as required; see C<Perlbal::Manual::Management> for more information on this process).
+
+
 =head3 Comments
 
-...
+Comments in C<Perlbal>'s configuration files start with a C<#>:
+
+    # this is a comment
+    ENABLE myservice # this is also a comment
+
+
+=head2 Setting up Perlbal
+
+You can run C<perlbal> as a daemon:
+
+    $ perlbal --daemon -c /home/user/perlbal.conf
+
+A common practice is to create a C<perlbal.sh> file that supports the common operations you'll require (start, stop, restart) and place it under C</etc/init.d>.
 
 
 =head2 SEE ALSO
