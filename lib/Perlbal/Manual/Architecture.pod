@@ -104,9 +104,20 @@ Scalar IP port of where this service is listening for new connections.
 
 The SSL Options.
 
+    use Data::Dumper;
     warn Dumper( $tcp_listener->{'sslopts'} );
 
-...
+The above lines would print something like the following:
+
+    $VAR1 = {
+              'ssl' => {
+                         'SSL_cipher_list' => '...',
+                         'SSL_cert_file' => '...',
+                         'SSL_key_file' => ',,,',
+                         'SSL_ca_path' => '...',
+                         'SSL_verify_mode' => '...'
+                       }
+            };
 
 
 =item v6
@@ -300,6 +311,38 @@ Perlbal::ClientHTTPBase has the following fields:
 =item ...
 
 ...
+
+
+
+
+
+service',             # Perlbal::Service object
+            'replacement_uri',     # URI to send instead of the one requested; this is used
+                                   # to instruct _serve_request to send an index file instead
+                                   # of trying to serve a directory and failing
+            'scratch',             # extra storage; plugins can use it if they want
+
+            # reproxy support
+            'reproxy_file',        # filename the backend told us to start opening
+            'reproxy_file_size',   # size of file, once we stat() it
+            'reproxy_fh',          # if needed, IO::Handle of fd
+            'reproxy_file_offset', # how much we've sent from the file.
+
+            'post_sendfile_cb',    # subref to run after we're done sendfile'ing the current file
+
+            'requests',            # number of requests this object has performed for the user
+
+            # service selector parent
+            'selector_svc',        # the original service from which we came
+            'is_ssl',              # Is this socket SSL attached (restricted operations)
+
+
+
+
+
+
+
+
 
 
 =back
