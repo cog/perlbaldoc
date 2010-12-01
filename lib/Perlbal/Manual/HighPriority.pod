@@ -8,7 +8,16 @@ Perlbal::Manual::HighPriority - Using Perlbal as a Load Balancer
 This document details the high priority queueing system in Perlbal 1.76.
 
 
-=head3 High priority queuing system
+=head3 Queuing system
+
+Perlbal has three queues: normal, high priority and low priority.
+
+As their names suggest, this means that usually requests get to the normal queue and are dispatched in FIFO order, with high priority requests going to a different queue that gets ahead of the normal one and a low priority queue that only gets done when the high and normal queues are empty.
+
+In a nutshell, whenever Perlbal needs to select which request to take care of next, it first looks to the high priority queue, looks to the normal queue if the first one is empty, and looks to the low priority queue if the normal is empty too.
+
+
+=head3 High priority with cookies
 
 Perlbal has a high priority queue for sending requests through to backends quickly, using cookies to determine if a request should go to fast queue (configurable).
 
@@ -29,4 +38,12 @@ Sometimes if the high priority queue is really busy, the standard queue will suf
     SET web_proxy.queue_relief_size = 2000
     SET web_proxy.queue_relief_chance = 30 # 0-100, in percent
 
+
+=head3 High priority with plugins
+
 The plugin C<Perlbal::Plugin::Highpri> supports making requests high priority by URI or Host. Also check C<make_high_priority> under C<Perlbal::Manual::Hooks>.
+
+
+=head3 SEE ALSO
+
+C<make_high_priority> and C<make_low_priority> in C<Perlbal::Manual::Hooks>.

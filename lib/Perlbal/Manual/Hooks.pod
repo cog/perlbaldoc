@@ -65,6 +65,15 @@ Called in C<Perlbal::ClientProxy>.
 Available in all roles.
 
 
+=head3 make_low_priority
+
+Called when a request is received and right before we're about to determine if this request is high priority or not. Return a true value to make the request low priority; false to leave it alone. Note that this is only called when the request isn't already high priority due to cookie priority scheduling, which is done inside Perlbal's Service module.
+
+Called in C<Perlbal::ClientProxy>.
+
+Available in all roles.
+
+
 =head3 modify_response_headers
 
 Called when we've set all the headers, and are about to serve a file. You can change or add response headers at this point, or cancel the process by returning a true value. You will have to send the response to the client yourself if you do this.

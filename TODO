@@ -40,7 +40,7 @@ on Perlbal::Manual::Credits
 
 
 on Perlbal::HighPriority:
-    [ ] low priority queues
+    [x] low priority queues
 
 
 on Perlbal::Manual::Hooks:
@@ -56,7 +56,7 @@ on Perlbal::Manual::Hooks:
     [x]    end_proxy_request
     [ ]    handle_put
     [x]    make_high_priority
-    [ ]    make_low_priority
+    [x]    make_low_priority
     [x]    modify_response_headers
     [x]    proxy_read_request
     [ ]    put_writeout
