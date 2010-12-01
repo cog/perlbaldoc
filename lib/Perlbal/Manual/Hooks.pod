@@ -215,7 +215,7 @@ Available in role C<web_server>.
 
 =head3 start_web_request
 
-When a 'web' service has gotten headers and is about to serve it... return a true value to cancel the default handling of web requests.
+When a service has gotten headers and is about to serve it. Return a true value to cancel the default handling of web requests.
 
 Called in C<Perlbal::ClientHTTP>.
 

@@ -593,7 +593,7 @@ Perlbal::Service.
 
 =item buf
 
-...
+Read buffer.
 
 
 =item is_http

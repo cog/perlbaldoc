@@ -171,7 +171,7 @@ all files (probably by the end of the project):
     [x] review footers
     [x]    review SEE ALSO
     [x]    review AUTHORS
-    [ ] $ ack "\.\.\."
+    [x] $ ack "\.\.\."
     [x] $ ack "  "
     [x] $ ack " $"
 
