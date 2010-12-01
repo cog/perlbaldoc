@@ -113,12 +113,12 @@ Comments in C<Perlbal>'s configuration files start with a C<#>:
 
 =head3 DANGABUILD_DAEMONONLY
 
-...
+Used in C<Makefile.PL>. If set to a true value the modules will not be built.
 
 
 =head3 DANGABUILD_MODULESONLY
 
-...
+Used in C<Makefile.PL>. If set to a true value only the modules will be built, not the C<perlbal> executable.
 
 
 =head3 PERLBAL_DEBUG

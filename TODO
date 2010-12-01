@@ -17,9 +17,9 @@ on Perlbal::Manual::Configuration
     [x]    how to add comments on a perlbal configuration file
     [ ] environment variables
     [ ] nodefile - is the path relative to something?
-    [ ] environment variables
-    [ ]    DANGABUILD_DAEMONONLY
-    [ ]    DANGABUILD_MODULESONLY
+    [x] environment variables
+    [x]    DANGABUILD_DAEMONONLY
+    [x]    DANGABUILD_MODULESONLY
     [x]    PERLBAL_DEBUG
     [x]    PERLBAL_DEBUG_BUFFERED_UPLOADS
     [x]    PERLBAL_DEBUG_OBJ
