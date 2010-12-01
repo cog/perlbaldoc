@@ -35,14 +35,14 @@ How to contribute to Perlbal.
 Author and contributor credits for Perlbal.
 
 
-=item L<Perlbal::Manual::Hooks|Perlbal::Manual::Hooks>
-
-How Perlbal's hooks work and which ones exist.
-
-
 =item L<Perlbal::Manual::HighPriority|Perlbal::Manual::HighPriority>
 
 Perlbal's high priority queueing system.
+
+
+=item L<Perlbal::Manual::Hooks|Perlbal::Manual::Hooks>
+
+How Perlbal's hooks work and which ones exist.
 
 
 =item L<Perlbal::Manual::Install|Perlbal::Manual::Install>
@@ -52,7 +52,7 @@ Installation procedures for Perlbal.
 
 =item L<Perlbal::Manual::LoadBalancer|Perlbal::Manual::LoadBalancer>
 
-Setting up Perlbal as a Load Balancer.
+Setting up a Perlbal Load Balancing service.
 
 
 =item L<Perlbal::Manual::Management|Perlbal::Manual::Management>
@@ -67,7 +67,17 @@ Known plugins and how to create new ones.
 
 =item L<Perlbal::Manual::ReverseProxy|Perlbal::Manual::ReverseProxy>
 
-Setting up Perlbal as a Reverse Proxy.
+Setting up a Perlbal Reverse Proxy service.
+
+
+=item L<Perlbal::Manual::Roles|Perlbal::Manual::Roles>
+
+Brief description of existing roles.
+
+
+=item L<Perlbal::Manual::Selector|Perlbal::Manual::Selector>
+
+Setting up a Perlbal C<selector> service.
 
 
 =item L<Perlbal::Manual::ToDo|Perlbal::Manual::ToDo>
@@ -77,7 +87,7 @@ Perlbal's To-Do list.
 
 =item L<Perlbal::Manual::WebServer|Perlbal::Manual::WebServer>
 
-Setting up Perlbal as a Web Server.
+Setting up a Perlbal Web Server service.
 
 
 =back
