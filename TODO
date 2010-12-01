@@ -14,9 +14,9 @@ on Perlbal::Manual::Architecture
     [x]    BackendHTTP
     [x]    HTTPHeaders
     [x]    ClientHTTPBase
-    [ ]    ClientHTTP
-    [ ]    ClientProxy
-    [ ]    ClientManage
+    [x]    ClientHTTP
+    [x]    ClientProxy
+    [x]    ClientManage
     [ ]    Service
     [ ]    StatsListener
 

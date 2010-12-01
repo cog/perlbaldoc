@@ -371,7 +371,39 @@ Perlbal::ClientHTTP has the following fields:
 
 =over 4
 
-=item ...
+=item put_in_progress
+
+1 when we're currently waiting for an async job to return.
+
+
+=item put_fh
+
+File handle to use for writing data.
+
+
+=item put_fh_filename
+
+Filename of put_fh.
+
+
+=item put_pos
+
+File offset to write next data at.
+
+
+=item content_length
+
+Length of document being transferred.
+
+
+=item content_length_remain
+
+Bytes remaining to be read.
+
+
+=item chunked_upload_state
+
+bool/obj:  if processing a chunked upload, Perlbal::ChunkedUploadState object, else undef
 
 ...
 
@@ -389,9 +421,134 @@ Perlbal::ClientProxy has the following fields:
 
 =over 4
 
-=item ...
+=item backend
 
-...
+Perlbal::BackendHTTP object (or undef if disconnected).
+
+
+=item backend_requested
+
+True if we've requested a backend for this request.
+
+
+=item reconnect_count
+
+Number of times we've tried to reconnect to backend.
+
+
+=item high_priority
+
+Boolean; 1 if we are or were in the high priority queue.
+
+
+=item low_priority
+
+Boolean; 1 if we are or were in the low priority queue.
+
+
+=item reproxy_uris
+
+Arrayref; URIs to reproxy to, in order.
+
+
+=item reproxy_expected_size
+
+Int: size of response we expect to get back for reproxy.
+
+
+=item currently_reproxying
+
+Arrayref; the host info and URI we're reproxying right now.
+
+
+=item content_length_remain
+
+Int: amount of data we're still waiting for.
+
+
+=item responded
+
+Bool: whether we've already sent a response to the user or not.
+
+
+=item last_request_time
+
+Int: time that we last received a request.
+
+
+=item primary_res_hdrs
+
+If defined, we are doing a transparent reproxy-URI and the headers we get back aren't necessarily the ones we want.  instead, get most headers from the provided res headers object here.
+
+
+=item is_buffering
+
+Bool; if we're buffering some/all of a request to memory/disk.
+
+
+=item is_writing
+
+Bool; if on, we currently have an aio_write out.
+
+
+=item start_time
+
+Hi-res time when we started getting data to upload.
+
+
+=item bufh
+
+Buffered upload filehandle object.
+
+
+=item bufilename
+
+String; buffered upload filename.
+
+
+=item bureason
+
+String; if defined, the reason we're buffering to disk.
+
+
+=item buoutpos
+
+Int; buffered output position.
+
+
+=item backend_stalled
+
+Boolean:  if backend has shut off its reads because we're too slow.
+
+
+=item unread_data_waiting
+
+Boolean:  if we shut off reads while we know data is yet to be read from client.
+
+
+=item chunked_upload_state
+
+Bool/obj:  if processing a chunked upload, Perlbal::ChunkedUploadState object, else undef.
+
+
+=item request_body_length
+
+Integer:  request's body length, either as-declared, or calculated after chunked upload is complete.
+
+
+=item last_upload_packet
+
+Unixtime we last sent a UDP upload packet. For perlbal sending out UDP packets related to upload status (for xmlhttprequest upload bar).
+
+
+=item upload_session
+
+Client's self-generated upload session. For perlbal sending out UDP packets related to upload status (for xmlhttprequest upload bar).
+
+
+=item retry_count
+
+Number of times we've retried this request so far after getting 500 errors.
 
 
 =back
@@ -407,9 +564,24 @@ Perlbal::ClientManage has the following fields:
 
 =over 4
 
-=item ...
+=item service
+
+Perlbal::Service.
+
+
+=item buf
 
 ...
+
+
+=item is_http
+
+Boolean stating whether the request is HTTP.
+
+
+=item ctx
+
+Perlbal::CommandContext.
 
 
 =back
@@ -458,3 +630,5 @@ Perlbal::StatsListener has the following fields:
 =item ...
 
 ...
+
+=back
