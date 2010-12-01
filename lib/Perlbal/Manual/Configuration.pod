@@ -52,7 +52,9 @@ You can create a pool in a separate file by using the C<nodefile> parameter:
     CREATE POOL dynamic
         SET nodefile = conf/nodelist.dat
 
-This separate file should contain IP addresses, one per line (empty lines are ignored, as well as comments started by the L<#> sign).
+This separate file should contain addresses in the form of C<ip:port>, one per line (empty lines are ignored, as well as comments started by the L<#> sign).
+
+The path to the file is relative to where perlbal was started.
 
 Check C<conf/load-balancer.conf> and C<conf/nodelist.dat> for an example.
 

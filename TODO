@@ -24,7 +24,7 @@ on Perlbal::Manual::Configuration
     [x] get the information from other files and move it here
     [x]    how to create a configuration file
     [x]    how to add comments on a perlbal configuration file
-    [ ] nodefile - is the path relative to something?
+    [x] nodefile - what the path relative to
     [x] environment variables
     [x]    DANGABUILD_DAEMONONLY
     [x]    DANGABUILD_MODULESONLY
