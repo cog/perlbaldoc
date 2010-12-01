@@ -18,7 +18,6 @@ on Perlbal::Manual::Architecture
     [x]    ClientProxy
     [x]    ClientManage
     [ ]    Service
-    [ ]    StatsListener
 
 
 on Perlbal::Manual::Configuration

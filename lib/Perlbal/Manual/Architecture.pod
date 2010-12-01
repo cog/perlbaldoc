@@ -2,6 +2,24 @@
 
 Perlbal::Manual::Architecture - Perlbal's architecture at a glance
 
+=head2 DESCRIPTION
+
+Perlbal listens for UDP broadcasts from the web nodes describing how many available children they have. This information is then used to pick an endpoint for a backend connection to be made to in order to handle a user's incoming request.
+
+                            {{ INTERNET }}
+                                  |
+                                  v
+              [Service]<===>[TCPListener]
+                          ___/    |    \___
+                         v        v        v
+             [ClientManage]  [ClientHTTP] [ClientProxy]
+                                                ^
+                                                |
+                                                v
+                                          [BackendHTTP]
+
+So connections come in from wherever and get to the TCPListener. It uses Service objects to determine what kind of Client* to spawn. The Client classes then handle crafting the response for the user.
+
 
 =head2 Classes
 
@@ -403,9 +421,7 @@ Bytes remaining to be read.
 
 =item chunked_upload_state
 
-bool/obj:  if processing a chunked upload, Perlbal::ChunkedUploadState object, else undef
-
-...
+Boolean/obj: if processing a chunked upload, Perlbal::ChunkedUploadState object, else undef.
 
 
 =back
@@ -423,7 +439,7 @@ Perlbal::ClientProxy has the following fields:
 
 =item backend
 
-Perlbal::BackendHTTP object (or undef if disconnected).
+Perlbal::BackendHTTP object (or C<undef> if disconnected).
 
 
 =item backend_requested
@@ -478,7 +494,7 @@ Int: time that we last received a request.
 
 =item primary_res_hdrs
 
-If defined, we are doing a transparent reproxy-URI and the headers we get back aren't necessarily the ones we want.  instead, get most headers from the provided res headers object here.
+If defined, we are doing a transparent reproxy-URI and the headers we get back aren't necessarily the ones we want. Instead, get most headers from the provided C<res> headers object here.
 
 
 =item is_buffering
@@ -488,7 +504,7 @@ Bool; if we're buffering some/all of a request to memory/disk.
 
 =item is_writing
 
-Bool; if on, we currently have an aio_write out.
+Bool; if on, we currently have an C<aio_write> out.
 
 
 =item start_time
@@ -518,22 +534,22 @@ Int; buffered output position.
 
 =item backend_stalled
 
-Boolean:  if backend has shut off its reads because we're too slow.
+Boolean: if backend has shut off its reads because we're too slow.
 
 
 =item unread_data_waiting
 
-Boolean:  if we shut off reads while we know data is yet to be read from client.
+Boolean: if we shut off reads while we know data is yet to be read from client.
 
 
 =item chunked_upload_state
 
-Bool/obj:  if processing a chunked upload, Perlbal::ChunkedUploadState object, else undef.
+Bool/obj: if processing a chunked upload, Perlbal::ChunkedUploadState object, else undef.
 
 
 =item request_body_length
 
-Integer:  request's body length, either as-declared, or calculated after chunked upload is complete.
+Integer: request's body length, either as-declared, or calculated after chunked upload is complete.
 
 
 =item last_upload_packet
@@ -599,36 +615,5 @@ Perlbal::Service has the following fields:
 
 ...
 
-
-=back
-
-
-=head3 Perlbal::StatsListener
-
-Descends from Perlbal::Socket.
-
-This class listens for UDP broadcasts from the web nodes describing how many available children they have. This information is then used to pick an endpoint for a backend connection to be made to in order to handle a user's incoming request.
-
-                            {{ INTERNET }}
-                                  |
-                                  v
-              [Service]<===>[TCPListener]
-                          ___/    |    \___
-                         v        v        v
-             [ClientManage]  [ClientHTTP] [ClientProxy]
-                                                ^
-                                                |
-                                                v
-                                          [BackendHTTP]
-
-So connections come in from wherever and get to the TCPListener. It uses Service objects to determine what kind of Client* to spawn. The Client classes then handle crafting the response for the user.
-
-Perlbal::StatsListener has the following fields:
-
-=over 4
-
-=item ...
-
-...
 
 =back
