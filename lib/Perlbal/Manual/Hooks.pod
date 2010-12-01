@@ -98,7 +98,11 @@ See also C<concat_get_poststat_file_missing>, C<static_get_poststat_file_missing
 
 =head3 handle_put
 
-...
+Called when handling a PUT request.
+
+Called in C<Perlbal::ClientHTTP>.
+
+Available in role C<web_server>.
 
 
 =head3 make_high_priority
@@ -139,7 +143,11 @@ Available in all roles.
 
 =head3 put_writeout
 
-...
+C<put_writeout> is called when there is some put data to write out
+
+Called in C<Perlbal::ClientHTTP>.
+
+Available in role C<web_server>.
 
 
 =head3 reproxy_fh_finished

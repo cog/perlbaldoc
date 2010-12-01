@@ -46,7 +46,7 @@ on Perlbal::HighPriority:
 on Perlbal::Manual::Hooks:
     [x] make sure we have all the hooks
     [x] for each hook, detail which roles it is available for
-    [ ] review the list of hooks
+    [x] review the list of hooks
     [x]    backend_client_assigned
     [x]    backend_readable_verify
     [x]    backend_response_received
@@ -54,12 +54,12 @@ on Perlbal::Manual::Hooks:
     [x]    concat_get_poststat_file_missing
     [x]    concat_get_poststat_pre_send
     [x]    end_proxy_request
-    [ ]    handle_put
+    [x]    handle_put
     [x]    make_high_priority
     [x]    make_low_priority
     [x]    modify_response_headers
     [x]    proxy_read_request
-    [ ]    put_writeout
+    [x]    put_writeout
     [x]    reproxy_fh_finished
     [x]    return_to_base
     [x]    start_file_reproxy
