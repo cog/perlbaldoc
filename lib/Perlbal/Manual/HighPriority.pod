@@ -46,9 +46,9 @@ Sometimes if the high priority queue is really busy, the standard queue will suf
 
 =head3 High priority with plugins
 
-The plugin C<Perlbal::Plugin::Highpri> supports making requests high priority by URI or Host. Also check C<make_high_priority> under C<Perlbal::Manual::Hooks>.
+The plugin L<Perlbal::Plugin::Highpri> supports making requests high priority by URI or Host. Also check C<make_high_priority> under L<Perlbal::Manual::Hooks>.
 
 
 =head3 SEE ALSO
 
-C<make_high_priority> and C<make_low_priority> in C<Perlbal::Manual::Hooks>, C<Perlbal::Plugin::HighPriority>.
+C<make_high_priority> and C<make_low_priority> in L<Perlbal::Manual::Hooks>, L<Perlbal::Plugin::HighPriority>.

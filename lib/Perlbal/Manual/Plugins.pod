@@ -57,17 +57,17 @@ A Perlbal plugin consists in a package under the Perlbal::Plugin namespace that 
 
 =head3 Creating a package
 
-While there are many ways of creating a package, we'd recommend that you use something to do it for you. A good option is C<Module::Starter>.
+While there are many ways of creating a package, we'd recommend that you use something to do it for you. A good option is L<Module::Starter>.
 
-(note: if you really want to, you can just create a file with your package and use it; by using something like C<Module::Starter> you're making sure that several pitfalls are avoided, lots of basic rules are followed and that your package can easily be made available as a distribution that you can deploy on any machine in a simple way)
+(note: if you really want to, you can just create a file with your package and use it; by using something like L<Module::Starter> you're making sure that several pitfalls are avoided, lots of basic rules are followed and that your package can easily be made available as a distribution that you can deploy on any machine in a simple way)
 
 Let's assume you want to create a plugin that checks requests for a X-Magic header and, if present, add an header X-Color to the response when serving a file. Let's assume your plugin will be called Perlbal::Plugin::ColorOfMagic.
 
-Having installed C<Module::Starter>, here's a command you can run that will create your package for you:
+Having installed L<Module::Starter>, here's a command you can run that will create your package for you:
 
     $ module-starter --module=Perlbal::Plugin::ColorOfMagic --author="My name" --email=my@email.address
 
-That should create a file tree that you can get better acquainted to by reading C<Module::Starter>'s fine documentation. For this example, the file you really need should be C<lib/Perlbal/Plugin/ColorOfMagic.pm>.
+That should create a file tree that you can get better acquainted to by reading L<Module::Starter>'s fine documentation. For this example, the file you really need should be C<lib/Perlbal/Plugin/ColorOfMagic.pm>.
 
 This file probably starts with something like the following:
 
@@ -104,7 +104,7 @@ Here's what you'd do:
         });
     }
 
-Inside C<register>, we're calling C<register_hook> to register our C<ColorOfMagic> C<modify_response_headers> hook. It's code, that will run "when we've set all the headers, and are about to serve a file" (see C<Perlbal::Manual::Hooks>), receives a C<Perlbal::ClientHTTPBase> object (you can see what kind of object your hook will receive on C<Perlbal::Manual::Hooks>). We're checking to see if C<X-Magic> is defined on the request and, if so, we're setting header C<X-Color> on the response to C<Octarine>.
+Inside C<register>, we're calling C<register_hook> to register our C<ColorOfMagic> C<modify_response_headers> hook. It's code, that will run "when we've set all the headers, and are about to serve a file" (see L<Perlbal::Manual::Hooks>), receives a L<Perlbal::ClientHTTPBase> object (you can see what kind of object your hook will receive on L<Perlbal::Manual::Hooks>). We're checking to see if C<X-Magic> is defined on the request and, if so, we're setting header C<X-Color> on the response to C<Octarine>.
 
 Notice that the hook ends with C<return 0>. This is because returning a true value means that you want to cancel the connection to the backend and send the response to the client yourself.
 
@@ -158,7 +158,7 @@ Don't forget to call C<unregister_global_hook> if you have registered any.
 
 =head3 dumpconfig
 
-When managing Perlbal (see C<Perlbal::Manual::Management>) you can send a C<dumpconfig> command that will result in a configuration dump.
+When managing Perlbal (see L<Perlbal::Manual::Management>) you can send a C<dumpconfig> command that will result in a configuration dump.
 
 Apart from the global configuration, each plugin that implements a C<dumpconfig> function will also have that function called.
 
@@ -203,7 +203,7 @@ C<add_tunable> can be used by plugins that want to add tunables so that the conf
 
 C<check_role> defines for which roles the value can be set (C<reverse_proxy>, C<web_server>, etc). A value of C<*> mean that the value can be set for any role.
 
-The acceptable values for C<check_type> are C<enum>, C<regexp>, C<bool>, C<int>, C<size>, C<file>, C<file_or_none> and C<directory_or_none>. An C<Unknown check_type> error message will be displayed whenever you try to set a value that has an unknown C<check_type>.
+The acceptable values for C<check_type> are C<enum>, C<regexp>, C<bool>, C<int>, C<size>, C<file>, C<file_or_none> and C<directory_or_none>. An B<Unknown check_type> error message will be displayed whenever you try to set a value that has an unknown C<check_type>.
 
 C<check_type> can also contain a code reference that will be used to validate the type.
 
@@ -291,7 +291,7 @@ If you want to display a text message you should return an array reference; each
     It is now:
     Wed Dec  1 19:08:58 2010
 
-If you need to parse additional parameters on your hook, you can use C<parse> and C<args> on the C<Perlbal::ManageCommand> object that your function will receive:
+If you need to parse additional parameters on your hook, you can use C<parse> and C<args> on the L<Perlbal::ManageCommand> object that your function will receive:
 
     my $mc = shift->parse(qr/^time\s+(today|tomorrow)$/, "usage: TIME [today|tomorrow]");
 
@@ -466,4 +466,4 @@ Select by path (selector role only).
 
 =head2 SEE ALSO
 
-C<Perlbal::Manual::Architecture>, C<Perlbal::Manual::Hooks>.
+L<Perlbal::Manual::Architecture>, L<Perlbal::Manual::Hooks>.

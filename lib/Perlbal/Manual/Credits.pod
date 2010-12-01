@@ -50,4 +50,4 @@ Slaven Rezic.
 
 =head2 SEE ALSO
 
-C<Perlbal::Manual::Contributing>.
+L<Perlbal::Manual::Contributing>.

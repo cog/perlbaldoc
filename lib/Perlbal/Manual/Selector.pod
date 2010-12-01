@@ -15,14 +15,14 @@ How to configure a Perlbal C<selector> service.
 
 =head2 READ ME FIRST
 
-Please refer to C<Perlbal::Manual::Configuration> for a better explanation on how to configure Perlbal. This document will make much more sense after reading that.
+Please refer to L<Perlbal::Manual::Configuration> for a better explanation on how to configure Perlbal. This document will make much more sense after reading that.
 
 
 =head2 Configuring Perlbal as a Selector
 
 The C<selector> role allows you to create a service that selects to which service a request should be sent to.
 
-Here's an example of how to do that with the help of C<Perlbal::Plugin::VHosts>:
+Here's an example of how to do that with the help of L<Perlbal::Plugin::VHosts>:
 
     LOAD vhosts
 
@@ -40,5 +40,5 @@ In this case, requests to both C<site1> and C<site2> are received by C<selector_
 
 =head2 SEE ALSO
 
-C<Perlbal::Manual::Configuration>,
-C<Perlbal::Manual::Management>.
+L<Perlbal::Manual::Configuration>,
+L<Perlbal::Manual::Management>.

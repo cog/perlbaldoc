@@ -146,7 +146,7 @@ The above lines would print something like the following:
 
 =item v6
 
-Boolean value stating whether the installation of Perlbal supports IPv6 (which basically boils down to C<Danga::Socket> v1.6.1 and C<IO::Socket::INET6> being available).
+Boolean value stating whether the installation of Perlbal supports IPv6 (which basically boils down to L<Danga::Socket> v1.6.1 and L<IO::Socket::INET6> being available).
 
 
 =back
@@ -354,7 +354,7 @@ Size of file, once we C<stat()> it.
 
 =item reproxy_fh
 
-If needed, C<IO::Handle> of fd.
+If needed, L<IO::Handle> of fd.
 
 
 =item reproxy_file_offset
@@ -437,7 +437,7 @@ Boolean/obj: if processing a chunked upload, Perlbal::ChunkedUploadState object,
 
 Descends from Perlbal::ClientHTTPBase.
 
-Takes an incoming connection from a user and connects to a backend node (C<BackendHTTP>) and relays the request. The backend can then either tell the proxy to reproxy and load a file from disk, or return a file directly, or just return a status message.
+Takes an incoming connection from a user and connects to a backend node (C<Perlbal::BackendHTTP>) and relays the request. The backend can then either tell the proxy to reproxy and load a file from disk, or return a file directly, or just return a status message.
 
 =head4 Fields
 
@@ -580,7 +580,7 @@ Number of times we've retried this request so far after getting 500 errors.
 
 Descends from Perlbal::Socket.
 
-Simple interface that provides a way for users to use the management interface of Perlbal. You can connect to the management port (as defined in the config file) with a web browser or regular telnet (see C<Perlbal::Manual::Management> for more information on this).
+Simple interface that provides a way for users to use the management interface of Perlbal. You can connect to the management port (as defined in the config file) with a web browser or regular telnet (see L<Perlbal::Manual::Management> for more information on this).
 
 =head4 Fields
 
@@ -990,7 +990,7 @@ Path to certificates directory.
 
 =item ssl_verify_mode
 
-Int; verification mode, see C<IO::Socket::SSL>.
+Int; verification mode, see L<IO::Socket::SSL>.
 
 
 =item enable_error_retries

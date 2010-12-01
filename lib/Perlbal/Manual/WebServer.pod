@@ -15,7 +15,7 @@ How to configure a Perlbal Web Server service.
 
 =head2 READ ME FIRST
 
-Please refer to C<Perlbal::Manual::Configuration> for a better explanation on how to configure Perlbal. This document will make much more sense after reading that.
+Please refer to L<Perlbal::Manual::Configuration> for a better explanation on how to configure Perlbal. This document will make much more sense after reading that.
 
 
 =head2 Configuring Perlbal as a Web Server
@@ -117,5 +117,5 @@ Default is 0.
 
 =head2 SEE ALSO
 
-C<Perlbal::Manual::Configuration>,
-C<Perlbal::Manual::Management>.
+L<Perlbal::Manual::Configuration>,
+L<Perlbal::Manual::Management>.

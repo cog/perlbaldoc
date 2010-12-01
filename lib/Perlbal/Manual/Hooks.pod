@@ -12,7 +12,7 @@ Perlbal 1.76.
 
 Basically, a hook is a bit of code that is run at certain stages in the requests that Perlbal handles.There are all kinds of hooks available and they all do different things. Some are only applicable to some of the roles and others are applicable only to certain classes. Each hook is described in detail below, but first a description of the basics of a hook.
 
-In general, you define a hook by calling the C<register_hook> method on a C<Perlbal::Service> object. You specify what hook you are interested in and provide a reference to a subroutine that will be called with the parameters particular to that hook.
+In general, you define a hook by calling the C<register_hook> method on a L<Perlbal::Service> object. You specify what hook you are interested in and provide a reference to a subroutine that will be called with the parameters particular to that hook.
 
 There are three types of hooks:
 
@@ -42,7 +42,7 @@ When this hook runs, it would return 1, signalling to Perlbal that it had done w
 
 Happens right after a backend is assigned to a client, but before we've talked to the backend and asked it to do something. If you return a true value, the process is stopped and you will manually have to send the client's request to the backend, etc.
 
-Called in C<Perlbal::BackendHTTP>.
+Called in L<Perlbal::BackendHTTP>.
 
 Available in role C<reverse_proxy>.
 
@@ -51,7 +51,7 @@ Available in role C<reverse_proxy>.
 
 When the backend is about to start sending the response.
 
-Called in C<Perlbal::BackendHTTP>.
+Called in L<Perlbal::BackendHTTP>.
 
 Available in all roles.
 
@@ -60,7 +60,7 @@ Available in all roles.
 
 Called as soon as response headers are read from the backend. If you return a true value, will stop all handling at that point.
 
-Called in C<Perlbal::BackendHTTP>.
+Called in L<Perlbal::BackendHTTP>.
 
 Available in all roles.
 
@@ -69,7 +69,7 @@ Available in all roles.
 
 When the backend is ready to receive the request.
 
-Called in C<Perlbal::BackendHTTP>.
+Called in L<Perlbal::BackendHTTP>.
 
 Available in all roles.
 
@@ -78,7 +78,7 @@ Available in all roles.
 
 Called when a missing file was requested in a request for multiple files concatenated, right before sending the 404 response. Return a true value to overtake the connection.
 
-Called in C<Perlbal::ClientHTTPBase>.
+Called in L<Perlbal::ClientHTTPBase>.
 
 Available in role C<web_server>.
 
@@ -89,7 +89,7 @@ See also C<concat_get_poststat_pre_send>, C<static_get_poststat_file_missing> an
 
 Called when the resulting file of a request for multiple files concatenated is about to be sent, right before the 200 response code is added as a header. Return a true value to overtake the connection.
 
-Called in C<Perlbal::ClientHTTPBase>.
+Called in L<Perlbal::ClientHTTPBase>.
 
 Available in role C<web_server>.
 
@@ -100,7 +100,7 @@ See also C<concat_get_poststat_file_missing>, C<static_get_poststat_file_missing
 
 Called when handling a PUT request.
 
-Called in C<Perlbal::ClientHTTP>.
+Called in L<Perlbal::ClientHTTP>.
 
 Available in role C<web_server>.
 
@@ -109,7 +109,7 @@ Available in role C<web_server>.
 
 Called when a request is received and right before we're about to determine if this request is high priority or not. Return a true value to make the request high priority; false to leave it alone. Note that this is only called when the request isn't already high priority due to cookie priority scheduling, which is done inside Perlbal's Service module.
 
-Called in C<Perlbal::ClientProxy>.
+Called in L<Perlbal::ClientProxy>.
 
 Available in all roles.
 
@@ -118,7 +118,7 @@ Available in all roles.
 
 Called when a request is received and right before we're about to determine if this request is high priority or not. Return a true value to make the request low priority; false to leave it alone. Note that this is only called when the request isn't already high priority due to cookie priority scheduling, which is done inside Perlbal's Service module.
 
-Called in C<Perlbal::ClientProxy>.
+Called in L<Perlbal::ClientProxy>.
 
 Available in all roles.
 
@@ -127,7 +127,7 @@ Available in all roles.
 
 Called when we've set all the headers, and are about to serve a file. You can change or add response headers at this point, or cancel the process by returning a true value. You will have to send the response to the client yourself if you do this.
 
-Called in C<Perlbal::ClientHTTPBase>.
+Called in L<Perlbal::ClientHTTPBase>.
 
 Available in role C<web_server>.
 
@@ -136,7 +136,7 @@ Available in role C<web_server>.
 
 Called on the request before we send the request to a backend.
 
-Called in C<Perlbal::ClientProxy>.
+Called in L<Perlbal::ClientProxy>.
 
 Available in all roles.
 
@@ -145,7 +145,7 @@ Available in all roles.
 
 C<put_writeout> is called when there is some put data to write out
 
-Called in C<Perlbal::ClientHTTP>.
+Called in L<Perlbal::ClientHTTP>.
 
 Available in role C<web_server>.
 
@@ -154,7 +154,7 @@ Available in role C<web_server>.
 
 Called when a reproxy file has completed and is about to close the file handle. You can cancel the process by returning a true value (in which case you will have to close the reproxy_fh yourself).
 
-Called in C<Perlbal::ClientHTTPBase>.
+Called in L<Perlbal::ClientHTTPBase>.
 
 Available in role C<web_server>.
 
@@ -163,7 +163,7 @@ Available in role C<web_server>.
 
 Called when a request has been finished, and control of the Client* object is about to be transferred back to ownership by a service selector. Return a true value if the perlbal core action in this situation should be bypassed.
 
-Called in C<Perlbal::ClientHTTPBase>.
+Called in L<Perlbal::ClientHTTPBase>.
 
 Available in all roles.
 
@@ -172,7 +172,7 @@ Available in all roles.
 
 Called when we've been told to reproxy a file. If you return a true value, Perlbal will not perform any operations on the file and will simply return. You can also change the file in the scalar ref passed as the second parameter.
 
-Called in C<Perlbal::ClientProxy>; receives C<$filename_ref>, a reference to the filename.
+Called in L<Perlbal::ClientProxy>; receives C<$filename_ref>, a reference to the filename.
 
 Available in role C<reverse_proxy>.
 
@@ -181,7 +181,7 @@ Available in role C<reverse_proxy>.
 
 A generic hook that works for both webserver and proxy modes, run after either the specific C<start_proxy_request> or C<start_web_request> hooks below. Like those, you return true from this hook to takeover the connection.
 
-Called in C<Perlbal::ClientProxy> and C<Perlbal::ClientHTTP>.
+Called in L<Perlbal::ClientProxy> and L<Perlbal::ClientHTTP>.
 
 Available in roles C<reverse_proxy> and C<web_server>.
 
@@ -190,7 +190,7 @@ Available in roles C<reverse_proxy> and C<web_server>.
 
 Called as soon as we've read in headers from a user but right before we've requested a backend connection. If a true value is returned, Perlbal will not request a backend.
 
-Called in C<Perlbal::ClientProxy>.
+Called in L<Perlbal::ClientProxy>.
 
 Available in role C<reverse_proxy>.
 
@@ -199,7 +199,7 @@ Available in role C<reverse_proxy>.
 
 Called when we've opened a file and are about to start sending it to the user using sendfile. Return a true value to cancel the default sending.
 
-Called in C<Perlbal::ClientHTTPBase>.
+Called in L<Perlbal::ClientHTTPBase>.
 
 Available in role C<web_server>.
 
@@ -208,7 +208,7 @@ Available in role C<web_server>.
 
 Called when we're about to serve a local file, before we've done any work. You can change the file served by modifying C<$uri_ref>, or cancel the process by returning a true value.
 
-Called in C<Perlbal::ClientHTTPBase>; receives C<$uri_ref>, a reference to the URI.
+Called in L<Perlbal::ClientHTTPBase>; receives C<$uri_ref>, a reference to the URI.
 
 Available in role C<web_server>.
 
@@ -217,7 +217,7 @@ Available in role C<web_server>.
 
 When a service has gotten headers and is about to serve it. Return a true value to cancel the default handling of web requests.
 
-Called in C<Perlbal::ClientHTTP>.
+Called in L<Perlbal::ClientHTTP>.
 
 Available in role C<web_server>.
 
@@ -226,7 +226,7 @@ Available in role C<web_server>.
 
 Called when a missing static single file was requested, right before sending the 404 response. Return a true value to overtake the connection.
 
-Called in C<Perlbal::ClientHTTPBase>.
+Called in L<Perlbal::ClientHTTPBase>.
 
 Available in role C<web_server>.
 
@@ -237,7 +237,7 @@ See also C<concat_get_poststat_file_missing>, C<concat_get_poststat_pre_send> an
 
 Called when a static single file is about to be sent, right before the 200 response code is added as a header. Return a true value to overtake the connection.
 
-Called in C<Perlbal::ClientHTTPBase>.
+Called in L<Perlbal::ClientHTTPBase>.
 
 Available in role C<web_server>.
 
@@ -258,4 +258,4 @@ Available in role C<reverse_proxy>.
 
 =head2 SEE ALSO
 
-C<Perlbal::Manual::Architecture>, C<Perlbal::Manual::Plugins>.
+L<Perlbal::Manual::Architecture>, L<Perlbal::Manual::Plugins>.

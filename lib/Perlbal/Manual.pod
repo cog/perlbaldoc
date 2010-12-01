@@ -15,77 +15,77 @@ This is the comprehensive guide and reference manual for Perlbal.
 
 =over 4
 
-=item L<Perlbal::Manual::Architecture|Perlbal::Manual::Architecture>
+=item L<Perlbal::Manual::Architecture>
 
 Perlbal's architecture at a glance. Useful for future developers.
 
 
-=item L<Perlbal::Manual::Configuration|Perlbal::Manual::Configuration>
+=item L<Perlbal::Manual::Configuration>
 
 How to configure Perlbal. Pools, services, syntax and more.
 
 
-=item L<Perlbal::Manual::Contributing|Perlbal::Manual::Contributing>
+=item L<Perlbal::Manual::Contributing>
 
 How to contribute to Perlbal.
 
 
-=item L<Perlbal::Manual::Credits|Perlbal::Manual::Credits>
+=item L<Perlbal::Manual::Credits>
 
 Author and contributor credits for Perlbal.
 
 
-=item L<Perlbal::Manual::HighPriority|Perlbal::Manual::HighPriority>
+=item L<Perlbal::Manual::HighPriority>
 
 Perlbal's high/low priority queueing system and how to use it.
 
 
-=item L<Perlbal::Manual::Hooks|Perlbal::Manual::Hooks>
+=item L<Perlbal::Manual::Hooks>
 
 How Perlbal's hooks work and list of existing hooks.
 
 
-=item L<Perlbal::Manual::Install|Perlbal::Manual::Install>
+=item L<Perlbal::Manual::Install>
 
 Installation procedures for Perlbal.
 
 
-=item L<Perlbal::Manual::LoadBalancer|Perlbal::Manual::LoadBalancer>
+=item L<Perlbal::Manual::LoadBalancer>
 
 Setting up a Perlbal Load Balancing service.
 
 
-=item L<Perlbal::Manual::Management|Perlbal::Manual::Management>
+=item L<Perlbal::Manual::Management>
 
 Setting up a C<management> service, connecting to that service and managing Perlbal on-the-fly.
 
 
-=item L<Perlbal::Manual::Plugins|Perlbal::Manual::Plugins>
+=item L<Perlbal::Manual::Plugins>
 
 Known plugins and how to create new ones.
 
 
-=item L<Perlbal::Manual::ReverseProxy|Perlbal::Manual::ReverseProxy>
+=item L<Perlbal::Manual::ReverseProxy>
 
 Setting up a Perlbal Reverse Proxy service.
 
 
-=item L<Perlbal::Manual::Roles|Perlbal::Manual::Roles>
+=item L<Perlbal::Manual::Roles>
 
 Brief description of existing roles.
 
 
-=item L<Perlbal::Manual::Selector|Perlbal::Manual::Selector>
+=item L<Perlbal::Manual::Selector>
 
 Setting up a Perlbal C<selector> service.
 
 
-=item L<Perlbal::Manual::ToDo|Perlbal::Manual::ToDo>
+=item L<Perlbal::Manual::ToDo>
 
 Perlbal's To-Do list.
 
 
-=item L<Perlbal::Manual::WebServer|Perlbal::Manual::WebServer>
+=item L<Perlbal::Manual::WebServer>
 
 Setting up a Perlbal Web Server service.
 

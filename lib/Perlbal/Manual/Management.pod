@@ -15,7 +15,7 @@ How to configure a Perlbal C<management> service for on-the-fly configuration an
 
 =head2 READ ME FIRST
 
-Please refer to C<Perlbal::Manual::Configuration> for a better explanation on how to configure Perlbal. This document will make much more sense after reading that.
+Please refer to L<Perlbal::Manual::Configuration> for a better explanation on how to configure Perlbal. This document will make much more sense after reading that.
 
 
 =head2 Setting up a management service
@@ -34,7 +34,7 @@ If you access the management service (in this case, 127.0.0.1 on port 16000) wit
 
 =head3 Managing Perlbal via telnet
 
-If you telnet to the management service you get a connection that allows you manage your C<Perlbal>'s instance.
+If you telnet to the management service you get a connection that allows you manage your Perlbal's instance.
 
     $ telnet 127.0.0.1 16000
     Trying 127.0.0.1...
@@ -148,7 +148,7 @@ Maximum number of concurrent connections to one specific backend.
 
 Sets the value of C<RLIMIT_NOFILE> (maximum number of open files for this process).
 
-Requires C<BSD::Resource>. Also, Perlbal must be run under a superuser.
+Requires L<BSD::Resource>. Also, Perlbal must be run under a superuser.
 
 
 =item * nice_level = <value>
@@ -158,9 +158,9 @@ Sets the C<nice> level for the process.
 
 =item * aio_mode = <value>
 
-One of C<none>, C<linux> (for C<Linux::AIO>), or C<ioaio> (for C<IO::AIO>).
+One of C<none>, C<linux> for L<Linux::AIO>, or C<ioaio> for L<IO::AIO>.
 
-This controls how disk IO is done asynchronously. Highly recommended to use C<Linux::AIO> or C<IO::AIO> for webserving or reproxying files. For purely reverse proxy or only reproxying URLs, none is fine.
+This controls how disk IO is done asynchronously. Highly recommended to use L<Linux::AIO> or L<IO::AIO> for webserving or reproxying files. For purely reverse proxy or only reproxying URLs, none is fine.
 
 
 =item * aio_threads = <value>
@@ -211,7 +211,7 @@ Yes, we do realize that C<random> is the only method currently available, but he
 
 Sets a property on a service. If the service was just created, specifying the service name is optional.
 
-See C<Perlbal::Manual::LoadBalancer>, C<Perlbal::Manual::ReverseProxy> and C<Perlbal::Manual::WebServer> for the list of available parameters.
+See L<Perlbal::Manual::LoadBalancer>, L<Perlbal::Manual::ReverseProxy> and L<Perlbal::Manual::WebServer> for the list of available parameters.
 
 
 =item show service [<service_name>]
@@ -301,7 +301,7 @@ Turn off an already-loaded XS module:
 
 =item aio
 
-Shows C<Perlbal::AIO> stats.
+Shows L<Perlbal::AIO> stats.
 
 
 =item backends
@@ -319,7 +319,7 @@ In the above example, there are 3 open connections (they may be being used or th
 
 Shows the current configuration for each service.
 
-If a service uses a plugin that supports C<dumpconfig>, that plugin's configuration is also dumped (see C<dumpconfig> under C<Perlbal::Manual::Plugins> for more information).
+If a service uses a plugin that supports C<dumpconfig>, that plugin's configuration is also dumped (see C<dumpconfig> under L<Perlbal::Manual::Plugins> for more information).
 
 
 =item fd
@@ -333,7 +333,7 @@ Shows the maximum number of file descriptors and how many are currently in use.
 
 =item gladiator
 
-Requires C<Devel::Gladiator>.
+Requires L<Devel::Gladiator>.
 
 Iterate's Perl's internal memory structures and can be used to enumerate all the currently live SVs.
 
@@ -409,7 +409,7 @@ If the time is a negative value it means that the C<OPTIONS> command will be iss
 
 Shows objects count in scope.
 
-The environment variable C<DEBUG_OBJ> must be set to a true value (see C<Environment Variables> under C<Perlbal::Manual::Configuration> for more information).
+The environment variable C<DEBUG_OBJ> must be set to a true value (see C<Environment Variables> under L<Perlbal::Manual::Configuration> for more information).
 
 
 =item pending
@@ -579,4 +579,4 @@ Some alternatives to authentication are commonly employed:
 
 =head2 SEE ALSO
 
-C<Perlbal::Manual::Configuration>.
+L<Perlbal::Manual::Configuration>.

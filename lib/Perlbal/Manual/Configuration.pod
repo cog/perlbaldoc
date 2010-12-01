@@ -10,7 +10,7 @@ Perlbal 1.76.
 
 =head2 DESCRIPTION
 
-By default, perlbal looks for a configuration file at C</etc/perlbal/perlbal.conf>.
+By default, perlbal looks for a configuration file at F</etc/perlbal/perlbal.conf>.
 
 You can also point perlbal at a different configuration file with the B<-c> flag.
 
@@ -21,7 +21,7 @@ B<-c> has the alias B<--conf>.
 
 =head2 Configuration file
 
-A C<Perlbal>'s configuration file is a text file where you create pools and services, add servers to pools, set services' parameters and enable/disable services.
+A Perlbal's configuration file is a text file where you create pools and services, add servers to pools, set services' parameters and enable/disable services.
 
 Indentation is not mandatory, but it's considered a good practice for readability issues.
 
@@ -90,7 +90,7 @@ Here's a sample service:
 
 The first line creates a service called C<service_mywebsite>.
 
-On the three following lines we are setting up three parameters for that service (you can see this same example in C<Perlbal::Manual::LoadBalancer> in more detail).
+On the three following lines we are setting up three parameters for that service (you can see this same example in L<Perlbal::Manual::LoadBalancer> in more detail).
 
 
 =head3 Setting parameters
@@ -100,7 +100,7 @@ You can set parameters via commands of either forms:
     SET <service-name> <param> = <value>
     SET <param> = <value>
 
-For a full list of parameters see C<Perlbal::Manual::LoadBalancer>, C<Perlbal::Manual::ReverseProxy> or C<Perlbal::Manual::WebServer>.
+For a full list of parameters see L<Perlbal::Manual::LoadBalancer>, L<Perlbal::Manual::ReverseProxy> or L<Perlbal::Manual::WebServer>.
 
 
 =head4 B<Note on types>:
@@ -120,20 +120,20 @@ To disable a service:
 
     DISABLE service_mywebsite
 
-The lines is what allows you to have several services configured in a file even if they are not currently active (a common scenario is to configure everything on the file and then enable/disable services on-the-fly as required; see C<Perlbal::Manual::Management> for more information on this process).
+The lines is what allows you to have several services configured in a file even if they are not currently active (a common scenario is to configure everything on the file and then enable/disable services on-the-fly as required; see L<Perlbal::Manual::Management> for more information on this process).
 
 
 =head3 Including configuration files
 
 While Perlbal doesn't natively let you include a configuration file within another, one of its core Plugins does.
 
-By using C<Perlbal::Plugin::Include> you can use this feature:
+By using L<Perlbal::Plugin::Include> you can use this feature:
 
     LOAD include
     INCLUDE = /etc/perlbal/my.conf
     INCLUDE = /etc/perlbal/other.conf /etc/perlbal/*.conf
 
-See C<Perlbal::Plugin::Include> for further examples and more information.
+See L<Perlbal::Plugin::Include> for further examples and more information.
 
 
 =head3 Expansions
@@ -151,7 +151,7 @@ Expands to the configured IP for interface "eth0". Probably only works on Linux.
 
 =head3 Comments
 
-Comments in C<Perlbal>'s configuration files start with a C<#>:
+Comments in Perlbal's configuration files start with a C<#>:
 
     # this is a comment
     ENABLE myservice # this is also a comment
@@ -193,12 +193,12 @@ The value of the header contains the reason why the request was buffered.
 
 This is the variable you'll have to set to a true value in order to properly use the commands C<obj> or C<track>.
 
-See C<Perlbal::Manual::Management> for more information.
+See L<Perlbal::Manual::Management> for more information.
 
 
 =head3 PERLBAL_TEST_ALPHA
 
-This is a variable used to test C<Perlbal>'s alpha features.
+This is a variable used to test Perlbal's alpha features.
 
 If you're a developer working on one of these features, first set the variable to a true value:
 
@@ -218,30 +218,30 @@ And then, on your test file, use something like:
 
 This is the variable you'll have to set to a true value in order to properly use the command C<state changes>.
 
-See C<Perlbal::Manual::Management> for more information.
+See L<Perlbal::Manual::Management> for more information.
 
 
 =head3 PERLBAL_XS_HEADERS
 
-By setting to a true value you can enable C<Perlbal::XS::HTTPHeaders>, if installed.
+By setting to a true value you can enable L<Perlbal::XS::HTTPHeaders>, if installed.
 
 
 =head3 TEST_PERLBAL_FOREGROUND
 
-This variable is used by C<Perlbal::Test> to test Perlbal.
+This variable is used by L<Perlbal::Test> to test Perlbal.
 
-C<TEST_PERLBAL_FOREGROUND> with a true value tells C<Perlbal::Test> that it should run a server in the foreground.
+C<TEST_PERLBAL_FOREGROUND> with a true value tells L<Perlbal::Test> that it should run a server in the foreground.
 
-See C<Perlbal::Test> for more information.
+See L<Perlbal::Test> for more information.
 
 
 =head3 TEST_PERLBAL_USE_EXISTING
 
-This variable is used by C<Perlbal::Test> to test Perlbal.
+This variable is used by L<Perlbal::Test> to test Perlbal.
 
 If C<TEST_PERLBAL_USE_EXISTING> is set to a true value then C<Perlbal::Test::start_server> will be return a socket which is connected to an existing server's management port.
 
-See C<Perlbal::Test> for more information.
+See L<Perlbal::Test> for more information.
 
 
 =head2 Setting up Perlbal
@@ -257,4 +257,4 @@ A common practice is to create a C<perlbal.sh> file that supports the common ope
 
 =head2 SEE ALSO
 
-C<Perlbal::Manual::Management>.
+L<Perlbal::Manual::Management>.

@@ -15,14 +15,14 @@ How to configure a Perlbal Reverse Proxy service.
 
 =head2 READ ME FIRST
 
-Please refer to C<Perlbal::Manual::Configuration> for a better explanation on how to configure Perlbal. This document will make much more sense after reading that.
+Please refer to L<Perlbal::Manual::Configuration> for a better explanation on how to configure Perlbal. This document will make much more sense after reading that.
 
 
 =head2 Configuring Perlbal as a Reverse Proxy
 
 Configuration of Perlbal as a Reverse Proxy is similar to configuration as a Load Balancer.
 
-Check C<Perlbal::Manual::LoadBalancer> under C<Configuring Perlbal as a Load Balancer> for a sample configuration file and refer to the section C<Load Balancer vs. Reverse Proxy> on that file for an explanation of the differences between a Load Balancer and a Reverse Proxy.
+Check L<Perlbal::Manual::LoadBalancer> under C<Configuring Perlbal as a Load Balancer> for a sample configuration file and refer to the section C<Load Balancer vs. Reverse Proxy> on that file for an explanation of the differences between a Load Balancer and a Reverse Proxy.
 
 
 =head2 Parameters
@@ -393,11 +393,11 @@ Whenever Perlbal fails to open a connection to a machine, it assumes that machin
 
 If there are no available servers, Perlbal will keep trying to open connections to the servers until C<idle_timeout> is reached, upon which it will close the connection to the user. Clients interpret that closing differently: most will assume a 500 HTTP code, a few assume a 200 OK with empty content.
 
-For more information on parameters C<idle_timeout> and C<error_retry_schedule> see C<Perlbal::Manual::ReverseProxy>.
+For more information on parameters C<idle_timeout> and C<error_retry_schedule> see L<Perlbal::Manual::ReverseProxy>.
 
 
 =head2 SEE ALSO
 
-C<Perlbal::Manual::Configuration>,
-C<Perlbal::Manual::LoadBalancer>,
-C<Perlbal::Manual::Management>.
+L<Perlbal::Manual::Configuration>,
+L<Perlbal::Manual::LoadBalancer>,
+L<Perlbal::Manual::Management>.

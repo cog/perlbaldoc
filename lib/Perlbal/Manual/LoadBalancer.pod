@@ -15,7 +15,7 @@ How to configure a Perlbal Load Balancing service.
 
 =head2 READ ME FIRST
 
-Please refer to C<Perlbal::Manual::Configuration> for a better explanation on how to configure Perlbal. This document will make much more sense after reading that.
+Please refer to L<Perlbal::Manual::Configuration> for a better explanation on how to configure Perlbal. This document will make much more sense after reading that.
 
 
 =head2 Using Perlbal as a Load Balancer
@@ -28,7 +28,7 @@ Perlbal as a Reverse Proxy provides features such as buffering content, preservi
 
 You could almost say that a Load Balancer is a subset of a Reverse Proxy (it's not, but you could).
 
-When it comes to C<Perlbal>, the Load Balancer is implemented as a Reverse Proxy without all the extra options, and that's why you set the role of a Load Balancer to C<reverse_proxy>:
+When it comes to Perlbal, the Load Balancer is implemented as a Reverse Proxy without all the extra options, and that's why you set the role of a Load Balancer to C<reverse_proxy>:
 
     SET role            = reverse_proxy
 
@@ -62,7 +62,7 @@ The first line defines a pool of machines called C<mywebsite>. The second and th
 
 After that you define a service called C<service_mywebsite> set to listen on C<10.0.0.3:80> and using the pool C<mywebsite> to serve the requests. The role is indeed C<reverse_proxy>, as the architecture used is the same both for setting up Perlbal as a Load Balancer and as a Reverse Proxy (for more information on this see section C<Load Balancer vs. Reverse Proxy> of this document).
 
-The last line is what allows you have several services configured in a file even if they are not currently active (a common scenario is to configure everything on the file and then enable/disable services on-the-fly as required; see C<Perlbal::Manual::Management> for more information on this process).
+The last line is what allows you have several services configured in a file even if they are not currently active (a common scenario is to configure everything on the file and then enable/disable services on-the-fly as required; see L<Perlbal::Manual::Management> for more information on this process).
 
 
 =head2 Fail Over
@@ -71,11 +71,11 @@ Whenever Perlbal fails to open a connection to a machine, it assumes that machin
 
 If there are no available servers, Perlbal will keep trying to open connections to the servers until C<idle_timeout> is reached, upon which it will close the connection to the user. Clients interpret that closing differently: most will assume a 500 HTTP code, a few assume a 200 OK with empty content.
 
-For more information on parameters C<idle_timeout> and C<error_retry_schedule> see C<Perlbal::Manual::ReverseProxy>.
+For more information on parameters C<idle_timeout> and C<error_retry_schedule> see L<Perlbal::Manual::ReverseProxy>.
 
 
 =head2 SEE ALSO
 
-C<Perlbal::Manual::Configuration>,
-C<Perlbal::Manual::Management>,
-C<Perlbal::Manual::ReverseProxy>.
+L<Perlbal::Manual::Configuration>,
+L<Perlbal::Manual::Management>,
+L<Perlbal::Manual::ReverseProxy>.

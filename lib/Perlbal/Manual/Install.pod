@@ -197,4 +197,4 @@ And now you can try installation again:
 
 =head2 SEE ALSO
 
-C<Perlbal::Manual>.
+L<Perlbal::Manual>.

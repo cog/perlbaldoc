@@ -48,5 +48,5 @@ Be sure to follow local style conventions.
 
 =head2 SEE ALSO
 
-C<Perlbal::Manual::Architecture>,
-C<Perlbal::Manual::Credits>.
+L<Perlbal::Manual::Architecture>,
+L<Perlbal::Manual::Credits>.
