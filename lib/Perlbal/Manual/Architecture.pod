@@ -2,6 +2,12 @@
 
 Perlbal::Manual::Architecture - Perlbal's architecture at a glance
 
+
+=head2 VERSION
+
+Perlbal 1.76.
+
+
 =head2 DESCRIPTION
 
 Perlbal listens for UDP broadcasts from the web nodes describing how many available children they have. This information is then used to pick an endpoint for a backend connection to be made to in order to handle a user's incoming request.

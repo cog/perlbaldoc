@@ -5,7 +5,12 @@ Perlbal::Manual::Plugins - Creating and using plugins
 
 =head2 VERSION
 
-This document details Perlbal 1.76's system for Plugins.
+Perlbal 1.76.
+
+
+=head2 DESCRIPTION
+
+How to create and use plugins.
 
 
 =head2 How to use a plugin

@@ -5,7 +5,12 @@ Perlbal::Manual::Contributing - How to contribute to Perlbal
 
 =head2 VERSION
 
-This document refers to Perlbal 1.76.
+Perlbal 1.76.
+
+
+=head2 DESCRIPTION
+
+This document aims at providing useful pointers for people wanting to contribute to Perlbal.
 
 
 =head2 How to submit patches
@@ -43,4 +48,5 @@ Be sure to follow local style conventions.
 
 =head2 SEE ALSO
 
+C<Perlbal::Manual::Architecture>,
 C<Perlbal::Manual::Credits>.

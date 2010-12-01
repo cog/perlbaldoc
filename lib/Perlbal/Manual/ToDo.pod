@@ -3,6 +3,16 @@
 Perlbal::Manual::ToDo - Perlbal's To-Do list
 
 
+=head2 VERSION
+
+Perlbal 1.76.
+
+
+=head2 DESCRIPTION
+
+A wish-list/roadmap/to-do-list for Perlbal.
+
+
 =head2 To do items
 
 The following are possible to-do items for Perlbal:
