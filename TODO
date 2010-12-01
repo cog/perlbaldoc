@@ -58,7 +58,7 @@ on Perlbal::Manual::Hooks:
     [x]    make_high_priority
     [ ]    make_low_priority
     [x]    modify_response_headers
-    [ ]    proxy_read_request
+    [x]    proxy_read_request
     [ ]    put_writeout
     [x]    reproxy_fh_finished
     [x]    return_to_base
