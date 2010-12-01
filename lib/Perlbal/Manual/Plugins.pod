@@ -76,9 +76,7 @@ You'll have to add a few functions to this file. These are described below.
 (note: upon creating this package, some boilerplate documentation will also be present on the file; you should revise it and even remove bits that don't feel right for your plugin)
 
 
-=over 4
-
-=item register
+=head3 register
 
 C<register> is called when the plugin is being added to a service. This is where you register your plugin's hooks.
 
@@ -106,7 +104,7 @@ Inside C<register>, we're calling C<register_hook> to register our C<ColorOfMagi
 Notice that the hook ends with C<return 0>. This is because returning a true value means that you want to cancel the connection to the backend and send the response to the client yourself.
 
 
-=item unregister
+=head3 unregister
 
 C<unregister> is called when the plugin is removed from a service. It's a standard good practice to unregister your plugin's hooks here, like so:
 
@@ -121,7 +119,7 @@ You can also use C<unregister_hook> to unregister one single hook:
     $service->unregister_hooks('ColorOfMagic', 'modify_response_headers');
 
 
-=item load
+=head3 load
 
 C<load> is called when your plugin is loaded (or reloaded).
 
@@ -143,7 +141,7 @@ C<load> must always be defined, but if you really don't need it you can have it 
     sub load { return 1; }
 
 
-=item unload
+=head3 unload
 
 C<unload> is called when your plugin is unloaded. This is where you should perform any clean up tasks.
 
@@ -154,7 +152,7 @@ C<unload> must always be defined, but if you really don't need it you can have i
 Don't forget to call C<unregister_global_hook> if you have registered any.
 
 
-=item dumpconfig
+=head3 dumpconfig
 
 When managing Perlbal (see C<Perlbal::Manual::Management>) you can send a C<dumpconfig> command that will result in a configuration dump.
 
@@ -173,9 +171,6 @@ C<dumpconfig> should return an array of messages to be displayed.
     }
 
 C<dumpconfig> is not required.
-
-
-=back
 
 
 =head3 add_tunable
