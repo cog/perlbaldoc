@@ -265,9 +265,35 @@ A size, validated against C</^(\d+)[bkm]$/>.
 =back
 
 
-=head3 management_command
+=head3 manage_command
 
-...
+Perlbal catches unknown configuration commands and tries to match them against hooks in the form of C<manage_command.*>.
+
+Let's say that you want to set a management command C<time> that will allow you to see what time it is on the server.
+
+    sub load {
+        Perlbal::register_global_hook('manage_command.time', sub {
+            my $time = localtime time;
+            
+            return [ "It is now:", $time ];
+        });
+        
+        return 1;
+    }
+
+If you want to display a text message you should return an array reference; each of the values will be printed with a trailing newline character:
+
+    time
+    It is now:
+    Wed Dec  1 19:08:58 2010
+
+If you need to parse additional parameters on your hook, you can use C<parse> and C<args> on the C<Perlbal::ManageCommand> object that your function will receive:
+
+    my $mc = shift->parse(qr/^time\s+(today|tomorrow)$/, "usage: TIME [today|tomorrow]");
+
+    my ($cmd, $choice) = $mc->args;
+
+This would allow you to call your command with an argument that would have to be one of C<today> or C<tomorrow>.
 
 
 =head3 register_setter
