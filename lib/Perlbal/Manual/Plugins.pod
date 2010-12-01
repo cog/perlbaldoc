@@ -180,6 +180,14 @@ C<dumpconfig> is not required.
 
 =head3 add_tunable
 
+Adding a tunable will allow you to set its value within each plugin:
+
+    LOAD MyPlugin
+    CREATE SERVICE my_service
+        SET my_new_parameter    = 42
+        SET plugins             = MyPlugin
+    ENABLE my_service
+
 C<add_tunable> can be used by plugins that want to add tunables so that the config file can have more options for service settings.
 
     sub load {
@@ -197,6 +205,69 @@ C<add_tunable> can be used by plugins that want to add tunables so that the conf
 C<check_role> defines for which roles the value can be set (C<reverse_proxy>, C<web_server>, etc). A value of C<*> mean that the value can be set for any role.
 
 The acceptable values for C<check_type> are C<enum>, C<regexp>, C<bool>, C<int>, C<size>, C<file>, C<file_or_none> and C<directory_or_none>. An C<Unknown check_type> error message will be displayed whenever you try to set a value that has an unknown C<check_type>.
+
+C<check_type> can also contain a code reference that will be used to validate the type.
+
+    check_type => sub {
+        my $self  = shift;
+        my $val   = shift;
+        my $emesg = shift;
+        
+        ...
+    },
+
+This code reference should return a true of false value. If returning false, the contents of C<$emesg> (which is passed as a reference to the function) will be used as the error message.
+
+
+=over 4
+
+=item bool
+
+Boolean value. Must be defined and will be checked as a Perl value.
+
+
+=item directory_or_none
+
+The value needs to be defined and the content must be an existing directory (validated against perl's C<-d> switch).
+
+
+=item enum
+
+An array reference containing the acceptable values:
+
+    check_type => ["yellow", "blue", "green"],
+
+
+=item file
+
+A filename, validated against perl's C<-f> switch.
+
+
+=item file_or_none
+
+A filename validated against perl's C<-f> switch or the default value.
+
+
+=item int
+
+An integer value, validated against C</^\d+$/>.
+
+
+=item regexp
+
+Regular expression.
+
+The correct form of setting a regexp tunable is by setting it as an array reference containing the type (C<regexp>), the regular expression and a message that can explain it:
+
+    check_type => ["regexp", qr/^\d+\.\d+\.\d+\.\d+:\d+$/, "Expecting IP:port of form a.b.c.d:port."],
+
+
+=item size
+
+A size, validated against C</^(\d+)[bkm]$/>.
+
+
+=back
 
 
 =head3 management_command
