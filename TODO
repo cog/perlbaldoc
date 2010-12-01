@@ -160,7 +160,7 @@ somewhere:
 
 
 README:
-    [ ] create a basic README file that will be the standard README for Perlbal (it doesn't have one yet)
+    [x] create a basic README file that will be the standard README for Perlbal (it didn't have one yet)
 
 
 all files (probably by the end of the project):
