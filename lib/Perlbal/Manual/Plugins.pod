@@ -178,6 +178,14 @@ C<dumpconfig> is not required.
 =back
 
 
+=head3 add_tunable
+
+C<add_tunable> can be used by plugins that want to add tunables so that the config file can have more options for service settings.
+
+...
+
+
+
 =head3 management_command
 
 ...
@@ -219,7 +227,9 @@ Here's how you'd configure a new setter, by using C<register_setter> inside C<lo
 
 =head3 register vs. load
 
-...
+C<load> is called when the plugin is loaded, while C<register> is called whenever the plugin is set for a service.
+
+This means that you should use C<load> for anything that is global, such as registering a global hook, and you should use C<register> for things that are specific to a service, such as registering service hooks.
 
 
 =head2 Known plugins

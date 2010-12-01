@@ -118,6 +118,7 @@ on Perlbal::Manual::Plugins:
     [ ]    for all the above functions, describe the arguments they receive
     [ ] helper functions
     [ ]    manage_command
+    [ ]    add_tunable
     [x]    register_setter
     [ ]    for all the above functions, describe the arguments they receive
 
