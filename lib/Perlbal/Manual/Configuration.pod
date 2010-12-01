@@ -204,7 +204,7 @@ See C<Perlbal::Test> for more information.
 
 This variable is used by C<Perlbal::Test> to test Perlbal.
 
-If C<TEST_PERLBAL_USE_EXISTING> is set to a true value then a socket will be returned which is connected to an existing server's management port.
+If C<TEST_PERLBAL_USE_EXISTING> is set to a true value then C<Perlbal::Test::start_server> will be return a socket which is connected to an existing server's management port.
 
 See C<Perlbal::Test> for more information.
 
