@@ -182,8 +182,21 @@ C<dumpconfig> is not required.
 
 C<add_tunable> can be used by plugins that want to add tunables so that the config file can have more options for service settings.
 
-...
+    sub load {
+        Perlbal::Service::add_tunable(
+            my_new_parameter => {
+                check_role => '*',
+                check_type => 'int',
+                des => "description of my new parameter",
+                default => 0,
+            },
+        );
+        return 1;
+    }
 
+C<check_role> defines for which roles the value can be set (C<reverse_proxy>, C<web_server>, etc). A value of C<*> mean that the value can be set for any role.
+
+The acceptable values for C<check_type> are C<enum>, C<regexp>, C<bool>, C<int>, C<size>, C<file>, C<file_or_none> and C<directory_or_none>. An C<Unknown check_type> error message will be displayed whenever you try to set a value that has an unknown C<check_type>.
 
 
 =head3 management_command
@@ -195,11 +208,11 @@ C<add_tunable> can be used by plugins that want to add tunables so that the conf
 
 C<register_setter> allows you to defined parameters that can be set for your plugin, using a syntax such as:
 
-    set my_service.my_plugin.my_variable = my_value
+    SET my_service.my_plugin.my_variable = my_value
 
 For instance:
 
-    set discworld.colorofmagic.color = 'Orange'
+    SET discworld.colorofmagic.color = 'Orange'
 
 Here's how you'd configure a new setter, by using C<register_setter> inside C<load>:
 
@@ -207,7 +220,6 @@ Here's how you'd configure a new setter, by using C<register_setter> inside C<lo
 
     sub load {
         $color = 'Octarine';
-
 
         $svc->register_setter('ColorOfMagic', 'color', sub {
             my ($out, $what, $val) = @_;
@@ -220,9 +232,13 @@ Here's how you'd configure a new setter, by using C<register_setter> inside C<lo
             return 1;
         });
 
-
         return 1;
     }
+
+
+=head3 add_tunable vs. register_setter
+
+...
 
 
 =head3 register vs. load
