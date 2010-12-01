@@ -123,18 +123,17 @@ You can also use C<unregister_hook> to unregister one single hook:
 
 C<load> is called when your plugin is loaded (or reloaded).
 
-This is where you should perform your plugin's initialization, which can go from setting up some variables to registering a management command.
-
-... # we must explain how to register management commands here ...
+This is where you should perform your plugin's initialization, which can go from setting up some variables to registering a management command (to register commands see the documentation for C<manage_command> further down this document).
 
     my $color;
 
     sub load {
+        my $class = shift;
+
         $color = 'Octarine';
 
         return 1;
     }
-
 
 C<load> must always be defined, but if you really don't need it you can have it simply returning a true value:
 

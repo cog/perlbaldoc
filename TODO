@@ -108,19 +108,18 @@ on Perlbal::Manual::Plugins:
     [x]    check for duplicated plugins
     [x]    try to add a description for every plugin
     [x] how to use a plugin
-    [ ] how to create a plugin, step-by-step
+    [x] how to create a plugin, step-by-step
     [x]    creating a package
     [x]    register
     [x]    unregister
     [x]    load
     [x]    unload
     [x]    dumpconfig
-    [ ]    for all the above functions, describe the arguments they receive
-    [ ] helper functions
     [x]    add_tunable
     [x]    manage_command
     [x]    register_setter
-    [ ]    for all the above functions, describe the arguments they receive
+    [x]    for all the above functions, describe the arguments they receive
+    [ ]    add_tunable vs. register_setter
 
 
 on Perlbal::Manual::ReverseProxy:
