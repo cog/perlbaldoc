@@ -211,7 +211,7 @@ C<check_type> can also contain a code reference that will be used to validate th
         my $self  = shift;
         my $val   = shift;
         my $emesg = shift;
-        
+
         ...
     },
 
@@ -278,10 +278,10 @@ Let's say that you want to set a management command C<time> that will allow you 
     sub load {
         Perlbal::register_global_hook('manage_command.time', sub {
             my $time = localtime time;
-            
+
             return [ "It is now:", $time ];
         });
-        
+
         return 1;
     }
 

@@ -60,7 +60,7 @@ The path to the file is relative to where perlbal was started.
 
 Note that:
 
-    SET pool nodefile = none 
+    SET pool nodefile = none
     (also undef, null, "", '')
 
 ...unsets the nodefile, but does not remove current members.
@@ -174,7 +174,7 @@ There are four levels of debugging in Perlbal.
 By setting this variable to a value between 0 and 4 (included) you will activate Perbal's debug.
 
     PERLBAL_DEBUG = 0 # no debug
-    
+
     PERLBAL_DEBUG = 4 # debug everything
 
 

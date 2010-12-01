@@ -40,7 +40,7 @@ If you telnet to the management service you get a connection that allows you man
     Trying 127.0.0.1...
     Connected to 127.0.0.1.
     Escape character is '^]'.
-    
+
 You now have access to several commands (which are case insensitive):
 
 =head4 Admin Commands
@@ -536,7 +536,7 @@ Debug management command to track size of internal data structures.
     varsize
     svc-ws-bored_backends [] 2
     svc-ws-pending_connects {} 2
-      {127.0.0.1:3080}  = 
+      {127.0.0.1:3080}  =
       {127.0.0.1:3081}  = Perlbal::BackendHTTP=HASH(0x1cfd2490)
 
 

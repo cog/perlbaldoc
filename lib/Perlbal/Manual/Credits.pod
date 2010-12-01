@@ -17,7 +17,7 @@ We are all very grateful for their help.
 Please let us know if you think someone is missing from this list.
 
 
-=head2 CONTRIBUTORS 
+=head2 CONTRIBUTORS
 
 Alan Kasindorf,
 Andreas J Koenig,

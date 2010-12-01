@@ -173,7 +173,7 @@ all files (probably by the end of the project):
     [x]    review AUTHORS
     [ ] $ ack "\.\.\."
     [x] $ ack "  "
-    [ ] $ ack " $"
+    [x] $ ack " $"
 
 cleanup:
     [x] remove "grant proposal.pod" from the repository
