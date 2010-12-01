@@ -12,9 +12,11 @@ Perlbal 1.76.
 
 By default, perlbal looks for a configuration file at C</etc/perlbal/perlbal.conf>.
 
-You can also point perlbal at a different configuration file with the -c flag.
+You can also point perlbal at a different configuration file with the B<-c> flag.
 
     $ perlbal -c /home/user/perlbal.conf
+
+B<-c> has the alias B<--conf>.
 
 
 =head2 Configuration file
@@ -247,6 +249,8 @@ See C<Perlbal::Test> for more information.
 You can run C<perlbal> as a daemon:
 
     $ perlbal --daemon -c /home/user/perlbal.conf
+
+B<--daemon> has the alias B<-d>.
 
 A common practice is to create a C<perlbal.sh> file that supports the common operations you'll require (start, stop, restart) and place it under C</etc/init.d>.
 

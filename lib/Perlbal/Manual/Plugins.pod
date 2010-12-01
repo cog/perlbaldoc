@@ -227,7 +227,7 @@ Boolean value. Must be defined and will be checked as a Perl value.
 
 =item directory_or_none
 
-The value needs to be defined and the content must be an existing directory (validated against perl's C<-d> switch).
+The value needs to be defined and the content must be an existing directory (validated against perl's B<-d> switch).
 
 
 =item enum
@@ -239,12 +239,12 @@ An array reference containing the acceptable values:
 
 =item file
 
-A filename, validated against perl's C<-f> switch.
+A filename, validated against perl's B<-f> switch.
 
 
 =item file_or_none
 
-A filename validated against perl's C<-f> switch or the default value.
+A filename validated against perl's B<-f> switch or the default value.
 
 
 =item int
