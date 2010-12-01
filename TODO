@@ -12,7 +12,7 @@ on Perlbal::Manual::Architecture
     [x]    Socket
     [x]    TCPListener
     [x]    BackendHTTP
-    [ ]    HTTPHeaders
+    [x]    HTTPHeaders
     [ ]    ClientHTTPBase
     [ ]    ClientHTTP
     [ ]    ClientProxy

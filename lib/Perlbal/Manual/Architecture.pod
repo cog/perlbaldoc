@@ -104,6 +104,10 @@ Scalar IP port of where this service is listening for new connections.
 
 The SSL Options.
 
+    warn Dumper( $tcp_listener->{'sslopts'} );
+
+...
+
 
 =item v6
 
@@ -203,6 +207,9 @@ Boolean. If on, we're doing a buffered upload transmit.
 Used for plugins.
 
 
+=back
+
+
 =head3 Perlbal::HTTPHeaders
 
 Header management. Parses headers (request and response) and stores data for further user. Also manages validation of the request line so that it conforms to HTTP specifications.
@@ -214,6 +221,70 @@ Perlbal::HTTPHeaders has the following fields:
 =item ...
 
 ...
+
+
+
+=item headers
+
+href; lowercase header -> comma-sep list of values.
+
+
+=item origcase
+
+Href; lowercase header -> provided case.
+
+
+=item hdorder
+
+Aref; order headers were received (canonical order).
+
+
+=item method
+
+Scalar; request method (if GET request).
+
+
+=item uri
+
+Scalar; request URI (if GET request).
+
+
+=item type
+
+C<res> or C<req>.
+
+
+=item code
+
+HTTP response status code.
+
+
+=item codetext
+
+Status text that for response code.
+
+
+=item ver
+
+Version (string) "1.1".
+
+
+=item vernum
+
+Version (number: major*1000+minor): "1.1" => 1001.
+
+
+=item responseLine
+
+First line of HTTP response (if response).
+
+
+=item requestLine
+
+First line of HTTP request (if request).
+
+
+=back
 
 
 =head3 Perlbal::ClientHTTPBase
@@ -231,6 +302,9 @@ Perlbal::ClientHTTPBase has the following fields:
 ...
 
 
+=back
+
+
 =head3 Perlbal::ClientHTTP
 
 Descends from Perlbal::ClientHTTPBase.
@@ -244,6 +318,9 @@ Perlbal::ClientHTTP has the following fields:
 =item ...
 
 ...
+
+
+=back
 
 
 =head3 Perlbal::ClientProxy
@@ -261,6 +338,9 @@ Perlbal::ClientProxy has the following fields:
 ...
 
 
+=back
+
+
 =head3 Perlbal::ClientManage
 
 Descends from Perlbal::Socket.
@@ -276,6 +356,9 @@ Perlbal::ClientManage has the following fields:
 ...
 
 
+=back
+
+
 =head3 Perlbal::Service
 
 A service is a particular item that Perlbal is doing. Services can have a role which defines how they behave. Each service can also have a bunch of parameters set to further adjust its behavior. By itself, the Service class handles maintaining pools of backend connections and managing statistics about itself.
@@ -287,6 +370,9 @@ Perlbal::Service has the following fields:
 =item ...
 
 ...
+
+
+=back
 
 
 =head3 Perlbal::StatsListener
