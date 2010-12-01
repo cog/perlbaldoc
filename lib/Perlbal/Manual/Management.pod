@@ -150,7 +150,7 @@ This controls how disk IO is done asynchronously. Highly recommended to use C<Li
 
 =item * aio_threads
 
-Mumber of child threads doing disk IO. Use between 2 and 50.
+Number of child threads doing disk IO. Use between 2 and 50.
 
 
 =item * track_obj
