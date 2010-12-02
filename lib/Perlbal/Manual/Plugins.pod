@@ -467,3 +467,5 @@ Select by path (selector role only).
 =head2 SEE ALSO
 
 L<Perlbal::Manual::Hooks>, L<Perlbal::Manual::Internals>.
+
+There are sample configuration files under F<conf/>; some of these are examples on how to use and configure existing plugins: F<echoservice.conf> for L<Perlbal::Plugin::EchoService>, F<virtual-hosts.conf> for L<Perlbal::Plugin::VHosts>, etc.

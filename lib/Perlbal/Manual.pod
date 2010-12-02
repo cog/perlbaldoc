@@ -100,3 +100,5 @@ Bruno Martins and José Castro.
 =head2 SEE ALSO
 
 L<Perlbal::FAQ>.
+
+There are sample configuration files under F<conf/>, including samples for using and configuring existing plugins.
