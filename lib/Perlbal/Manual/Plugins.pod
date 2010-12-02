@@ -339,6 +339,28 @@ C<load> is called when the plugin is loaded, while C<register> is called wheneve
 This means that you should use C<load> for anything that is global, such as registering a global hook, and you should use C<register> for things that are specific to a service, such as registering service hooks.
 
 
+=head3 selector
+
+For plugins that will work with a C<selector> service, sometimes you'll want to override the C<selector> itself.
+
+You can do this in C<register>:
+
+    sub register {
+        my ($class, $svc) = @_;
+
+        $svc->selector(\&my_selector_function);
+
+Don't forget to unregister your function on the way out:
+
+    sub unregister {
+        my ($class, $svc) = @_;
+        $svc->selector(undef);
+        return 1;
+    }
+
+See L<Perlbal::Plugin::VHosts> or L<Perlbal::Plugin::Vpaths> for examples on how to do this.
+
+
 =head2 Known plugins
 
 The following is a list of known plugins:
