@@ -88,9 +88,11 @@ Here's a sample service:
         SET pool            = mywebsite
         SET listen          = 10.0.0.3:80
 
-The first line creates a service called C<service_mywebsite>.
+The first line creates a service called C<service_mywebsite>*.
 
 On the three following lines we are setting up three parameters for that service (you can see this same example in L<Perlbal::Manual::LoadBalancer> in more detail).
+
+* - It's good practice to always start a service with the definition of its role; this way you'll avoid error messages caused by attempting to set parameters that are only acceptable for certain roles while Perlbal doesn't know which role the service has yet..
 
 
 =head3 Setting parameters
