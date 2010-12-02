@@ -466,4 +466,4 @@ Select by path (selector role only).
 
 =head2 SEE ALSO
 
-L<Perlbal::Manual::Architecture>, L<Perlbal::Manual::Hooks>.
+L<Perlbal::Manual::Hooks>, L<Perlbal::Manual::Internals>.

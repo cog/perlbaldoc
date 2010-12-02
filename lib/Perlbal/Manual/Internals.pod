@@ -1,6 +1,6 @@
 =head1 NAME
 
-Perlbal::Manual::Architecture - Perlbal's architecture at a glance
+Perlbal::Manual::Internals - Perlbal's architecture at a glance
 
 
 =head2 VERSION

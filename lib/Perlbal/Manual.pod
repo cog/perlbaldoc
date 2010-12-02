@@ -15,11 +15,6 @@ This is the comprehensive guide and reference manual for Perlbal.
 
 =over 4
 
-=item L<Perlbal::Manual::Architecture>
-
-Perlbal's architecture at a glance. Useful for future developers.
-
-
 =item L<Perlbal::Manual::Configuration>
 
 How to configure Perlbal. Pools, services, syntax and more.
@@ -48,6 +43,11 @@ How Perlbal's hooks work and list of existing hooks.
 =item L<Perlbal::Manual::Install>
 
 Installation procedures for Perlbal.
+
+
+=item L<Perlbal::Manual::Internals>
+
+Perlbal's architecture at a glance. Useful for developers.
 
 
 =item L<Perlbal::Manual::LoadBalancer>
