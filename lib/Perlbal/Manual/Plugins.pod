@@ -38,7 +38,7 @@ Notice that some plugins need to be stated service by service; hence, this line:
 
         SET plugins             = MaxContentLength
 
-The C<plugins> parameter (a list of strings separated by commas) defined which plugins are acceptable for that service.
+The C<plugins> parameter (a list of strings separated by commas or spaces) defined which plugins are acceptable for that service.
 
 
 =head3 Troubleshooting
