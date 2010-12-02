@@ -51,6 +51,17 @@ This gives you a minimum of downtime that can be measured on the order of millis
 Remember that you need to have a C<management> service listening on port 60000 for this example to work. See L<Perlbal::Manual::Management>.
 
 
+=head2 Load Balancing
+
+=head3 What balancing algorithm does Perlbal use?
+
+Currently, Perlbal supports only one balancing method: C<random>.
+
+    SET pool balance_method = 'random'
+
+With this mode, Perlbal selects one of the nodes within the pool randomly for each request received.
+
+
 =head2 HTTP
 
 =head3 Does perlbal support HTTP 1.1?
