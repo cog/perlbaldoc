@@ -55,6 +55,11 @@ Perlbal's architecture at a glance. Useful for developers.
 Setting up a Perlbal Load Balancing service.
 
 
+=item L<Perlbal::Manual::Logging>
+
+How Perlbal's Logging system works.
+
+
 =item L<Perlbal::Manual::Management>
 
 Setting up a C<management> service, connecting to that service and managing Perlbal on-the-fly.
