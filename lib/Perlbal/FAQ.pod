@@ -62,6 +62,17 @@ Currently, Perlbal supports only one balancing method: C<random>.
 With this mode, Perlbal selects one of the nodes within the pool randomly for each request received.
 
 
+=head2 Plugins
+
+=head3 Can I influence the order plugins are used?
+
+Yes. When you set the plugins for your service they get to register their hooks in order.
+
+    SET plugins = AccessControl HighPri
+
+These hooks are pushed into an array, which means that they preserve the order of the plugins.
+
+
 =head2 HTTP, SSL
 
 =head3 Does perlbal support HTTP 1.1?
