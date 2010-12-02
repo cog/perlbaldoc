@@ -365,6 +365,8 @@ See L<Perlbal::Manual::Management> for more information.
 
 By setting to a true value you can enable L<Perlbal::XS::HTTPHeaders>, if installed.
 
+Note that if you enable L<Perlbal::XS::HTTPHeaders> you won't have access to the fields of L<Perlbal::HTTPHeaders>.
+
 
 =head3 TEST_PERLBAL_FOREGROUND
 
