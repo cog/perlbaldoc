@@ -67,7 +67,7 @@ Note that:
 
 ...unsets the nodefile, but does not remove current members.
 
-Check C<conf/load-balancer.conf> and C<conf/nodelist.dat> for an example.
+Check F<conf/load-balancer.conf> and F<conf/nodelist.dat> for an example.
 
 
 =head4 Pool balance method

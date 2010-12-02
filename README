@@ -125,7 +125,7 @@ Perlbal::Manual provides the index for the manual.
 
     perldoc Perlbal::Manual
 
-Individual sections can be viewed as, for example,
+Individual sections can be viewed as, for example:
 
     perldoc Perlbal::Manual::Configuration
     perldoc Perlbal::Manual::LoadBalancer

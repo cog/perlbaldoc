@@ -20,9 +20,9 @@ Please refer to L<Perlbal::Manual::Configuration> for a better explanation on ho
 
 =head2 Configuring Perlbal as a Web Server
 
-By default, perlbal looks for a configuration file at /etc/perlbal/perlbal.conf.
+By default, perlbal looks for a configuration file at F</etc/perlbal/perlbal.conf>.
 
-You can also point perlbal at a different configuration file with the -c flag.
+You can also point perlbal at a different configuration file with the B<-c> flag.
 
     $ perlbal -c /home/user/perlbal.conf
 

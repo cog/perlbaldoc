@@ -314,7 +314,7 @@ Default is C<*>.
 
 Perlbal supports the concept of reproxying. Basically, this gives it the ability to ask a backend node for a file and get back a specific header that says "this file is really over there, get it there." Perlbal will then load that file or URL and send it to the user transparently, without them ever knowing that they got reproxied to another location.
 
-Add the following line to your perlbal.conf to enable reproxying on a per service basis ( reproxying is disabled by default in >= 1.38 ):
+Add the following line to your F<perlbal.conf> to enable reproxying on a per service basis ( reproxying is disabled by default in >= 1.38 ):
 
     SET enable_reproxy  = true
 
