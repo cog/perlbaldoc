@@ -358,6 +358,10 @@ Don't forget to unregister your function on the way out:
         return 1;
     }
 
+Inside your selector function you can set which service to forward the request to like this:
+
+    Perlbal->service($service_name);
+
 See L<Perlbal::Plugin::VHosts> or L<Perlbal::Plugin::Vpaths> for examples on how to do this.
 
 
