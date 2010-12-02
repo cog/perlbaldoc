@@ -408,7 +408,7 @@ Reject large requests.
 
 =item * L<Perlbal::Plugin::NotModified> (Perlbal core)
 
-Automatic 304 Not Modified responses.
+Automatic 304 Not Modified responses when clients send a C<If-Modified-Since> header.
 
 
 =item * L<Perlbal::Plugin::PSGI>
