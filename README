@@ -147,8 +147,8 @@ PERFORMANCE
 STATISTICS AND MONITORING
 -------------------------
 
-The management interface provides extremely detailed and powerful statistics
-in addition to runtime configuration. For example:
+Perlbal's management interface provides extremely detailed and powerful
+statistics in addition to runtime configuration. For example:
 
     * CPU usage (user, system)
 
@@ -156,7 +156,7 @@ in addition to runtime configuration. For example:
 
     * Requests service by individual backends
 
-    * Perlbal uptime
+    * Perlbal's uptime
 
     * All connected sockets (and tons of info about each)
 
@@ -176,7 +176,7 @@ in addition to runtime configuration. For example:
     * Loaded plugins per service
 
 (All statistics are in machine readable form, easy to parse and write scripts
-that check on the status of Perlbal!)
+that check on the status of Perlbal)
 
 
 PLUGINS (EXTENSIBILITY)
