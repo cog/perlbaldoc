@@ -19,8 +19,10 @@ If you have CPAN installed you can install Perlbal from the command line:
 
     $ cpan Perlbal
 
-Please see Perlbal::Manual::Install for further information on installing
-Perlbal, including some troubleshooting.
+See Perlbal::Manual::Install for further information on installing Perlbal,
+including instructions for specific operating systems and some
+troubleshooting (the file lives under lib/Perlbal/Manual/Install.pod, it is
+recommended that you read it using perldoc).
 
 
 DESCRIPTION
@@ -29,15 +31,23 @@ DESCRIPTION
 Perlbal is a Perl-based reverse proxy load balancer and web server.
 
 It processes hundreds of millions of requests a day just for LiveJournal,
-Vox and TypePad and dozens of other "Web 2.0" applications.
+Vox and TypePad and dozens of other high-traffic websites.
 
 Perlbal is a single-threaded event-based server supporting HTTP load
 balancing, web serving, and a mix of the two (see below).
 
-One of the defining things about Perlbal is that almost everything can be
-configured or reconfigured on the fly without needing to restart the software.
-A basic configuration file containing a management port enables you to easily
-perform operations on a running instance of Perlbal.
+Almost everything in Perlbal can be configured or reconfigured on the fly
+without needing to restart the software (see Perlbal::Manual::Management).
+
+In this file you'll find:
+
+    * GENERAL FEATURES
+    * PERFORMANCE
+    * STATISTICS AND MONITORING
+    * PLUGINS (EXTENSIBILITY)
+    * FURTHER DOCUMENTATION
+    * SUPPORT
+    * CONTRIBUTING
 
 
 GENERAL FEATURES
@@ -115,31 +125,6 @@ Role: Reverse Proxy
         no "backend waste") 
 
 
-DOCUMENTATION
--------------
-
-Perlbal's documentation is split into several sections under
-Perlbal::Manual::*.
-
-Perlbal::Manual provides the index for the manual.
-
-    perldoc Perlbal::Manual
-
-Individual sections can be viewed as, for example:
-
-    perldoc Perlbal::Manual::Configuration
-    perldoc Perlbal::Manual::LoadBalancer
-    perldoc Perlbal::Manual::Plugins
-
-If you're interested in the internals of the Perlbal:
-
-    perldoc Perlbal::Manual::Architecture
-
-The documentation is relatively new (December 2010) and was mostly written
-or gathered by Bruno Martins and José Castro under a TPF grant. You can read
-more about it at http://7eip.sl.pt and http://4hw3.sl.pt.
-
-
 PERFORMANCE
 -------------
 
@@ -157,7 +142,7 @@ PERFORMANCE
 
 
 STATISTICS AND MONITORING
--------------
+-------------------------
 
 The management interface provides extremely detailed and powerful statistics
 in addition to runtime configuration. For example:
@@ -192,7 +177,7 @@ that check on the status of Perlbal!)
 
 
 PLUGINS (EXTENSIBILITY)
--------------
+-----------------------
 
 Perlbal supports the concept of having per-service (and global) plugins that
 can override many parts of request handling and behavior. We have written
@@ -254,12 +239,29 @@ Writing your own plugins is also easy.
 For more information on how plugins work, see Perlbal::Manual::Plugins.
 
 
-CONTRIBUTING
--------------
+FURTHER DOCUMENTATION
+---------------------
 
-Further docs, wiki, and issue tracking are available at google code.
+Perlbal's documentation is split into several sections under
+Perlbal::Manual::*.
 
-The source code currently resides in https://github.com/perlbal/Perlbal
+Perlbal::Manual provides the index for the manual.
+
+    perldoc Perlbal::Manual
+
+Individual sections can be viewed as, for example:
+
+    perldoc Perlbal::Manual::Configuration
+    perldoc Perlbal::Manual::LoadBalancer
+    perldoc Perlbal::Manual::Plugins
+
+If you're interested in the internals of the Perlbal:
+
+    perldoc Perlbal::Manual::Architecture
+
+The documentation is relatively new (December 2010) and was mostly written
+or gathered by Bruno Martins and José Castro under a TPF grant. You can read
+more about it at http://7eip.sl.pt and http://4hw3.sl.pt.
 
 
 SUPPORT
@@ -274,11 +276,22 @@ There are also the old Perlbal List Archives for postings until June 2008:
     http://lists.danga.com/pipermail/perlbal/
 
 
+CONTRIBUTING
+-------------
+
+Further docs, wiki, and issue tracking are available at google code.
+
+There's more information on how to contribute under
+Perlbal::Manual::Contributing.
+
+The source code currently resides in https://github.com/perlbal/Perlbal
+
+
 AUTHOR
 -------------
 
-Perlbal was originally written by Brad Fitzpatrick with the help and
-contributions from many other people.
+Perlbal was originally written by Brad Fitzpatrick and counts with the help
+and contributions from many other people.
 
 See Perlbal::Manual::Credits for details.
 
