@@ -53,27 +53,7 @@ In this file you'll find:
 GENERAL FEATURES
 ----------------
 
-Role: Web Server
-
-    * Listen on a port, share from a directory
-
-    * Directory indexing
-
-    * Byte range support (clients can resume downloads)
-
-    * Can have directory index requests fall back to index file list
-
-          o I.e., requests for /foo/ go to /foo/index.html instead
-
-          o Multiple index files supported, tries one at a time until it finds
-            one
-
-    * Persistent client connections (configurable)
-
-    * Almost all disk operations are done asynchronously as to not stall the
-    event loop
-
-    * Configurable support for storing files (PUT, DELETE support)
+Perlbal has many features; this is just a short list of some of them:
 
 
 Role: Reverse Proxy
@@ -125,20 +105,43 @@ Role: Reverse Proxy
         no "backend waste") 
 
 
+Role: Web Server
+
+    * Listen on a port, share from a directory
+
+    * Directory indexing
+
+    * Byte range support (clients can resume downloads)
+
+    * Can have directory index requests fall back to index file list
+
+          o I.e., requests for /foo/ go to /foo/index.html instead
+
+          o Multiple index files supported, tries one at a time until it finds
+            one
+
+    * Persistent client connections (configurable)
+
+    * Almost all disk operations are done asynchronously as to not stall the
+    event loop
+
+    * Configurable support for storing files (PUT, DELETE support)
+
+
 PERFORMANCE
 -------------
 
-    * Event-based using epoll or kqueue to avoid the scalability problems of
-        not-so-modern systems
-
-    * HTTP Header processing (optionally) done in C with
-        Perlbal::XS::HTTPHeaders for maximum performance
+    * Great performance "out-of-the-box" (for both small and large sites)
 
     * 100% asynchronous in all the recommended use cases
 
     * Lightweight
 
-    * Great performance "out-of-the-box" (for both small and large sites)
+    * HTTP Header processing (optionally) done in C with
+        Perlbal::XS::HTTPHeaders for maximum performance
+
+    * Event-based using epoll or kqueue to avoid the scalability problems of
+        not-so-modern systems
 
 
 STATISTICS AND MONITORING
