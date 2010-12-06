@@ -48,13 +48,6 @@ You can set parameters via commands of either forms:
     SET <param> = <value>
 
 
-=head3 B<Note on types>:
-
-'bool' values can be set using one of 1, true, yes, on, 0, false, off, or no.
-
-'size' values are in integer bytes, or an integer followed by 'b', 'k', or 'm' (case-insensitive) for bytes, KiB, or MiB.
-
-
 =over 8
 
 =item B<dirindexing> = bool

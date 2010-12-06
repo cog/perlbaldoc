@@ -22,7 +22,7 @@ Please read L<Perlbal::Manual::Configuration> first for a better explanation on 
 
 Configuration of Perlbal as a Reverse Proxy is similar to configuration as a Load Balancer.
 
-Check L<Perlbal::Manual::LoadBalancer> under C<Configuring Perlbal as a Load Balancer> for a sample configuration file and refer to the section C<Load Balancer vs. Reverse Proxy> on that file for an explanation of the differences between a Load Balancer and a Reverse Proxy.
+Check L<Perlbal::Manual::LoadBalancer> under C<Using Perlbal as a Load Balancer> for a sample configuration file and for a brief explanation of the differences between a Load Balancer and a Reverse Proxy.
 
 
 =head2 Parameters
@@ -31,13 +31,6 @@ You can set parameters via commands of either forms:
 
     SET <service-name> <param> = <value>
     SET <param> = <value>
-
-
-=head3 B<Note on types>:
-
-'bool' values can be set using one of 1, true, yes, on, 0, false, off, or no.
-
-'size' values are in integer bytes, or an integer followed by 'b', 'k', or 'm' (case-insensitive) for bytes, KiB, or MiB.
 
 
 =over 8
@@ -144,6 +137,8 @@ Enable 'reproxying' (end-user-transparent internal redirects) to either local fi
 
 Default is false.
 
+See the section C<Reproxying> in this document for more information.
+
 
 =item B<error_retry_schedule> = string of comma-separated seconds (full or partial)
 
@@ -163,10 +158,14 @@ Default is false.
 
 The cookie name to inspect to determine if the client goes onto the high-priority queue.
 
+See L<Perlbal::Manual::HighPriority> for more information.
+
 
 =item B<high_priority_cookie_contents> = string
 
 A string that the C<high_priority_cookie> must contain to go onto the high-priority queue.
+
+See L<Perlbal::Manual::HighPriority> for more information.
 
 
 =item B<idle_timeout> = int
@@ -236,6 +235,8 @@ Chance (percentage) to take a standard priority request when we're in pressure r
 
 Default is 0.
 
+See L<Perlbal::Manual::HighPriority> for more information.
+
 
 =item B<queue_relief_size> = int
 
@@ -244,6 +245,8 @@ Number of outstanding standard priority connections to activate pressure relief 
 A value of 0 disables the high priority queue system entirely.
 
 Default is 0.
+
+See L<Perlbal::Manual::HighPriority> for more information.
 
 
 =item B<reproxy_cache_maxsize> = int
@@ -310,43 +313,6 @@ Default is C<*>.
 =back
 
 
-=head3 Reproxying
-
-Perlbal supports the concept of reproxying. Basically, this gives it the ability to ask a backend node for a file and get back a specific header that says "this file is really over there, get it there." Perlbal will then load that file or URL and send it to the user transparently, without them ever knowing that they got reproxied to another location.
-
-Add the following line to your F<perlbal.conf> to enable reproxying on a per service basis ( reproxying is disabled by default in >= 1.38 ):
-
-    SET enable_reproxy  = true
-
-This can be useful for having URLs that get mapped to files on disk without giving users enough information to map out your directory structure. For example, you can create a file structure such as:
-
-    /home/pics/$userid/$pic
-
-Then you can have URLs such as:
-
-    http://foo.com/mysite/users/$userid/picture/$pic
-
-When this URL gets passed to the backend web node, it could return a simple response that includes this header:
-
-    X-REPROXY-FILE: /home/pics/$userid/$pic
-
-Perlbal will then use asynchronous IO to send the file to the user without slowing down Perlbal at all.
-
-This support also extends to URLs that can be located anywhere Perlbal has access to. It's the same syntax, nearly:
-
-    X-REPROXY-URL: http://foo.com:80/resource.html
-
-You can also specify multiple URLs:
-
-    X-REPROXY-URL: http://foo.com:80/resource.html http://baz.com:8080/res.htm
-
-Just specify any number of space separated URLs. Perlbal will request them one by one until one returns a response code of 200. At that point Perlbal will proxy the response back to the user just like normal.
-
-Note that the user's headers are NOT passed through to the web server.To the target server, it looks simply like Perlbal is requesting the resource for itself. This behavior may change at some point.
-
-One final note: the server that returns the reproxy header can also return a X-REPROXY-EXPECTED-SIZE header. If present, Perlbal will consider a reproxy a failure if the file returned by the target system is of a different size than what the expected size header says. On failure, Perlbal tries the next URI in the list. If it's a file being reproxied, a 404 is returned if the file size is different.
-
-
 =head2 More on Parameters
 
 =head3 backend_persist_cache vs. connect_ahead
@@ -385,6 +351,43 @@ The connection is kept open; this means we now have three open connections: two 
 The connection is killed, as we already have two other open connections (the first and the third), and that's the number set by C<backend_persist_cache> for the number of connections to be kept alive.
 
 =back
+
+
+=head3 Reproxying
+
+Perlbal supports the concept of reproxying. Basically, this gives it the ability to ask a backend node for a file and get back a specific header that says "this file is really over there, get it there." Perlbal will then load that file or URL and send it to the user transparently, without them ever knowing that they got reproxied to another location.
+
+Add the following line to your F<perlbal.conf> to enable reproxying on a per service basis ( reproxying is disabled by default in >= 1.38 ):
+
+    SET enable_reproxy  = true
+
+This can be useful for having URLs that get mapped to files on disk without giving users enough information to map out your directory structure. For example, you can create a file structure such as:
+
+    /home/pics/$userid/$pic
+
+Then you can have URLs such as:
+
+    http://foo.com/mysite/users/$userid/picture/$pic
+
+When this URL gets passed to the backend web node, it could return a simple response that includes this header:
+
+    X-REPROXY-FILE: /home/pics/$userid/$pic
+
+Perlbal will then use asynchronous IO to send the file to the user without slowing down Perlbal at all.
+
+This support also extends to URLs that can be located anywhere Perlbal has access to. It's the same syntax, nearly:
+
+    X-REPROXY-URL: http://foo.com:80/resource.html
+
+You can also specify multiple URLs:
+
+    X-REPROXY-URL: http://foo.com:80/resource.html http://baz.com:8080/res.htm
+
+Just specify any number of space separated URLs. Perlbal will request them one by one until one returns a response code of 200. At that point Perlbal will proxy the response back to the user just like normal.
+
+Note that the user's headers are NOT passed through to the web server. To the target server, it looks simply like Perlbal is requesting the resource for itself. This behavior may change at some point.
+
+One final note: the server that returns the reproxy header can also return a C<X-REPROXY-EXPECTED-SIZE> header. If present, Perlbal will consider a reproxy a failure if the file returned by the target system is of a different size than what the expected size header says. On failure, Perlbal tries the next URI in the list. If it's a file being reproxied, a 404 is returned if the file size is different.
 
 
 =head2 Fail Over
