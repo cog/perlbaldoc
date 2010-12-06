@@ -15,7 +15,7 @@ How to configure a Perlbal C<selector> service.
 
 =head2 READ ME FIRST
 
-Please refer to L<Perlbal::Manual::Configuration> for a better explanation on how to configure Perlbal. This document will make much more sense after reading that.
+Please read L<Perlbal::Manual::Configuration> first for a better explanation on how to configure Perlbal. This document will make much more sense after reading that.
 
 
 =head2 Configuring Perlbal as a Selector
