@@ -10,20 +10,20 @@ Perlbal 1.76.
 
 =head2 DESCRIPTION
 
-How to create and use plugins.
+How to create and use Perlbal plugins.
 
 
 =head2 How to use a plugin
 
-Perlbal supports plugins through modules under C<Perlbal::Plugin> that implement a set of functions described further down this document.
+Perlbal supports plugins through modules under C<Perlbal::Plugin::*> that implement a set of functions described further down this document.
 
 Some of these plugins are shipped with Perlbal itself, while others can be found on CPAN (you can also create your own plugin and have it available only locally).
 
-In order to use a plugin you first have to load it; on your configuration file add something like:
+In order to use a plugin you first have to load it; on your Perlbal's configuration file add something like:
 
     Load MyPlugin
 
-This loads plugin Perlbal::Plugin::MyPlugin.
+This loads plugin C<Perlbal::Plugin::MyPlugin>.
 
 Each plugin will have its own way of being configured (some don't require any configuration at all), so you'll have to refer to their documentation (or code).
 
@@ -34,16 +34,18 @@ Typically (but not always), a plugin will allow you to set additional parameters
         SET max_content_length  = 100000
         SET plugins             = MaxContentLength
 
+C<max_content_length> is a parameter of L<Perlbal::Plugin::MaxContentLength>.
+
 Notice that some plugins need to be stated service by service; hence, this line:
 
         SET plugins             = MaxContentLength
 
-The C<plugins> parameter (a list of strings separated by commas or spaces) defined which plugins are acceptable for that service.
+The C<plugins> parameter (a list of strings separated by commas or spaces) defines which plugins are acceptable for a service.
 
 
 =head3 Troubleshooting
 
-If the plugin isn't available you see an error message:
+If you try to load a plugin and receive the following error message:
 
     ERROR: Can't locate Perlbal/Plugin/MyPlugin.pm in @INC
 
@@ -52,14 +54,16 @@ That means that either the plugin isn't installed or perlbal couldn't find it. (
 
 =head2 How to create a plugin
 
-A Perlbal plugin consists in a package under the C<Perlbal::Plugin> namespace that implements a set of functions described below.
+A Perlbal plugin consists in a package under the C<Perlbal::Plugin> namespace that implements a number of functions: C<register>, C<unregister>, C<load> and C<unload>.
+
+These steps and functions (plus some helper functions you can define or use) are described below.
 
 
 =head3 Creating a package
 
 While there are many ways of creating a package, we'd recommend that you use something to do it for you. A good option is L<Module::Starter>.
 
-(note: if you really want to, you can just create a file with your package and use it; by using something like L<Module::Starter> you're making sure that several pitfalls are avoided, lots of basic rules are followed and that your package can easily be made available as a distribution that you can deploy on any machine in a simple way)
+(note: if you really want to, you can just create a file with your package and use it; by using something like L<Module::Starter> you're making sure that several pitfalls are avoided, lots of basic rules are followed and that your package can easily be made available as a distribution that you can deploy on any machine - or, if you feel so inclined, upload to CPAN - in a simple way)
 
 Let's assume you want to create a plugin that checks requests for a C<X-Magic> header and, if present, add an header C<X-Color> to the response when serving a file. Let's assume your plugin will be called C<Perlbal::Plugin::ColorOfMagic>.
 
@@ -67,7 +71,7 @@ Having installed L<Module::Starter>, here's a command you can run that will crea
 
     $ module-starter --module=Perlbal::Plugin::ColorOfMagic --author="My name" --email=my@email.address
 
-That should create a file tree that you can get better acquainted to by reading L<Module::Starter>'s fine documentation. For this example, the file you really need should be C<lib/Perlbal/Plugin/ColorOfMagic.pm>.
+That should create a file tree that you can get better acquainted with by reading L<Module::Starter>'s fine documentation. For this example, the file you really need should now reside in C<lib/Perlbal/Plugin/ColorOfMagic.pm>.
 
 This file probably starts with something like the following:
 
@@ -83,7 +87,7 @@ You'll have to add a few functions to this file. These are described below.
 
 =head3 register
 
-C<register> is called when the plugin is being added to a service. This is where you register your plugin's hooks.
+C<register> is called when the plugin is being added to a service. This is where you register your plugin's hooks, if required (see L<Perlbal::Manual::Hooks> for further documentation on hooks).
 
 For the sake of our example (C<Perlbal::Plugin::ColorOfMagic>, see above), what we want to do is register a hook that modifies the response headers; that means we want a C<modify_response_headers> hook.
 
