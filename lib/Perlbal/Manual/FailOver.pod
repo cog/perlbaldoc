@@ -1,6 +1,6 @@
 =head1 NAME
 
-Perlbal::Manual::ReverseProxy - Configuring Perlbal as a Reverse Proxy
+Perlbal::Manual::FailOver - Fail Over mechanism in Perlbal
 
 
 =head2 VERSION
