@@ -29,7 +29,7 @@ So connections come in from wherever and get to the TCPListener. It uses Service
 
 =head2 Classes
 
-The following is a brief introduction/overview to all of Perlbal's classes:
+The following is a brief introduction/overview to the main Perlbal's classes:
 
 
 =head3 Perlbal::Socket
@@ -570,7 +570,7 @@ Client's self-generated upload session. For perlbal sending out UDP packets rela
 
 =item retry_count
 
-Number of times we've retried this request so far after getting 500 errors.
+Number of times we've retried this request so far after getting C<500> errors.
 
 
 =back
