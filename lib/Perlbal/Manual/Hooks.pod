@@ -1,6 +1,6 @@
 =head1 NAME
 
-Perlbal::Manual::Hooks - How Perlbal hooks work
+Perlbal::Manual::Hooks - How Perlbal's hooks work
 
 
 =head2 VERSION
@@ -25,10 +25,12 @@ These are hooks that are defined on a global scale. They are set like so:
 
 That would define a global hook named foo that would return 0 when it's called. (Return codes from hooks will be explained below)
 
+Global hooks are useful to define management commands. See C<manage_command> under L<Perlbal::Manual::Plugins> for more information.
+
 
 =head2 Service handler hooks
 
-A handler hook is attached to a particular service. These hooks are called one at a time, starting from the top of the hook list on a service, until one hook returns 1. At that point, no further hooks are called. For example:
+A handler hook is attached to a particular service. These hooks are called one at a time until one hook returns 1. At that point, no further hooks are called. For example:
 
     $service->register_hook('bar', sub {
         # do something
@@ -116,7 +118,7 @@ Available in all roles.
 
 =head3 make_low_priority
 
-Called when a request is received and right before we're about to determine if this request is high priority or not. Return a true value to make the request low priority; false to leave it alone. Note that this is only called when the request isn't already high priority due to cookie priority scheduling, which is done inside L<Perlbal::Service> module.
+Called when a request is received and right before we're about to determine if this request is high priority or not. Return a true value to make the request low priority; false to leave it alone.
 
 Called in L<Perlbal::ClientProxy>.
 
@@ -143,7 +145,7 @@ Available in all roles.
 
 =head3 put_writeout
 
-C<put_writeout> is called when there is some put data to write out
+Called when there is some put data to write out.
 
 Called in L<Perlbal::ClientHTTP>.
 
