@@ -47,6 +47,7 @@ See L<Perlbal::Manual::WebServer> for more information.
 =head2 SEE ALSO
 
 L<Perlbal::Manual::LoadBalancer>,
+L<Perlbal::Manual::Management>,
 L<Perlbal::Manual::ReverseProxy>,
 L<Perlbal::Manual::Selector>,
 L<Perlbal::Manual::WebServer>.
