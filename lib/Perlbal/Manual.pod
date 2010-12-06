@@ -17,7 +17,7 @@ This is the comprehensive guide and reference manual for Perlbal.
 
 =item L<Perlbal::Manual::Configuration>
 
-How to configure Perlbal. Pools, services, syntax and more.
+How to configure Perlbal: pools, services, syntax and more.
 
 
 =item L<Perlbal::Manual::Contributing>
@@ -37,7 +37,7 @@ Perlbal's high/low priority queueing system and how to use it.
 
 =item L<Perlbal::Manual::Hooks>
 
-How Perlbal's hooks work and list of existing hooks.
+Existing hooks and how they work.
 
 
 =item L<Perlbal::Manual::Install>
@@ -72,7 +72,7 @@ Known plugins and how to create new ones.
 
 =item L<Perlbal::Manual::ReverseProxy>
 
-Setting up a Perlbal Reverse Proxy service.
+Setting up a Perlbal C<reverse_proxy> service.
 
 
 =item L<Perlbal::Manual::Roles>
@@ -92,7 +92,7 @@ Perlbal's To-Do list.
 
 =item L<Perlbal::Manual::WebServer>
 
-Setting up a Perlbal Web Server service.
+Setting up a Perlbal C<web_server> service.
 
 
 =back
