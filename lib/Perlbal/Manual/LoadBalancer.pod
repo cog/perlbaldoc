@@ -22,7 +22,7 @@ Please read L<Perlbal::Manual::Configuration> first for a better explanation on 
 
 For a better understanding of how to set up Perbal as a Load Balancer, it should be noted that a Load Balancer and a Reverse Proxy can often be the same thing; not always, but often.
 
-A Load Balancer is a server (or device) that balances requests across a number of servers to spread the load. A Reverse Proxy can still do this but still have a number of other features.
+A Load Balancer is a server (or device) that balances requests across a number of servers to spread the load. A Reverse Proxy can still do this but also have a number of other features.
 
 Perlbal as a Reverse Proxy provides features such as buffering content, preserving connections to the backend servers, starting connections ahead of time and a high priority queue, among others.
 
@@ -35,7 +35,7 @@ When it comes to Perlbal, the Load Balancer is implemented as a Reverse Proxy wi
 
 =head3 Simple load balancing
 
-Let's assume you want to configure two machines to serve your website and you want to let Perlbal decide how to balance the requests. For sake of this exercise let's assume you have two servers serving at:
+Let's assume you want to configure two machines to serve your website and you want to let Perlbal decide how to balance the requests. For the sake of this exercise let's assume you have two servers at:
 
     10.0.0.1:80
     10.0.0.2:80
@@ -60,7 +60,7 @@ Here's a sample configuration to make this happen:
 
 The first line defines a pool of machines called C<mywebsite>. The second and third lines add your two machines to that pool (note that the indentation is not mandatory).
 
-After that you define a service called C<service_mywebsite> set to listen on C<10.0.0.3:80> and using the pool C<mywebsite> to serve the requests. The role is indeed C<reverse_proxy>, as the architecture used is the same both for setting up Perlbal as a Load Balancer and as a Reverse Proxy (for more information on this see section C<Load Balancer vs. Reverse Proxy> of this document).
+After that you define a service called C<service_mywebsite> with the role C<reverse_proxy> set to listen on C<10.0.0.3:80> and using the pool C<mywebsite> to serve the requests.
 
 The last line is what allows you have several services configured in a file even if they are not currently active (a common scenario is to configure everything on the file and then enable/disable services on-the-fly as required; see L<Perlbal::Manual::Management> for more information on this process).
 
