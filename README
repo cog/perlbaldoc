@@ -248,11 +248,11 @@ FURTHER DOCUMENTATION
 Perlbal's documentation is split into several sections under
 Perlbal::Manual::*.
 
-Perlbal::Manual provides the index for the manual.
+Perlbal::Manual provides the index for the manual:
 
     perldoc Perlbal::Manual
 
-Individual sections can be viewed as, for example:
+Individual sections can be viewed in the same manner:
 
     perldoc Perlbal::Manual::Configuration
     perldoc Perlbal::Manual::LoadBalancer
@@ -260,7 +260,7 @@ Individual sections can be viewed as, for example:
 
 If you're interested in the internals of the Perlbal:
 
-    perldoc Perlbal::Manual::Architecture
+    perldoc Perlbal::Manual::Internals
 
 The documentation is relatively new (December 2010) and was mostly written
 or gathered by Bruno Martins and José Castro under a TPF grant. You can read
@@ -282,9 +282,7 @@ There are also the old Perlbal List Archives for postings until June 2008:
 CONTRIBUTING
 -------------
 
-Further docs, wiki, and issue tracking are available at google code.
-
-There's more information on how to contribute under
+You may find information on how to contribute under
 Perlbal::Manual::Contributing.
 
 The source code currently resides in https://github.com/perlbal/Perlbal
