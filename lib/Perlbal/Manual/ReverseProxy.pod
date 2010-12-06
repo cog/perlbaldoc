@@ -390,17 +390,9 @@ Note that the user's headers are NOT passed through to the web server. To the ta
 One final note: the server that returns the reproxy header can also return a C<X-REPROXY-EXPECTED-SIZE> header. If present, Perlbal will consider a reproxy a failure if the file returned by the target system is of a different size than what the expected size header says. On failure, Perlbal tries the next URI in the list. If it's a file being reproxied, a 404 is returned if the file size is different.
 
 
-=head2 Fail Over
-
-Whenever Perlbal fails to open a connection to a machine, it assumes that machine is not available and spreads the load between the remaining servers. It keeps trying to open connections to that server according to C<error_retry_schedule>.
-
-If there are no available servers, Perlbal will keep trying to open connections to the servers until C<idle_timeout> is reached, upon which it will close the connection to the user. Clients interpret that closing differently: most will assume a 500 HTTP code, a few assume a 200 OK with empty content.
-
-For more information on parameters C<idle_timeout> and C<error_retry_schedule> see L<Perlbal::Manual::ReverseProxy>.
-
-
 =head2 SEE ALSO
 
 L<Perlbal::Manual::Configuration>,
+L<Perlbal::Manual::FailOver>,
 L<Perlbal::Manual::LoadBalancer>,
 L<Perlbal::Manual::Management>.

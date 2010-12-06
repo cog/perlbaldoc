@@ -65,17 +65,9 @@ After that you define a service called C<service_mywebsite> with the role C<reve
 The last line is what allows you have several services configured in a file even if they are not currently active (a common scenario is to configure everything on the file and then enable/disable services on-the-fly as required; see L<Perlbal::Manual::Management> for more information on this process).
 
 
-=head2 Fail Over
-
-Whenever Perlbal fails to open a connection to a machine, it assumes that machine is not available and spreads the load between the remaining servers. It keeps trying to open connections to that server according to C<error_retry_schedule>.
-
-If there are no available servers, Perlbal will keep trying to open connections to the servers until C<idle_timeout> is reached, upon which it will close the connection to the user. Clients interpret that closing differently: most will assume a 500 HTTP code, a few assume a 200 OK with empty content.
-
-For more information on parameters C<idle_timeout> and C<error_retry_schedule> see L<Perlbal::Manual::ReverseProxy>.
-
-
 =head2 SEE ALSO
 
 L<Perlbal::Manual::Configuration>,
+L<Perlbal::Manual::FailOver>,
 L<Perlbal::Manual::Management>,
 L<Perlbal::Manual::ReverseProxy>.

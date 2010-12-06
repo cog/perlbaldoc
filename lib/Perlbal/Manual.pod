@@ -30,6 +30,11 @@ How to contribute to Perlbal.
 Author and contributor credits for Perlbal.
 
 
+=item L<Perlbal::Manual::FailOver>
+
+How Perlbal's Fail Over mechanism works.
+
+
 =item L<Perlbal::Manual::HighPriority>
 
 Perlbal's high/low priority queueing system and how to use it.
