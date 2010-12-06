@@ -54,7 +54,7 @@ Be sure to follow local style conventions.
 
 =item Bug Tracker
 
-	http://code.google.com/p/perlbal/issues/list
+    http://code.google.com/p/perlbal/issues/list
 
 =back
 
