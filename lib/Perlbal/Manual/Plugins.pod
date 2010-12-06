@@ -36,6 +36,10 @@ Typically (but not always), a plugin will allow you to set additional parameters
 
 C<max_content_length> is a parameter of L<Perlbal::Plugin::MaxContentLength>.
 
+If you're worried that two plugins may have the same parameter, of if you simply want to define those variables all in the same spot and thus will be doing it outside of the plugin's context, you can use the more verbose syntax:
+
+    SET my_service.my_plugin.my_variable = my_value
+
 Notice that some plugins need to be stated service by service; hence, this line:
 
         SET plugins             = MaxContentLength
@@ -162,7 +166,7 @@ C<unload> must always be defined, but if you really don't need it you can have i
 Don't forget to call C<unregister_global_hook> if you have registered any (see the documentation for C<manage_command> further down this document and you'll see what we're talking about).
 
 
-=head4 register vs. load
+=head3 register vs. load
 
 C<load> is called when the plugin is loaded, while C<register> is called whenever the plugin is set for a service.
 
@@ -207,6 +211,7 @@ Adding a tunable will allow you to set its value within each plugin:
 C<add_tunable> can be used by plugins that want to add tunables so that the config file can have more options for service settings.
 
     sub load {
+
         Perlbal::Service::add_tunable(
             my_new_parameter => {
                 check_role => '*',
@@ -216,6 +221,7 @@ C<add_tunable> can be used by plugins that want to add tunables so that the conf
             },
         );
         return 1;
+
     }
 
 C<check_role> defines for which roles the value can be set (C<reverse_proxy>, C<web_server>, etc). A value of C<*> mean that the value can be set for any role.
@@ -233,6 +239,8 @@ C<check_type> can also contain a code reference that will be used to validate th
     },
 
 This code reference should return a true of false value. If returning false, the contents of C<$emesg> (which is passed as a reference to the function) will be used as the error message.
+
+Here's a better explanation of the acceptable values for C<check_type>:
 
 
 =over 4
@@ -261,7 +269,7 @@ A filename, validated against perl's B<-f> switch.
 
 =item file_or_none
 
-A filename validated against perl's B<-f> switch or the default value.
+A filename, validated against perl's B<-f> switch, or the default value.
 
 
 =item int
@@ -293,6 +301,7 @@ Perlbal catches unknown configuration commands and tries to match them against h
 Let's say that you want to set a management command C<time> that will allow you to see what time it is on the server.
 
     sub load {
+
         Perlbal::register_global_hook('manage_command.time', sub {
             my $time = localtime time;
 
@@ -300,6 +309,7 @@ Let's say that you want to set a management command C<time> that will allow you 
         });
 
         return 1;
+
     }
 
 If you want to display a text message you should return an array reference; each of the values will be printed with a trailing newline character:
@@ -310,7 +320,9 @@ If you want to display a text message you should return an array reference; each
 
 If you need to parse additional parameters on your hook, you can use C<parse> and C<args> on the L<Perlbal::ManageCommand> object that your function will receive:
 
-    my $mc = shift->parse(qr/^time\s+(today|tomorrow)$/, "usage: TIME [today|tomorrow]");
+    my $mc = shift;
+
+    $mc->parse(qr/^time\s+(today|tomorrow)$/, "usage: TIME [today|tomorrow]");
 
     my ($cmd, $choice) = $mc->args;
 
@@ -319,7 +331,7 @@ This would allow you to call your command with an argument that would have to be
 
 =head4 register_setter
 
-C<register_setter> allows you to defined parameters that can be set for your plugin, using a syntax such as:
+C<register_setter> allows you to define parameters that can be set for your plugin, using a syntax such as:
 
     SET my_service.my_plugin.my_variable = my_value
 
@@ -368,17 +380,17 @@ Don't forget to unregister your function on the way out:
         return 1;
     }
 
-Your selector function receives a L<Perlbal::ClientHTTPBase> object.
+Your C<selector> function receives a L<Perlbal::ClientHTTPBase> object.
 
     my Perlbal::ClientHTTPBase $cb = shift;
 
-Inside your selector function you can set which service to forward the request to like this:
+Inside your C<selector> function you can set which service to forward the request to like this:
 
     my $service = Perlbal->service($service_name);
     $service->adopt_base_client($cb);
     return 1;
 
-See L<Perlbal::Plugin::VHosts> or L<Perlbal::Plugin::Vpaths> for examples on how to do this.
+See L<Perlbal::Plugin::Vhosts> or L<Perlbal::Plugin::Vpaths> for examples on how to do this.
 
 
 =head2 Known plugins
@@ -480,7 +492,7 @@ Basic Perlbal statistics gatherer.
 
 =item * L<Perlbal::Plugin::StickySessions>
 
-Session affinity for perlbal.
+Session affinity for Perlbal.
 
 
 =item * L<Perlbal::Plugin::TrustHeader>
@@ -508,6 +520,7 @@ Select by path (selector role only).
 
 =head2 SEE ALSO
 
-L<Perlbal::Manual::Hooks>, L<Perlbal::Manual::Internals>.
+L<Perlbal::Manual::Hooks>,
+L<Perlbal::Manual::Internals>.
 
 There are sample configuration files under F<conf/>; some of these are examples on how to use and configure existing plugins: F<echoservice.conf> for L<Perlbal::Plugin::EchoService>, F<virtual-hosts.conf> for L<Perlbal::Plugin::VHosts>, etc.
