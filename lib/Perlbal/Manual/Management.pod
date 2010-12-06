@@ -579,4 +579,5 @@ Some alternatives to authentication are commonly employed:
 
 =head2 SEE ALSO
 
-L<Perlbal::Manual::Configuration>.
+L<Perlbal::Manual::Configuration>,
+L<Perlbal::Manual::Debugging>.
