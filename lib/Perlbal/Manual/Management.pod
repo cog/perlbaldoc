@@ -30,7 +30,7 @@ You can create a management service in the following way:
 
 =head3 Consulting information with a browser
 
-If you access the management service (in this case, 127.0.0.1 on port 16000) with a browser you'll reach a page with information on the services that are enabled. You're also able to click those services and reach further information on each one of them.
+If you access the management service (in this case, 127.0.0.1 on port 16000) with a browser you'll reach a page with information on the services that are enabled. You're also able to click those services and reach further information on each of them.
 
 =head3 Managing Perlbal via telnet
 
