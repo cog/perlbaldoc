@@ -87,7 +87,7 @@ You'll have to add a few functions to this file. These are described below.
 
 =head3 register
 
-C<register> is called when the plugin is being added to a service. This is where you register your plugin's hooks, if required (see L<Perlbal::Manual::Hooks> for further documentation on hooks).
+C<register> is called when the plugin is being added to a service. This is where you register your plugin's hooks, if required (see L<Perlbal::Manual::Hooks> for the list of existing hooks and further documentation on how they work).
 
 For the sake of our example (C<Perlbal::Plugin::ColorOfMagic>, see above), what we want to do is register a hook that modifies the response headers; that means we want a C<modify_response_headers> hook.
 
@@ -96,7 +96,7 @@ Here's what you'd do:
     sub register {
         my ($class, $service) = @_;
 
-        $service->register_hook('ColorOfMagic','modify_response_headers', sub {
+        my $my_hook_code = sub {
 
             my Perlbal::ClientHTTPBase $cp = shift;
 
@@ -105,10 +105,12 @@ Here's what you'd do:
             }
 
             return 0;
-        });
+        };
+
+        $service->register_hook('ColorOfMagic','modify_response_headers', $my_hook_code);
     }
 
-Inside C<register>, we're calling C<register_hook> to register our C<ColorOfMagic> C<modify_response_headers> hook. It's code, that will run "when we've set all the headers, and are about to serve a file" (see L<Perlbal::Manual::Hooks>), receives a L<Perlbal::ClientHTTPBase> object (you can see what kind of object your hook will receive on L<Perlbal::Manual::Hooks>). We're checking to see if C<X-Magic> is defined on the request and, if so, we're setting header C<X-Color> on the response to C<Octarine>.
+Inside C<register>, we're calling C<register_hook> to register our C<ColorOfMagic> C<modify_response_headers> hook. Its code, that will run "when we've set all the headers, and are about to serve a file" (see L<Perlbal::Manual::Hooks>), receives a L<Perlbal::ClientHTTPBase> object (you can see what kind of object your hook will receive on L<Perlbal::Manual::Hooks>). We're checking to see if C<X-Magic> is defined on the request and, if so, we're setting header C<X-Color> on the response to C<Octarine>.
 
 Notice that the hook ends with C<return 0>. This is because returning a true value means that you want to cancel the connection to the backend and send the response to the client yourself.
 
@@ -125,7 +127,7 @@ C<unregister> is called when the plugin is removed from a service. It's a standa
 
 You can also use C<unregister_hook> to unregister one single hook:
 
-    $service->unregister_hooks('ColorOfMagic', 'modify_response_headers');
+    $service->unregister_hook('ColorOfMagic', 'modify_response_headers');
 
 
 =head3 load
@@ -157,10 +159,19 @@ C<unload> must always be defined, but if you really don't need it you can have i
 
     sub unload { return 1; }
 
-Don't forget to call C<unregister_global_hook> if you have registered any.
+Don't forget to call C<unregister_global_hook> if you have registered any (see the documentation for C<manage_command> further down this document and you'll see what we're talking about).
+
+
+=head4 register vs. load
+
+C<load> is called when the plugin is loaded, while C<register> is called whenever the plugin is set for a service.
+
+This means that you should use C<load> for anything that is global, such as registering a global hook, and you should use C<register> for things that are specific to a service, such as registering service hooks.
 
 
 =head3 dumpconfig
+
+C<dumpconfig> is not required.
 
 When managing Perlbal (see L<Perlbal::Manual::Management>) you can send a C<dumpconfig> command that will result in a configuration dump.
 
@@ -178,10 +189,12 @@ C<dumpconfig> should return an array of messages to be displayed.
         return @messages;
     }
 
-C<dumpconfig> is not required.
+Again, C<dumpconfig> is not required, so implement it only if it makes sense for your plugin.
 
 
-=head3 add_tunable
+=head3 Helper functions
+
+=head4 add_tunable
 
 Adding a tunable will allow you to set its value within each plugin:
 
@@ -273,7 +286,7 @@ A size, validated against C</^(\d+)[bkm]$/>.
 =back
 
 
-=head3 manage_command
+=head4 manage_command
 
 Perlbal catches unknown configuration commands and tries to match them against hooks in the form of C<manage_command.*>.
 
@@ -304,7 +317,7 @@ If you need to parse additional parameters on your hook, you can use C<parse> an
 This would allow you to call your command with an argument that would have to be one of C<today> or C<tomorrow>.
 
 
-=head3 register_setter
+=head4 register_setter
 
 C<register_setter> allows you to defined parameters that can be set for your plugin, using a syntax such as:
 
@@ -336,14 +349,7 @@ Here's how you'd configure a new setter, by using C<register_setter> inside C<lo
     }
 
 
-=head3 register vs. load
-
-C<load> is called when the plugin is loaded, while C<register> is called whenever the plugin is set for a service.
-
-This means that you should use C<load> for anything that is global, such as registering a global hook, and you should use C<register> for things that are specific to a service, such as registering service hooks.
-
-
-=head3 selector
+=head4 selector
 
 For plugins that will work with a C<selector> service, sometimes you'll want to override the C<selector> itself.
 
