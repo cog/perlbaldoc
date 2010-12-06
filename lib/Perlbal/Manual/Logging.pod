@@ -17,7 +17,7 @@ This document describes how to achieve that.
 
 =head2 IMPORTANT: foreground vs. background
 
-If Perlbal is running on the foreground, it logs by calling C<printf>, which means you should get the log on C<STDOUT>.
+If Perlbal is running on the foreground, it logs by calling C<printf>, which means you should get the logs on C<STDOUT>.
 
 If Perlbal is running on the background, it logs through L<Sys::Syslog>. If L<Sys::Syslog> is not available, there will be no logging, and THAT'S THE MOST IMPORTANT THING TO KNOW ABOUT PERLBAL'S LOGGING SYSTEM.
 
@@ -28,7 +28,7 @@ You can log a message by calling C<Perlbal::log> as you'd call L<Sys::Syslog>'s 
 
     Perlbal::log( $priority, $format, @args );
 
-You should see the documentation for L<Sys::Syslog> for more information, but here's an example:
+You should read the documentation for L<Sys::Syslog> for more information, but here's an example:
 
     Perlbal::log( 'info', 'beginning run' );
 
@@ -135,7 +135,7 @@ And here's another example:
 
 If you send a USR1 signal to perlbal, that tells it to log some basic statistics to the syslog.
 
-It's similar to connecting to a management service and issue a C<show service> for each service, plus a Cstates> and a C<queues> command.
+It's similar to connecting to a management service and issue a C<show service> for each service, plus a C<states> and a C<queues> commands.
 
 
 =head2 Where is it logged to?
@@ -145,4 +145,4 @@ The way Perlbal opens L<Sys::Syslog>, it logs to F</var/log/daemon.log> by defau
 
 =head2 SEE ALSO
 
-You can tweek L<Sys::Syslog>'s configuration under F</etc/syslog.conf>. See L<Sys::Syslog>.
+You can tweek L<Sys::Syslog>'s configuration under F</etc/syslog.conf>. See L<Sys::Syslog> for more details.
