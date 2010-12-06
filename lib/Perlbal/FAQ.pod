@@ -12,28 +12,19 @@ Perlbal 1.76.
 
 This document aims at listing several Frequently Asked Questions regarding Perlbal.
 
-It's currently a bit short, but exists nonetheless as a place where other can contribute to share their knowledge.
-
-
-=head2 General questions on Perlbal
-
-=head3 Does Perlbal have documentation?
-
-It does now :-)
-
 
 =head2 Configuring Perlbal
+
+=head3 Is there a sample C<perlbal.*> I can use for my C<init.d>?
+
+Yes, you can find one under C<debian/perlbal.init>. It implements C<start>, C<stop> and C<restart/force-reload>. Make sure you adjust it to your particular taste and/or needs.
+
 
 =head3 Is there a way to make perlbal re-read the config file without shuting it down?
 
 No, there is not. But typically, if you're making changes, you can just make them on the management console, which doesn't require any restart whatsoever.
 
 Still, restarting is probably easy. The trick to it is to simulate a graceful restart.
-
-
-=head3 Is there a sample C<perlbal.*> I can use for my C<init.d>?
-
-Yes, you can find one under C<debian/perlbal.init>. It implements C<start>, C<stop> and C<restart/force-reload>. Make sure you adjust it to your particular taste and/or needs.
 
 
 =head3 How can I implement a graceful restart?
@@ -79,7 +70,7 @@ These hooks are pushed into an array, which means that they preserve the order o
 
 Perlbal for the most part only speaks HTTP/1.0 both to clients and to backend webservers. It happily takes requests advertising HTTP/1.1 and downgrading them to HTTP/1.0 when speaking to backend serves.
 
-It knows all about persistent connections (in both 1.0 and 1.1) and will reply with HTTP/1.0 Connection: keep-alive the request was only implicitly keep-alive with HTTP/1.1.  etc, etc.
+It knows all about persistent connections (in both 1.0 and 1.1) and will reply with HTTP/1.0 Connection: keep-alive the request was only implicitly keep-alive with HTTP/1.1.  etc.
 
 Perlbal is now also starting to speak more of 1.1. For instance, Perlbal does support receiving transfer-encoding "chunked" requests from clients (a feature of HTTP/1.1), will send a C<100 Continue> in response to C<Expect: 100-continue>, and will parse the chunked requests, writing the request-of-unknown-length to disk (only if C<buffered_uploads> is enabled), and then will send an HTTP/1.0 request to the backends, with the actual C<Content-Length> (now known) filled in.
 
@@ -88,9 +79,9 @@ When more of 1.1 is supported, it will become an option, and later become the de
 
 =head3 Does perlbal support SSL?
 
-Yes. To use SSL mode you'll need L<IO::Socket::SSL> C<v0.97+>.
+Yes. To use SSL mode you'll need L<IO::Socket::SSL> C<v0.97+> installed.
 
-You can do SSL either on C<web_server>, C<reverse_proxy> or C<selector> modes, but not if the C<service> selector is vhost-based, because SSL and vhosts aren't compatible.
+You can do SSL either on C<web_server>, C<reverse_proxy> or C<selector> modes, but not on a vhost-based C<selector> service, because SSL and vhosts aren't compatible.
 
 See the configuration file F<ssl.conf> under F<conf/> for an example.
 
