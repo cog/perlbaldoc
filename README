@@ -183,13 +183,13 @@ PLUGINS (EXTENSIBILITY)
 -----------------------
 
 Perlbal supports the concept of having per-service (and global) plugins that
-can override many parts of request handling and behavior. We have written
-custom plugins that send new headers to the backends, promote requests to the
-fast queue, maintain more detailed statistics, do image header manipulation,
-and more.
+can add functionality or override many parts of request handling and behavior.
+There are many custom plugins that send new headers to the backends, promote
+requests to the fast queue, maintain more detailed statistics, do image
+header manipulation, and more.
 
 The following is a list of known plugins. Most of these are shipped with Perlbal
-itself; the others can be easily attained with CPAN.
+itself; the others can be easily attained through CPAN.
 
     * Perlbal::Plugin::AccessControl
 
